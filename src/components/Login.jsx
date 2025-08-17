@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import "../Custom.css";
 import { FaEye, FaEyeSlash} from "react-icons/fa";
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Logo from "./Logo";
+import { login } from '../services/authService.js'
+import { useDispatch } from "react-redux"
+import { storeUser } from '../store/userStore/userSlice';
 
 export default function Login() {
+  const navigate =useNavigate()
+  const dispatch = useDispatch()
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
     remember: false,
   });
@@ -16,18 +21,31 @@ export default function Login() {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : value.trim(),
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    //WILL CALL LOGIN SERVICE
+    try {
+      const res = await login(formData);
+      if(res.success){
+        alert(res.message);
+        dispatch(storeUser(res.user));
+        navigate("/");
+      }
+      else{
+        alert(res.message);
+      }
+    } catch (error) {
+      console.error(`ERROR :: ${error}`);
+    }
+  
   };
 
   return (
     <div className="login-page flex justify-center items-center h-[100vh]">
-
       <container className="bg-grad p-1 rounded-[20px]">
         <div className="login-container">
           <div 
@@ -42,7 +60,7 @@ export default function Login() {
               <Logo
               h="h-[4rem]"
               w="w-[4rem]"
-              custom_style='rounded-full '
+              custom_style='rounded-full animate-[spin_7s_linear_infinite] '
               />
             </Link>
           </div>
@@ -51,9 +69,9 @@ export default function Login() {
             <div className="input-field">
               <input
                 id="userId"
-                name="username"
-                type="text"
-                placeholder="Username"
+                name="email"
+                type="email"
+                placeholder="Email"
                 value={formData.username}
                 onChange={handleChange}
                 required
@@ -93,7 +111,14 @@ export default function Login() {
                 Remember me
               </label>
             </div>
-  
+            <div>
+              <p className='text-gray-400'>
+                Don't have account? <Link 
+                to='/signup'
+                className='text-grad'
+                >Sign Up</Link>
+              </p>
+            </div>
             {/* Submit */}
             <button id="logInBtn" className="btn bg-grad" type="submit">
               Login

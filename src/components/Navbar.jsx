@@ -4,14 +4,13 @@ import '../Custom.css'
 import {Link, useNavigate } from 'react-router-dom'
 import Logo from './Logo'
 import Button from './Button'
-
+import { useSelector } from 'react-redux';
 
 export default function Navbar(){
-  const navigate = useNavigate()
-  const [view, setView]= useState(true)
-  const toggleMenu=()=>{
-    
-  }
+  const navigate = useNavigate();
+  const userStatus=useSelector(
+    state=>state.user.status
+  );
   
   const navBar=[
     {
@@ -30,35 +29,30 @@ export default function Navbar(){
       active:true,
     },
     {
-      name:"Registration",
-      slug:"/register",
-      active:false,
-    },
-    {
       name: "Login",
       slug:"/login",
-      active:true,
+      active: !userStatus,
     },
     {
       name: "Logout",
       slug:"/logout",
-      active:false,
+      active: userStatus,
     }
     ]
   
   return (
     <header 
-    className="h-auto w-auto">
+    className="h-auto w-auto sticky top-0 bg-transparent-blur z-40">
       <ul
-      className='flex ml-auto justify-around'
+      className='ml-auto flex justify-between'
       >
         <li>
           <Link
           to='/'
           >
             <Logo
-            h="h-[4rem]"
-            w="w-[4rem]"
+            h="h-[4rem] md:h-[5rem]"
+            w="w-[4rem] md:w-[5rem]"
             custom_style='rounded-full'
             />
           </Link>
@@ -68,7 +62,10 @@ export default function Navbar(){
           item.active ? (
             <li key={item.name}>
               <Button
-              onClick={()=>navigate(item.slug)}
+              css='w-auto text-[12px] rounded'
+              onClick={()=>{
+                navigate(item.slug)
+              }}
               >
                 {item.name}
               </Button>

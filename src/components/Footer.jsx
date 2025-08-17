@@ -1,15 +1,15 @@
 import React from 'react';
 import '../index.css'
 import '../Custom.css'
-import {useNavigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { FaInstagram, FaFacebook, FaLinkedin} from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
+import Logo from "./Logo";
 
 
 const Footer = () => {
   
-  //const navigate = useNavigate()
-  const links =[
+  const quickLinks =[
     {
       name:"Code of Conduct",
       slug:"/code-of-conduct",
@@ -30,63 +30,101 @@ const Footer = () => {
       slug:"/leader-board",
       active:true,
     },
-    ]
+    {
+      name:"Our Team",
+      slug:"/our-team",
+      active:true,
+    },
+    {
+      name:"Events",
+      slug:"/events",
+      active:true,
+    },
+    {
+      name:"Sponsors",
+      slug:"/sponsors",
+      active:true,
+    },
+    {
+      name:"Register Now",
+      slug:"/register",
+      active:true,
+    },
+  ]
   
   const socialMediaAcc = [
   {
     title: 'Instagram',
     active:true,
     icon: <FaInstagram />,
+    slug:"/",
   },
   {
     title: 'Facebook',
     active:true,
     icon: <FaFacebook />,
+    slug:"/",
   },
   {
     title: 'XTwiteter',
     active:true,
     icon: <FaXTwitter />,
+    slug:"/",
   },
   {
     title: 'LinkedIn',
     active:true,
     icon: <FaLinkedin />,
+    slug:"/",
   },
 ]
   
   return (
     <>
-      <footer className='h-[20vh] bg-gray-950'>
-    
-        <div>
-          <ul className='my-8 flex md:gap-36 justify-center'>
+      <footer className='h-auto py-4 bg-gray-950 '>
+        <div className='flex items-center'>
+          <Link
+          to='/'
+          >
+            <Logo
+              h="h-[4rem] md:h-[5rem]"
+              w="w-[4rem] md:w-[5rem]"
+            />
+          </Link>
+          <p className='w-[90%] font-extrabold text-grad p-5 md:text-3xl'>Quick Links</p>
+        </div>
+        <div className='w-auto h-auto '>
+          <ul 
+          className='m-5 columns-2 w-full 
+          ' >
             {
-              links?.map((l) =>(
+              quickLinks?.map((l) =>(
                 l.active ? (<li
                 key={l.name}
-                className='text-[14px] m-2 px-3
-                  md:text-[1.5rem]
-                  border-r-2 '
+                className='text-[0.9rem] m-2
+                  md:text-[1.5rem] 
+                  '
                 >
-                  <a 
-                    href={l.slug}
+                  <Link 
+                    to={l.slug}
                     className="text-gray-400"
-                    target="_blank"
-                  >{l.name}</a>
+                  >{l.name}</Link>
                 </li>) : null
               ))
             }
           </ul>
         </div>
         
-        <div className='my-3 p-2 flex text-3xl justify-center'>
+        <div className='my-3 p-2 flex text-3xl justify-center md:justify-evenly'>
           {
             socialMediaAcc?.map((sma,i) =>(
               sma.active ? (
-                <a className={`text-gray-200 rounded-[50%] bg-grad p-2`}>
+                <Link 
+                className={`text-gray-200 rounded-[50%] bg-grad p-2`}
+                to={sma.slug}
+                >
                   {sma.icon}
-                </a>
+                </Link>
               ):null
             ))
           }
@@ -94,8 +132,8 @@ const Footer = () => {
           
         <div className='flex justify-center h-[20%] items-center'>
           <p
-          className='text-grad'
-          >&copy; 2025 Anuj Singh. All Rights Reserved.</p>
+          className='text-grad md:text-2xl'
+          >&copy; 2025 Tech Fest. All Rights Reserved.</p>
         </div>
         
       </footer>

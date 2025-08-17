@@ -44,7 +44,9 @@ techfest-website/                  # React Frontend
 │   ├── assets/             # Images, logos, etc.
 │   ├── components/         # Reusable components 
 │   ├── pages/      # Pages like Home, Events, Register
-│   ├── services/           # API calls
+│   ├── services/          # API calls
+│   ├── stores/            # Storing once it is fetched
+│   ├── App.css
 │   ├── App.jsx
 │   |—— Custom.css
 │   ├── main.jsx
