@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import {signup} from "../services/authService.js";
+import Button from "./Button";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ const SignUp = () => {
 
   return (
     <div className="signup-page flex justify-center items-center h-[100vh]">
-      <container className="bg-grad p-1 rounded-[20px]">
+      <container className="bg-grad p-[1px] rounded-[20px]">
         <div className="login-container">
           <div className="w-auto h-auto flex items-end justify-between p-2">
             <h1 className="text-grad font-bold ">Sign Up</h1>
@@ -150,9 +151,11 @@ const SignUp = () => {
             </div>
 
             {/* Submit */}
-            <button id="signUpBtn" className="btn bg-grad" type="submit">
+            <Button 
+            css='my-4'
+            type="submit">
               Sign Up
-            </button>
+            </Button>
           </form>):
           (
             <form>

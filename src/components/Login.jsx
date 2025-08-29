@@ -6,6 +6,7 @@ import Logo from "./Logo";
 import { login } from '../services/authService.js'
 import { useDispatch } from "react-redux"
 import { storeUser } from '../store/userStore/userSlice';
+import Button from './Button'
 
 export default function Login() {
   const navigate =useNavigate()
@@ -46,7 +47,7 @@ export default function Login() {
 
   return (
     <div className="login-page flex justify-center items-center h-[100vh]">
-      <container className="bg-grad p-1 rounded-[20px]">
+      <container className="bg-grad p-[1px] rounded-[20px]">
         <div className="login-container">
           <div 
           className=' w-auto h-auto flex items-end justify-between p-2'
@@ -120,9 +121,11 @@ export default function Login() {
               </p>
             </div>
             {/* Submit */}
-            <button id="logInBtn" className="btn bg-grad" type="submit">
+            <Button 
+            css='my-4'
+            type="submit">
               Login
-            </button>
+            </Button>
           </form>
         </div>
       </container>

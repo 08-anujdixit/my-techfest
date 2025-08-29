@@ -5,17 +5,20 @@ import {Link, useNavigate } from 'react-router-dom'
 import Logo from './Logo'
 import Button from './Button'
 import { useSelector } from 'react-redux';
+import { HiOutlineMenu } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
 
 export default function Navbar(){
   const navigate = useNavigate();
   const userStatus=useSelector(
     state=>state.user.status
   );
+  const [toggleMenu,setToggleMenu] = useState(true)
   
   const navBar=[
     {
       name:"Home",
-      slug:"/",
+      slug:"/home",
       active:true,
     },
     {
@@ -26,6 +29,21 @@ export default function Navbar(){
     {
       name:"Events",
       slug:"/events",
+      active:true,
+    },
+    {
+      name:"Hackathon",
+      slug:"/codeathon",
+      active:true,
+    },
+    {
+      name:"Expo",
+      slug:"/expo",
+      active:true,
+    },
+    {
+      name:"Registration",
+      slug:"/register",
       active:true,
     },
     {
@@ -41,39 +59,58 @@ export default function Navbar(){
     ]
   
   return (
-    <header 
-    className="h-auto w-auto sticky top-0 bg-transparent-blur z-40">
+    <header
+    className="h-auto w-full px-2 sticky top-0 z-40 mb-5">
       <ul
-      className='ml-auto flex justify-between'
+      className='mt-3 px-2 flex justify-between items-center bg-transparent-blur border-[0.5px] border-gray-500 w-full'
       >
         <li>
           <Link
           to='/'
           >
             <Logo
-            h="h-[4rem] md:h-[5rem]"
-            w="w-[4rem] md:w-[5rem]"
+            h="h-[3rem] md:h-[5rem]"
+            w="w-[3rem] md:w-[5rem]"
             custom_style='rounded-full'
             />
           </Link>
         </li>
-        {
-          navBar.map((item) => 
-          item.active ? (
-            <li key={item.name}>
-              <Button
-              css='w-auto text-[12px] rounded'
-              onClick={()=>{
-                navigate(item.slug)
-              }}
-              >
-                {item.name}
-              </Button>
-            </li>
-            ):null
-          )
-        }
+        <li>
+          <button
+          className='w-[3rem] flex justify-center text-2xl text-white rounded font-extrabold'
+          onClick={()=>{setToggleMenu((prev)=>!prev)}}
+          >
+            {toggleMenu? <HiOutlineMenu/> : <RxCross2 />}
+          </button>
+        </li>
       </ul>
+      {
+          (<div className={`absolute left-[-20rem] top-0 ${!toggleMenu?'slide':'revers-slide'}
+          bg-transparent-blur border-[1px] border-gray-400 w-[10rem] md:w-[15rem] p-10
+          `}>
+          {
+            navBar.map((item) => 
+            item.active ? (
+                <button
+                key={item.name}
+                className='w-full text-[12px] rounded
+                my-3 text-white 
+                text-white object-contain
+                hover:border-[1px]
+                hover:border-white 
+                font-extrabold
+                '
+                onClick={()=>{
+                  navigate(item.slug)
+                }}
+                >
+                  {item.name}
+                </button>
+              ):null
+            )
+          }
+          </div>) 
+        }
     </header>
   )
 }

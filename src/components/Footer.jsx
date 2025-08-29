@@ -7,32 +7,33 @@ import { FaXTwitter } from "react-icons/fa6";
 import Logo from "./Logo";
 
 
+
 const Footer = () => {
   
   const quickLinks =[
     {
       name:"Code of Conduct",
-      slug:"/code-of-conduct",
+      slug:"/about",
       active:true,
     },
     {
       name:"Have Any Queries",
-      slug:"/queries",
+      slug:"/about",
       active:true,
     },
     {
       name:"Contact Us",
-      slug:"/contact-us",
+      slug:"/about/#contactus",
       active:true,
     },
     { 
       name:"Leader Board",
-      slug:"/leader-board",
+      slug:"/leaderboard",
       active:true,
     },
     {
       name:"Our Team",
-      slug:"/our-team",
+      slug:"/about/#coreteam",
       active:true,
     },
     {
@@ -42,7 +43,7 @@ const Footer = () => {
     },
     {
       name:"Sponsors",
-      slug:"/sponsors",
+      slug:"/about/#Sponsors",
       active:true,
     },
     {
@@ -81,7 +82,7 @@ const Footer = () => {
   
   return (
     <>
-      <footer className='h-auto py-4 bg-gray-950 '>
+      <footer className='h-auto py-4 bg-gray-950 w-full'>
         <div className='flex items-center'>
           <Link
           to='/'

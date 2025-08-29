@@ -7,21 +7,20 @@ const Button = ({
   ...props
 }) => {
   return (
-    <>
+    <div
+    className={`bg-grad w-auto inline-flex rounded-3xl p-[1px] ${css}`}
+    >
       <button 
-          className={`inline-bock px-2 py-1 bg-grad text-white my-4 object-contain
-            shadow-[0_0_5px_#810081,0_0_5px_#810081]
+          className={`inline-bock px-4 py-2 text-white object-contain
+            rounded-3xl bg-black md:w-fit
             md:w-36 md:text-xl md:text-center
-            hover:border-2 
-            hover:border-black 
-            hover:text-black font-extrabold
-            ${css}
+            hover:text-white font-extrabold
           `}
           {...props}
           >
             {children}
           </button>
-    </>
+    </div>
   );
 };
 

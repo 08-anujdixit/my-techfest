@@ -11,35 +11,46 @@ import EventsPage from './pages/EventsPage'
 import HomePage from './pages/HomePage'
 import RegistrationPage from './pages/RegistrationPage'
 import AboutPage from './pages/AboutPage'
-
+import CodeAThon from './pages/hackathon/CodeAThon'
+import Activate from './components/Activate'
+import Expo from "./pages/expo/Expo";
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-        { path: "", 
-          element: <HomePage />,
-        },
+      { path: "", 
+        element: <Activate />,
+      },
+      { path: "home", 
+        element: <HomePage />,
+      },
       { path: "about",
         element: <AboutPage />,
       },
       { path: "events",
         element: <EventsPage />,
       },
+      { path: "codeathon", 
+        element: <CodeAThon />,
+      },
+      { path: "expo", 
+        element: <Expo />,
+      },
       { path: "register", 
         element: <RegistrationPage />,
       },
-      { path: "logout", 
-        element: <HomePage />,
-      },
     ],
+  },
+  { path: "signup", 
+    element: <SignupPage />,
   },
   { path: "login", 
     element: <LoginPage />,
   },
-  { path: "signup", 
-    element: <SignupPage />,
+  { path: "logout", 
+        element: <LoginPage />,
   },
 ]);
 

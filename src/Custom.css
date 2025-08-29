@@ -1,24 +1,11 @@
 .bg-grad{
   background: linear-gradient(130deg,#FF0050, #FF1F6A, #5D00ff);
 }  
-
 .text-grad{
   background: linear-gradient(100deg,#FF0050, #FF1F6A, #5D00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-@keyframes Flicker {
-  0%,  100% {
-    opacity: 1;
-    text-shadow: 5px 5px 15px #5D00ff;
-  }
-  50%{
-    opacity: 0.5;
-    text-shadow: none;
-  }
-}
-
 
 .login-container{
   border-radius: 20px;
@@ -119,18 +106,56 @@
   animation: slide 0.5s linear forwards;
 }
 @keyframes slide {
-  from {
-    
-  }
-  to {
-    translate: 200px 0;
-  }
+  from {}
+  to {translate: 20.5rem 0;}
+}
+
+.revers-slide{
+  animation: rslide 0.8s linear forwards;
+}
+@keyframes rslide {
+  from {translate:20rem 0;}
+  to {translate: -20rem 0;}
 }
 
 .bg-transparent-blur{
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(100, 100, 100, 0.4);
   backdrop-filter: blur(4.9px);
+}
+
+.customFade{
+  animation: fade 1s linear forwards;
+}
+@keyframes fade {100%{opacity: 0;}}
+
+.reverseFade{
+  animation: rfade 1s linear forwards;
+}
+@keyframes rfade {0%{opacity: 0;}100%{opacity: 1;}}
+
+.typeWriter{
+  animation: TypeWriter 2s steps(12) 0.2s forwards;
+}
+
+/* For Particle background */
+#tsparticles {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  top: 0;
+  left: 0;
+  z-index: -100; /* keeps particles behind UI */
+}
+
+/* ALL KEYFRAMES FOR ANIMATION */
+@keyframes Flicker {
+  0%,  100% {
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.4;
+  }
 }
