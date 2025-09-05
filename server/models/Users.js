@@ -22,7 +22,7 @@ const userSchema= new mongoose.Schema({
   phone: {
     type: String,
     match: /^[0-9]{10}$/,
-    default: '',
+    default: "",
   },
   email: {
     type: String,
@@ -31,13 +31,12 @@ const userSchema= new mongoose.Schema({
     unique: true,
     match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
-  otpCreatedAt:{
-    type: Number,
-    default:0,
+  verificationOTP:{
+    type: String,
+    default: "",
   },
   otpExpiredAt:{
-    type: Number,
-    default:0,
+    type: Date,
   },
   isVarified:{
     type:Boolean,
@@ -46,7 +45,7 @@ const userSchema= new mongoose.Schema({
   college: {
     type: String,
     trim: true,
-    default: '',
+    default: "",
   },
   enrolledEvents: {
     type: [String],

@@ -3,30 +3,29 @@ import "../Custom.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
-import {signup} from "../services/authService.js";
+import {signup, verifyEmail} from "../services/authService.js";
 import Button from "./Button";
 
 const SignUp = () => {
+  
   const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     username: "",
+    college:"",
     email: "",
+    phone:"",
     password: "",
     confirmPassword: "",
-    otp:null
   });
+  
+  const [otp,setOtp] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  
   //VISIBILITY CHANGING FOR OTP AND SIGN UP
   const [visibility, setVisibility] = useState(true)
-  
-  useEffect(()=>{
-    if(formData.otp>999){
-      alert("Profile is Created!");
-      navigate('/login');
-    }
-  },[(formData.otp),setFormData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,11 +41,10 @@ const SignUp = () => {
       alert("Passwords do not match");
       return;
     }
- 
     try {
       const res = await signup(formData);
       if (res) {
-        if(res.flag){
+        if(res.success){
           alert(res.message);
           setVisibility((prev)=>!prev);
         }
@@ -59,6 +57,25 @@ const SignUp = () => {
     }
   };
 
+  const verify = async () => {
+    try {
+      const res = await verifyEmail({otp:otp});
+      if(res.success){
+        navigate('/login');
+      }
+      else{
+        console.log(`unsuccessful-${res.message}`);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+  useEffect(()=>{
+    if(otp.length>5) verify();
+  },[(otp),setOtp]);
+  
+  
   return (
     <div className="signup-page flex justify-center items-center h-[100vh]">
       <container className="bg-grad p-[1px] rounded-[20px]">
@@ -84,7 +101,6 @@ const SignUp = () => {
                 name="username"
                 type="text"
                 placeholder="Full Name"
-                value={formData.username}
                 onChange={handleChange}
                 required
               />
@@ -97,6 +113,29 @@ const SignUp = () => {
                 type="email"
                 placeholder="Email"
                 value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            {/* Contact Number */}
+            <div className="input-field">
+              <input
+                id="phone"
+                name="phone"
+                type="number"
+                placeholder="Contact Number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            {/* College */}
+            <div className="input-field">
+              <input
+                id="college"
+                name="college"
+                type="text"
+                placeholder="College/Institute Name"
                 onChange={handleChange}
                 required
               />
@@ -164,10 +203,12 @@ const SignUp = () => {
               <input
                 id="otp"
                 name="otp"
-                type="number"
+                type="text"
                 placeholder="Enter Your OTP"
-                value={formData.otp}
-                onChange={handleChange}
+                value={otp}
+                onChange={(e)=>{
+                  setOtp(e.target.value)
+                }}
                 required
               />
             </div>

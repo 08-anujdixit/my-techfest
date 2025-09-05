@@ -7,7 +7,7 @@ import Button from '../../components/Button'
 const CodeAThon = () => {
   const navigate = useNavigate();
   return (
-  <div className="h-auto w-full reverseFadeb">
+  <div className="h-auto w-full reverseFade">
     <div className='pt-0 mt-0 h-[20rem] flex justify-center'>
       <img src={CodeAthon} />
     </div>

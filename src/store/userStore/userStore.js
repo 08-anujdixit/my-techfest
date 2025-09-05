@@ -11,4 +11,4 @@ export default userStore;
 
 
 
-//ACCESS THROUGH auth.userData
+//ACCESS THROUGH user.userData

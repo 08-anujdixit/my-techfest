@@ -9,11 +9,14 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import EventsPage from './pages/EventsPage'
 import HomePage from './pages/HomePage'
+import UserProfile from './pages/userProfile/UserProfile.jsx'
 import RegistrationPage from './pages/RegistrationPage'
+import LeaderboardPage from './pages/LeaderboardPage'
 import AboutPage from './pages/AboutPage'
 import CodeAThon from './pages/hackathon/CodeAThon'
 import Activate from './components/Activate'
 import Expo from "./pages/expo/Expo";
+
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,9 @@ const router = createBrowserRouter([
       },
       { path: "home", 
         element: <HomePage />,
+      },
+      { path: "profile", 
+        element: <UserProfile />,
       },
       { path: "about",
         element: <AboutPage />,
@@ -41,6 +47,9 @@ const router = createBrowserRouter([
       { path: "register", 
         element: <RegistrationPage />,
       },
+      { path: "leaderboard", 
+        element: <LeaderboardPage />,
+      },
     ],
   },
   { path: "signup", 
@@ -48,9 +57,6 @@ const router = createBrowserRouter([
   },
   { path: "login", 
     element: <LoginPage />,
-  },
-  { path: "logout", 
-        element: <LoginPage />,
   },
 ]);
 

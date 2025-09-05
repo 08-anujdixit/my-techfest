@@ -21,7 +21,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   background: rgba(0, 0, 0, 1);
   backdrop-filter: blur(3.9px);
-  border-radius: 20px;
+  border-radius: 12px;
   text-align: left;
 }
 
@@ -137,7 +137,10 @@
 @keyframes rfade {0%{opacity: 0;}100%{opacity: 1;}}
 
 .typeWriter{
-  animation: TypeWriter 2s steps(12) 0.2s forwards;
+  line-height: 1.8rem;
+  overflow: hidden;
+  display: inline;
+  animation: Typing 2s ease-in-out
 }
 
 /* For Particle background */
@@ -151,11 +154,20 @@
 }
 
 /* ALL KEYFRAMES FOR ANIMATION */
-@keyframes Flicker {
-  0%,  100% {
-    opacity: 1;
+@keyframes Typing {
+  0%{
+    width: 0;
+    padding: 0;
+  }
+  100%{
+    width: 100%;
+  }
+}
+@keyframes Blink {
+  0%, 100%{
+    border-right: 2px solid #05eeffb1;
   }
   50%{
-    opacity: 0.4;
+    border-right : transparent;
   }
 }

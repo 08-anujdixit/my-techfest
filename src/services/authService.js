@@ -16,7 +16,17 @@ export const signup = async (userData)=>{
     const res = await axios.post(`${API_BASE}/auth/signup`,userData);
     return res.data;
   } catch (error) {
-    alert('error in authService');
+    console.error(error);
+  }
+}
+
+export const verifyEmail = async (userData)=>{
+  try {
+    const res = await axios.post(`${API_BASE}/auth/verify`,userData);
+    
+     return (res.data);
+  } catch (error) {
+    console.error('error in verification');
   }
 }
 

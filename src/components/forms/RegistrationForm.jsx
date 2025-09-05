@@ -13,11 +13,6 @@ const RegistrationForm = () => {
   ]
   
   const [member,setMember]=useState([])
-  const handleMember = (e) => {
-  const { value } = e.target;
-  setMember((prev) => ( [...(prev.members || []), value]
-  ));
-};
  
   const [teamName,setTeamName]=useState("")
   
@@ -27,6 +22,7 @@ const RegistrationForm = () => {
     college:"",
     email:"",
     event:"",
+    membercount:null,
   })
   const handleChange = (e) => {
     const { name, value, tagName, type } = e.target;
@@ -41,14 +37,14 @@ const RegistrationForm = () => {
   
   
   const handleSubmit=(data)=>{
-    alert(`Form submitted\n${data}`)
+    alert(`Form submitted\n${data.length>0?data:'empty'}`)
   }
   
   return (
     <container className='w-auto h-auto flex justify-center my-10'>
       {  /* PREVIEW FOR TEAM REGISTRATION */
       formData.event === 'Code-a-thon' || formData.event === 'Expo' ? (
-      <div className='fixed left-5 z-10 w-[50%] h-[40%] bg-black rounded-2xl p-4 border-[1px] border-gray-400 hidden'>
+      <div className='fixed left-5 z-10 w-[50%] h-[40%] bg-gray-950 rounded-lg p-4 border-[1px] border-gray-400 hidden'>
         <div>
           <span className='text-grad text-xl font-extrabold font-serif'>Team</span>
           <h1 className='text-white text-xl font-extrabold font-serif'>{teamName}
@@ -102,6 +98,7 @@ const RegistrationForm = () => {
           
           {
             formData.event === 'Code-a-thon' || formData.event === 'Expo' ? (
+              <>
               <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
             '>
               <input
@@ -113,7 +110,27 @@ const RegistrationForm = () => {
               placeholder="Team Name"
               className="w-full bg-transparent-blur text-gray-50 p-2"
               />
-            </div>) : null
+            </div>
+            
+            <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+                '>
+                  <input
+                  onChange={(e)=>{
+                    if(e.target.value>4){
+                      e.target.value=null
+                    }
+                    else{
+                      handleChange(e);
+                    }
+                  }}
+                  name='membercount'
+                  type='number'
+                  placeholder="Number of Members"
+                  className="w-full bg-transparent-blur text-gray-50 p-2"
+                  />
+                </div>
+              </>
+            ) : null
           }
           
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
@@ -127,20 +144,38 @@ const RegistrationForm = () => {
             />
           </div>
           
-          {
-            formData.event === 'Code-a-thon' || formData.event === 'Expo' ? (
-                <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
-                '>
-                  <input
-                  onChange={handleMember}
-                  name='mname'
-                  type='text'
-                  placeholder="Add Members Name"
-                  className="w-full bg-transparent-blur text-gray-50 p-2"
-                  />
-                  
-                </div>
-              ) : null
+          {(formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )? 
+          (<div
+            className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400"
+            >
+              <label className='text-grad'>
+                Enter other member's details
+              </label>
+              { Array.from(
+                {length: formData.membercount - 1 }).map((_, i) => (
+                    <input
+                      key={i}
+                      id={`member${i}`}
+                      name={`member${i}`}
+                      type="text"
+                      placeholder={`Member ${i + 1} Name`}
+                      className="w-full bg-transparent-blur text-gray-50 p-2 my-2"
+                    />
+                    ))
+              }
+            <Button
+            css='mt-2'
+            type='button'
+            onClick={()=>{
+              const memberarray=[]
+              for (let i = 0; i < formData.membercount- 1; i++) {
+                let id = document.getElementById(`member${i}`);
+                if((id.value.trim()).length>0) memberarray.push(id.value)
+              }
+              setMember(memberarray);
+            }}
+            >Add Members</Button>
+             </div>) : null
           }
           
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400

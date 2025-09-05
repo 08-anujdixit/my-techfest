@@ -42,6 +42,11 @@ export default function Navbar(){
       active:true,
     },
     {
+      name:"Leaderboard",
+      slug:"/leaderboard",
+      active: userStatus,
+    },
+    {
       name:"Registration",
       slug:"/register",
       active:true,

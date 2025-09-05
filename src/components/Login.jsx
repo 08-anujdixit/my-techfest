@@ -34,7 +34,8 @@ export default function Login() {
       if(res.success){
         alert(res.message);
         dispatch(storeUser(res.user));
-        navigate("/");
+        localStorage.setItem('token', res.token);
+        navigate("/profile");
       }
       else{
         alert(res.message);

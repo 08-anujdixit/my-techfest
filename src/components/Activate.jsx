@@ -5,7 +5,6 @@ import {Howl, Howler} from 'howler';
 import {Link, useNavigate} from 'react-router-dom';
 import optimus from "../assets/sounds/transformer_venom.mp3"
 
-import Particle from '../assets/videos/Particle.mp4'
 
 const Activate = () => {
   const navigate = useNavigate();

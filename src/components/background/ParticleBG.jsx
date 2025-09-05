@@ -12,7 +12,7 @@ export default function ParticlesBackground() {
       id="tsparticles"
       init={particlesInit}
       options={{
-        background: { color: { value: "#000" } },
+        background: { color: { value: "#000011" } },
         
         fpsLimit: 60,
         
@@ -24,9 +24,9 @@ export default function ParticlesBackground() {
           modes: { 
             push: { quantity: 4 },
             repulse: {
-              distance: 150,
-              duration: 0.2
-            } 
+              distance: 80,
+              duration: 0.15
+            }
           },
         },
         
@@ -37,18 +37,17 @@ export default function ParticlesBackground() {
           
           links: { 
             color:["#FF0050","#FF1F6A","#5D00ff"],
-            distance: 150,
+            distance: 160,
             enable: true,
-            opacity: 0.7,
-            width: 2
+            opacity: 0.8,
+            width: 0.8
           },
           
           move: { enable: true, speed: 2 },
           number: { value: 40},
-          opacity: { value: 0.7},
-          size: { value: { min: 2, max: 5 } },
+          opacity: { value: 0.8},
+          size: { value: { min: 3, max: 5 } },
         },
-        
         detectRetina: true,
       }}
     />

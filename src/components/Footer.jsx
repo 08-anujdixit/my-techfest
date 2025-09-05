@@ -82,7 +82,7 @@ const Footer = () => {
   
   return (
     <>
-      <footer className='h-auto py-4 bg-gray-950 w-full'>
+      <footer className='h-auto py-4 bg-gray-900 w-full'>
         <div className='flex items-center'>
           <Link
           to='/'
