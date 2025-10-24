@@ -1,3 +1,7 @@
+*{
+  transition: all;
+}
+
 .bg-grad{
   background: linear-gradient(130deg,#FF0050, #FF1F6A, #5D00ff);
 }  
@@ -5,6 +9,15 @@
   background: linear-gradient(100deg,#FF0050, #FF1F6A, #5D00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.shadow-grad{
+ box-shadow: 0 0px 18px rgb(255,0,80);
+}
+
+.custom-hover:hover{
+  box-shadow: 0 0px 18px rgb(255,0,80);
+  transform: translateY(7px);
 }
 
 .login-container{
@@ -18,8 +31,8 @@
 }
 
 .profile-container{
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 1);
+  box-shadow: 0 0 20px rgba(0, 0, 0 , 0.5);
+  background: #000011;
   backdrop-filter: blur(3.9px);
   border-radius: 12px;
   text-align: left;
@@ -76,16 +89,12 @@
   color: #FFFFFF;
 }
 
-.btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 50px;
+.flipCard{
+  transition: all 500ms ease 200ms ;
+}
+
+.flipCard:hover{
+  transform: rotateY(180deg);
 }
 
 .popUp{
@@ -102,6 +111,7 @@
   }
 }
 
+
 .slide{
   animation: slide 0.5s linear forwards;
 }
@@ -109,12 +119,11 @@
   from {}
   to {translate: 20.5rem 0;}
 }
-
 .revers-slide{
   animation: rslide 0.8s linear forwards;
 }
 @keyframes rslide {
-  from {translate:20rem 0;}
+  from {translate: 20rem 0;}
   to {translate: -20rem 0;}
 }
 
@@ -145,12 +154,12 @@
 
 /* For Particle background */
 #tsparticles {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 20px;
   top: 0;
   left: 0;
-  z-index: -100; /* keeps particles behind UI */
+  z-index: -2; /* keeps particles behind UI */
 }
 
 /* ALL KEYFRAMES FOR ANIMATION */
@@ -170,4 +179,18 @@
   50%{
     border-right : transparent;
   }
+}
+
+
+/* ABOUT PAGE */
+.aboutpage{
+  height: auto;
+  width: 90%;
+  padding: 2rem;
+  border-radius: 5px;
+  border: 0.8px solid #999;
+  margin: 2rem auto 2rem auto;
+  font-size: 1.5rem;
+  color: whitesmoke;
+  
 }

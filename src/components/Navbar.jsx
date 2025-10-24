@@ -10,9 +10,6 @@ import { RxCross2 } from "react-icons/rx";
 
 export default function Navbar(){
   const navigate = useNavigate();
-  const userStatus=useSelector(
-    state=>state.user.status
-  );
   const [toggleMenu,setToggleMenu] = useState(true)
   
   const navBar=[
@@ -22,14 +19,14 @@ export default function Navbar(){
       active:true,
     },
     {
-      name:"About",
-      slug:"/about",
+      name:"About Us",
+      slug:"/about/#aboutus",
       active:true,
     },
     {
       name:"Events",
       slug:"/events",
-      active:true,
+      active: true,
     },
     {
       name:"Hackathon",
@@ -37,14 +34,9 @@ export default function Navbar(){
       active:true,
     },
     {
-      name:"Expo",
-      slug:"/expo",
-      active:true,
-    },
-    {
       name:"Leaderboard",
       slug:"/leaderboard",
-      active: userStatus,
+      active: true,
     },
     {
       name:"Registration",
@@ -52,22 +44,22 @@ export default function Navbar(){
       active:true,
     },
     {
-      name: "Login",
-      slug:"/login",
-      active: !userStatus,
+      name:"Contact Us",
+      slug:"/about/#contactus",
+      active:true,
     },
     {
-      name: "Logout",
-      slug:"/logout",
-      active: userStatus,
-    }
-    ]
+      name:"FAQ",
+      slug:"/about/#query",
+      active:true,
+    },
+  ]
   
   return (
     <header
-    className="h-auto w-full px-2 sticky top-0 z-40 mb-5">
+    className="h-auto w-full px-2 sticky top-2 z-[1000] mb-5">
       <ul
-      className='mt-3 px-2 flex justify-between items-center bg-transparent-blur border-[0.5px] border-gray-500 w-full'
+      className='mt-3 px-2 flex justify-between items-center bg-transparent-blur border-[0.8px] border-gray-500 w-full transition-all hover:border-white'
       >
         <li>
           <Link
@@ -82,7 +74,8 @@ export default function Navbar(){
         </li>
         <li>
           <button
-          className='w-[3rem] flex justify-center text-2xl text-white rounded font-extrabold'
+          className={`w-[3rem]  flex justify-center text-2xl text-white rounded font-extrabold
+          `}
           onClick={()=>{setToggleMenu((prev)=>!prev)}}
           >
             {toggleMenu? <HiOutlineMenu/> : <RxCross2 />}

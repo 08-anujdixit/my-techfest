@@ -1,4 +1,3 @@
-import Users from '../models/Users.js';
 import dotenv from 'dotenv';
 dotenv.config()
 

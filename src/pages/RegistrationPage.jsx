@@ -1,5 +1,6 @@
 import React from 'react';
 import RegistrationForm from '../components/forms/RegistrationForm.jsx'
+import ParticlesBackground from '../components/background/ParticleBG.jsx'
 import '../Custom.css'
 
 const RegistrationPage = () => {
@@ -11,6 +12,7 @@ const RegistrationPage = () => {
           </h1>
         </div>
       <RegistrationForm/>
+      <ParticlesBackground/>
     </container>
   );
 };

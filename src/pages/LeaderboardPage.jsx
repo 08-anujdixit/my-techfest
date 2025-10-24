@@ -13,17 +13,26 @@ const LeaderboardPage = () => {
       slug : '#hackathon'
     },
     {
-      secName : 'NPGMUN',
-      slug : '#mun'
-    },
-    {
-      secName : 'Tech Hunt',
+      secName : 'Tech Treasure Hunt',
       slug : '#hunt'
     },
     {
-      secName : 'Reverse Engeneering',
-      slug : '#reversengeneering'
+      secName : 'Thumbnail Making',
+      slug : '#thumbnail'
     },
+    {
+      secName : 'Character Designing',
+      slug : '#character'
+    },
+    {
+      secName : 'Brain & Code',
+      slug : '#braincode'
+    },
+    {
+      secName : 'Logo Designing',
+      slug : '#logodesign'
+    },
+    
   ]
   
   return (
@@ -34,7 +43,7 @@ const LeaderboardPage = () => {
         LEADERBOARD
       </h1>
       <div className='bg-grad h-auto rounded-xl p-[1px] m-5'>
-        <div className='h-full w-full rounded-xl bg-black p-4'>
+        <div className='h-full w-full rounded-xl bg-[#000011] p-4'>
         { /* THERE WILL BE DIFFERENT SECTION FOR DIFFERENT EVENTS */
           leaderboardSec.map((lbSec, index) => (
             <section 
@@ -43,6 +52,11 @@ const LeaderboardPage = () => {
               <h3 className='text-xl text-grad'>
                 {lbSec.secName}
               </h3>
+              <div className="text-xl text-white">
+                <div>First</div>
+                <div>Second</div>
+                <div>Third</div>
+              </div>
             </section>
           ))
           

@@ -43,9 +43,7 @@ const Activate = () => {
      <div 
      className={`h-[98vh] w-full  ${visible? '' : 'hidden'} flex justify-center items-center`}>
       <Logo
-      animate={
-        `rounded-full popUp`
-      }
+      animate={`rounded-full popUp`}
       />
      </div>
      <main

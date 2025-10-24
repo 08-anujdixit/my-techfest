@@ -3,7 +3,7 @@ const API_BASE = import.meta.env.VITE_SERVER;
 
 export const getUserInfo = async () => {
   try {
-    const res = await axios.get(`${API_BASE}/api/profile`, {
+    const res = await axios.get(`${API_BASE}/api/user/profile`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }

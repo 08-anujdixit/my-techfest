@@ -13,15 +13,15 @@ app.use(express.json());
 
 // IMPORTING ROUTES 
 import authRoutes from './routes/authRoutes.js';
-import userRoutes from './routes/userRoutes.js';
+import registrationRoutes from './routes/registrationRoutes.js';
 
 app.use('/auth', authRoutes);
-app.use('/api', userRoutes);
+app.use('/api/registration', registrationRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
   console.log('MongoDB connected');
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}\n\n`));
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }).catch(err => console.log(err));

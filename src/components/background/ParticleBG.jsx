@@ -22,7 +22,7 @@ export default function ParticlesBackground() {
             onHover: { enable: true, mode: "repulse" }
           },
           modes: { 
-            push: { quantity: 4 },
+            push: { quantity: 0 },
             repulse: {
               distance: 80,
               duration: 0.15
@@ -37,14 +37,14 @@ export default function ParticlesBackground() {
           
           links: { 
             color:["#FF0050","#FF1F6A","#5D00ff"],
-            distance: 160,
+            distance: 150,
             enable: true,
             opacity: 0.8,
             width: 0.8
           },
           
           move: { enable: true, speed: 2 },
-          number: { value: 40},
+          number: { value: 60},
           opacity: { value: 0.8},
           size: { value: { min: 3, max: 5 } },
         },

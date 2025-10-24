@@ -12,7 +12,7 @@ const Button = ({
     >
       <button 
           className={`inline-bock px-4 py-2 text-white object-contain
-            rounded-3xl bg-black md:w-fit
+            rounded-3xl bg-[#000011] md:w-fit
             md:w-36 md:text-xl md:text-center
             hover:text-white font-extrabold
           `}

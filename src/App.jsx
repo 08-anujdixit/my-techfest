@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
+  
 
   useEffect(() => {
     if (location.hash) {
@@ -16,14 +17,14 @@ function App() {
       }
     }
   }, [location]);
-
- 
   
-  return <>
+  return (
+  <>
     <Navbar />
     <Outlet />
     <Footer />
   </>
+  );
 }
 
 export default App

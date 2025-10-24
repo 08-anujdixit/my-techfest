@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css'
 import '../Custom.css'
 import {Link} from 'react-router-dom'
-import { FaInstagram, FaFacebook, FaLinkedin} from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaLinkedin, FaYoutube} from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import Logo from "./Logo";
 
@@ -13,12 +13,12 @@ const Footer = () => {
   const quickLinks =[
     {
       name:"Code of Conduct",
-      slug:"/about",
+      slug:"/about/#coc",
       active:true,
     },
     {
       name:"Have Any Queries",
-      slug:"/about",
+      slug:"/about/#query",
       active:true,
     },
     {
@@ -43,7 +43,7 @@ const Footer = () => {
     },
     {
       name:"Sponsors",
-      slug:"/about/#Sponsors",
+      slug:"/about/#sponsors",
       active:true,
     },
     {
@@ -75,14 +75,14 @@ const Footer = () => {
   {
     title: 'LinkedIn',
     active:true,
-    icon: <FaLinkedin />,
+    icon: <FaYoutube />,
     slug:"/",
   },
 ]
   
   return (
     <>
-      <footer className='h-auto py-4 bg-gray-900 w-full'>
+      <footer className='h-auto py-4 bg-gray-900 w-full relative z-[1000]'>
         <div className='flex items-center'>
           <Link
           to='/'
@@ -116,15 +116,17 @@ const Footer = () => {
           </ul>
         </div>
         
-        <div className='my-3 p-2 flex text-3xl justify-center md:justify-evenly'>
+        <div className=' my-3 p-2 flex text-3xl justify-around md:justify-evenly'>
           {
             socialMediaAcc?.map((sma,i) =>(
               sma.active ? (
                 <Link 
-                className={`text-gray-200 rounded-[50%] bg-grad p-2`}
+                className={`text-gray-200 rounded-[50%] bg-grad p-[0.9px]`}
                 to={sma.slug}
                 >
-                  {sma.icon}
+                  <div className="bg-[#000011] rounded-[50%] p-3">
+                    {sma.icon}
+                  </div>
                 </Link>
               ):null
             ))

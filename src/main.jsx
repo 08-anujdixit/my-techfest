@@ -2,21 +2,15 @@ import React,{ StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { Provider } from 'react-redux'
-import userStore from './store/userStore/userStore'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import LoginPage from './pages/LoginPage'
-import SignupPage from './pages/SignupPage'
 import EventsPage from './pages/EventsPage'
 import HomePage from './pages/HomePage'
-import UserProfile from './pages/userProfile/UserProfile.jsx'
 import RegistrationPage from './pages/RegistrationPage'
 import LeaderboardPage from './pages/LeaderboardPage'
 import AboutPage from './pages/AboutPage'
 import CodeAThon from './pages/hackathon/CodeAThon'
 import Activate from './components/Activate'
-import Expo from "./pages/expo/Expo";
-
+import Page404 from "./pages/Page404";
 
 const router = createBrowserRouter([
   {
@@ -29,9 +23,6 @@ const router = createBrowserRouter([
       { path: "home", 
         element: <HomePage />,
       },
-      { path: "profile", 
-        element: <UserProfile />,
-      },
       { path: "about",
         element: <AboutPage />,
       },
@@ -41,9 +32,6 @@ const router = createBrowserRouter([
       { path: "codeathon", 
         element: <CodeAThon />,
       },
-      { path: "expo", 
-        element: <Expo />,
-      },
       { path: "register", 
         element: <RegistrationPage />,
       },
@@ -52,18 +40,13 @@ const router = createBrowserRouter([
       },
     ],
   },
-  { path: "signup", 
-    element: <SignupPage />,
-  },
-  { path: "login", 
-    element: <LoginPage />,
+  { path: "*", 
+    element: <Page404 />,
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={userStore}>
      <RouterProvider router={router}/>
-    </Provider>
   </React.StrictMode>
 );

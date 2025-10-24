@@ -2,20 +2,23 @@ import React,{useState, useEffect} from 'react';
 import '../../Custom.css';
 import Button from '../../components/Button';
 import { MdOutlineDoneOutline } from "react-icons/md";
+import { register } from "../../services/registrationService.js";
 
 const RegistrationForm = () => {
   const events=[
     {name:'Select Event', status:false},
-    {name:'Expo', status:true},
-    {name:'Code-a-thon', status:true},
-    {name:'Hunt', status:true},
-    {name:'MUN', status:true},
+    {name:'Renaissance Expo', status:true},
+    {name:'CODE-A-THON', status:true},
+    {name:'Tech Treasure Hunt', status:true},
+    {name:'Thumbnail Making', status:true},
+    {name:'Character Desinging', status:true},
+    {name:'Brain & Code', status:true},
+    {name:'Logo Desinging', status:true},
   ]
   
-  const [member,setMember]=useState([])
- 
-  const [teamName,setTeamName]=useState("")
-  
+  const [regBtn,setRegBtn]=useState(false)
+  const [member,setMember]=useState([]);
+  const [teamName,setTeamName]=useState("");
   const [formData,setFormData]= useState({
     name:"",
     phone:null,
@@ -23,7 +26,12 @@ const RegistrationForm = () => {
     email:"",
     event:"",
     membercount:null,
-  })
+  });
+  const [response,setResponse]= useState({
+    message:'Please Wait for a moment!',
+    success:false,
+  });
+  
   const handleChange = (e) => {
     const { name, value, tagName, type } = e.target;
     setFormData((prev) => ({
@@ -33,52 +41,55 @@ const RegistrationForm = () => {
           ? value // keep dropdown value as it is
           : value.trim(), // trim only for text inputs
     }));
-  };
-  
-  
-  const handleSubmit=(data)=>{
-    alert(`Form submitted\n${data.length>0?data:'empty'}`)
+  }
+ 
+  const handleSubmit= async (data)=>{
+    try {
+      const res = await register(data);
+      setResponse(res);
+    } catch (error) {
+      console.log(error);
+    }finally{
+      setFormData({});
+      setTeamName(null);
+      setMember([]);
+      setTimeout(()=>{
+        setRegBtn((p)=>!p);
+      }, 3000);
+    }
   }
   
   return (
     <container className='w-auto h-auto flex justify-center my-10'>
-      {  /* PREVIEW FOR TEAM REGISTRATION */
-      formData.event === 'Code-a-thon' || formData.event === 'Expo' ? (
-      <div className='fixed left-5 z-10 w-[50%] h-[40%] bg-gray-950 rounded-lg p-4 border-[1px] border-gray-400 hidden'>
-        <div>
-          <span className='text-grad text-xl font-extrabold font-serif'>Team</span>
-          <h1 className='text-white text-xl font-extrabold font-serif'>{teamName}
-          </h1>
-        </div>
-        
-        <div className='mt-5'>
-          <span className='text-grad text-xl font-extrabold font-serif'>Team Members</span>
-          <h1 className='text-white text-xl font-extrabold font-serif'>{formData.name}
-          </h1>
-          {
-            member.map((mem) =>(
-              <h1 className='text-white text-xl font-extrabold font-serif'>{mem}
-              </h1>
-            ))
-          }
-        </div>
-      </div>):null
+      {/*MESSAGE RESPONSE BOX*/
+        regBtn & (response?.success || response?.success==false) ?
+          <div className="absolute h-[60%] w-full z-[1000] left-0 flex justify-center items-center">
+            <div className="bg-grad h-[40%] w-80 p-[1px] rounded-lg">
+              <div className="bg-[#001] h-full w-full rounded-lg flex justify-center items-center">
+                <p className="text-white text-xl text-center text-justify p-10">
+                  {response?.message}
+                </p>
+              </div>
+            </div>
+          </div>:null
       }
-      
-      <div className='bg-grad w-[90%] flex justify-center p-[0.8px] rounded-lg'>
+      <div className={`bg-grad w-[90%] flex justify-center p-[0.8px] rounded-lg
+      ${regBtn?'opacity-50':''} `}>
         <form 
         onSubmit={(e)=>{
           e.preventDefault();
-          handleSubmit(member);
+          setRegBtn((p)=>!p);
+          handleSubmit({formData, teamName, member,});
+          e.target.reset();
         }}
-        className='bg-black w-full h-full rounded-lg p-5 md:flex md:flex-wrap md: justify-around'>
-        
+        className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md: justify-around'>
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
             <label className="text-grad">
               Choose Event to Enroll
             </label>
-            <select 
+            <select
+            required
             className="w-full bg-transparent-blur text-gray-50 p-2 "
             name='event'
             onChange={handleChange}
@@ -97,11 +108,12 @@ const RegistrationForm = () => {
           </div>
           
           {
-            formData.event === 'Code-a-thon' || formData.event === 'Expo' ? (
+            formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt' ? (
               <>
               <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
             '>
               <input
+              required
               onChange={(e)=>{
                 setTeamName(e.target.value)
               }}
@@ -115,6 +127,7 @@ const RegistrationForm = () => {
             <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
                 '>
                   <input
+                  required
                   onChange={(e)=>{
                     if(e.target.value>4){
                       e.target.value=null
@@ -136,6 +149,7 @@ const RegistrationForm = () => {
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
           '>
             <input
+            required
             onChange={handleChange}
             name='name'
             type='text'
@@ -144,16 +158,18 @@ const RegistrationForm = () => {
             />
           </div>
           
-          {(formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )? 
-          (<div
+          {
+            (formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )?(<div
             className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400"
             >
               <label className='text-grad'>
                 Enter other member's details
               </label>
-              { Array.from(
+              { /*———— TEAM MEMBERS ————*/
+                Array.from(
                 {length: formData.membercount - 1 }).map((_, i) => (
                     <input
+                      required
                       key={i}
                       id={`member${i}`}
                       name={`member${i}`}
@@ -166,7 +182,8 @@ const RegistrationForm = () => {
             <Button
             css='mt-2'
             type='button'
-            onClick={()=>{
+            onClick={(e)=>{
+              e.preventDefault();
               const memberarray=[]
               for (let i = 0; i < formData.membercount- 1; i++) {
                 let id = document.getElementById(`member${i}`);
@@ -181,6 +198,7 @@ const RegistrationForm = () => {
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
           '>
             <input
+            required
             onChange={handleChange}
             name='phone'
             type='number'
@@ -189,9 +207,10 @@ const RegistrationForm = () => {
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
           </div>
           
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 flex gap-2 items-center
           '>
             <input
+            required
             onChange={handleChange}
             name='email'
             type='text'
@@ -213,7 +232,9 @@ const RegistrationForm = () => {
           
           <div className="w-full text-center">
             <Button
+            disabled={regBtn}
             type='submit'
+            css={`${regBtn?'opacity-25':''}`}
             >
               Submit  »
             </Button>
