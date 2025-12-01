@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../index.css'
 import '../Custom.css'
-import {Link, useNavigate } from 'react-router-dom'
+import {Link, useNavigate, useLocation} from 'react-router-dom'
 import Logo from './Logo'
 import Button from './Button'
 import { useSelector } from 'react-redux';
@@ -10,7 +10,13 @@ import { RxCross2 } from "react-icons/rx";
 
 export default function Navbar(){
   const navigate = useNavigate();
-  const [toggleMenu,setToggleMenu] = useState(true)
+  const location = useLocation();
+  const [toggleMenu,setToggleMenu] = useState(false);
+  useEffect(()=>{
+    setTimeout(()=>{
+      setToggleMenu((prev)=>false);
+    }, 500);
+  },[location]);
   
   const navBar=[
     {
@@ -53,7 +59,7 @@ export default function Navbar(){
       slug:"/about/#query",
       active:true,
     },
-  ]
+  ];
   
   return (
     <header
@@ -78,14 +84,13 @@ export default function Navbar(){
           `}
           onClick={()=>{setToggleMenu((prev)=>!prev)}}
           >
-            {toggleMenu? <HiOutlineMenu/> : <RxCross2 />}
+            {toggleMenu? <RxCross2 /> : <HiOutlineMenu/>}
           </button>
         </li>
       </ul>
       {
-          (<div className={`absolute left-[-20rem] top-0 ${!toggleMenu?'slide':'revers-slide'}
-          bg-transparent-blur border-[1px] border-gray-400 w-[10rem] md:w-[15rem] p-10
-          `}>
+          (<div className={`absolute left-[-20rem] top-0 ${toggleMenu?'slide':'revers-slide'}
+          bg-transparent-blur border-[1px] border-gray-400 w-[10rem] md:w-[15rem] p-3 `}>
           {
             navBar.map((item) => 
             item.active ? (

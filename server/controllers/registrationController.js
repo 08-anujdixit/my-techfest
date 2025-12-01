@@ -81,7 +81,7 @@ National P.G. College, Lucknow`,
     } catch (err) {
     console.error(err);
     res.status(500).json({
-      message: "Failed to send OTP",
+      message: "Failed to send the Email.",
       success: false,
     });
   }

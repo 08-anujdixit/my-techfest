@@ -92,7 +92,7 @@ const Footer = () => {
               w="w-[4rem] md:w-[5rem]"
             />
           </Link>
-          <p className='w-[90%] font-extrabold text-grad p-5 md:text-3xl'>Quick Links</p>
+          <p className='w-[90%] font-extrabold text-grad pb-1 md:text-xl'>Quick Links</p>
         </div>
         <div className='w-auto h-auto '>
           <ul 

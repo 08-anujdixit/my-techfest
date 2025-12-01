@@ -143,7 +143,7 @@ const HomePage = () => {
       </section>
       <div className='flex justify-center'>
       <Button
-      css='m-[2rem] text-2xl shadow-grad'
+      css='m-[2rem] text-2xl'
         onClick={()=>{
           navigate('/register');
         }}

@@ -8,8 +8,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+app.set("trust proxy", 1);
+
 app.use(cors({
-  origin: ["http://localhost:5173", "https://techfest-liard.vercel.app"],
+  origin: ["http://localhost:5173", "https://npgctechfest.vercel.app"],
   credentials: true
 }));
 

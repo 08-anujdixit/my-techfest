@@ -41,7 +41,7 @@ const Activate = () => {
   return (
     <>
      <div 
-     className={`h-[98vh] w-full  ${visible? '' : 'hidden'} flex justify-center items-center`}>
+     className={`h-[100vh] w-full  ${visible? '' : 'hidden'} flex justify-center items-center`}>
       <Logo
       animate={`rounded-full popUp`}
       />
@@ -50,28 +50,38 @@ const Activate = () => {
     className={`${visible? 'hidden' : ''} w-full`}
     >
         <div 
-        className="h-[100vh] md:h-[80vh] w-full md:flex md:justify-center md:items-center py-10
+        className="h-[100%] w-full md:flex md:justify-center md:items-center py-10
         ">
           <h1 
-          className='text-7xl text-grad text-center font-serif md:text-8 reverseFade 
-          '
-          >Tech Fest 5.0</h1>
+          className='text-7xl text-grad text-center font-serif md:text-8 reverseFade w-full
+          '>Tech Fest 5.0</h1>
+          
           <div 
-          className='mt-5 w-[100%] md:w-[40%] flex justify-center '
-          >
-          <button
-          onClick={()=>{
-            setTimeout(()=>{
-              navigate('/home');
-            }, 200);
-          }} 
-          >
-            <Logo
-            animate='rounded-full animate-[spin_7s_linear_infinite] '
-            />
-          </button>
+          className='mt-5 w-[100%] flex justify-center'>
+            <button
+            onClick={()=>{
+              setTimeout(()=>{
+                navigate('/home');
+              }, 200);
+            }} 
+            >
+              <Logo
+              animate='rounded-full animate-[spin_7s_linear_infinite]'/>
+            </button>
           </div>
         </div>
+        
+        <div className="h-[100%] pb-20 text-center">
+            <h1 
+          className='text-2xl text-grad text-center font-serif md:text-2xl reverseFade 
+          '>Presented by</h1>
+          
+          <p className='text-3xl md:text-3xl text-grad text-center font-serif reverseFade 
+          ' >Department of Computer Science</p>
+          
+          <p className='text-2xl text-grad text-center font-serif reverseFade 
+          ' >National P.G. College</p>
+          </div>
     </main> 
    </>
   );
