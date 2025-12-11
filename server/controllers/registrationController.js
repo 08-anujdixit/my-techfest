@@ -1,8 +1,6 @@
 import Registration from '../models/Registration.js';
 import dotenv from 'dotenv';
 dotenv.config();
-import nodemailer from "nodemailer";
-import transporter from "../middlewares/mailMiddleware.js";
 
 
 export const register = async (req, res) => {
@@ -53,38 +51,6 @@ export const register = async (req, res) => {
     });
       
     await newRegistration.save();
-    
-    try{
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: email,
-        subject: `Registration Confirmed for Tech Fest 5.0 – Your ID: ${regID}`,
-        text: `Hello ${formData.name},
-Congratulations! 🎊
-Your registration for Tech Fest 5.0 has been successfully completed.
-        
-Registration Details:-
-Event: ${formData.event} in Tech Fest 5.0
-Registration ID: ${regID}
-        
-Please keep this ID safe — you’ll need it for event entry, participation, and certificate verification.
-        
-We’re excited to have you join us for an unforgettable tech experience filled with innovation, learning, and fun! 🚀
-        
-Stay tuned for further updates and schedules via email or our official channels.
-        
-Best regards,
-Team Tech Fest 5.0
-Department of Computer Science
-National P.G. College, Lucknow`,
-      });
-    } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      message: "Failed to send the Email.",
-      success: false,
-    });
-  }
     
     res.status(201).json({
       message:'Participant Registered successfully.',

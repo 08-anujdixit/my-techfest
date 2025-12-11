@@ -8,8 +8,6 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.set("trust proxy", 1);
-
 app.use(cors({
   origin: ["http://localhost:5173", "https://npgctechfest.vercel.app"],
   credentials: true
@@ -18,10 +16,8 @@ app.use(cors({
 app.use(express.json());
 
 // IMPORTING ROUTES 
-import authRoutes from './routes/authRoutes.js';
 import registrationRoutes from './routes/registrationRoutes.js';
 
-app.use('/auth', authRoutes);
 app.use('/api/registration', registrationRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {
