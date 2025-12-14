@@ -118,3 +118,13 @@
   color: whitesmoke;
   
 }
+
+.hover-grad{
+  transition:color;
+}
+
+.hover-grad:hover{
+  background: linear-gradient(100deg,#FF0050, #FF1F6A, #5D00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

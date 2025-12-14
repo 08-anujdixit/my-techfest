@@ -8,7 +8,7 @@ const AboutPage = () => {
     {
       k: 1,
       heading: 'Purpose of the Event',
-      disc: "TechFest 4.0 aims to inspire innovation, foster skill development, and showcase talent in science and technology. Participation is open to students currently enrolled in any college.",
+      disc: "TechFest 5.0 aims to inspire innovation, foster skill development, and showcase talent in science and technology. Participation is open to students currently enrolled in any college.",
     },
     {
       k: 2,
@@ -47,6 +47,120 @@ const AboutPage = () => {
     },
   ]
   
+  const privacy_policy =[
+    {
+      k: 1,
+      heading: 'Information We Collect',
+      disc: "Personal Information: During registration, we collect your name, email address, phone number, college name, and college ID. Additionally, we may verify your identity using your Aadhaar card.",
+    },
+    {
+      k: 2,
+      heading: 'Use of Collected Information',
+      disc: "We use the collected information solely for processing your registration for the event.\n\nWe do not use your data for promotional purposes.",
+    },
+    {
+      k: 3,
+      heading: 'Data Sharing',
+      disc: "We do not share participants' data with third parties, except as required for payment processing through Razorpay or as mandated by law.",
+    },
+    {
+      k: 4,
+      heading: 'Data Protection',
+      disc: "Your personal information is stored securely and is under strict observation. We take full responsibility for its confidentiality.\n\nPayments are processed securely through Razorpay.",
+    },
+    {
+      k: 5,
+      heading: 'Cookies and Sessions',
+      disc: "We use session-based technologies to save participants' IDs temporarily during the registration process.",
+    },
+    {
+      k: 6,
+      heading: 'User Rights',
+      disc: "Participants can access, update, or request deletion of their personal information by contacting us through the details provided on our Contact Us page.\n\nSupport is available via email and phone.",
+    },
+    {
+      k: 7,
+      heading: 'Data Retention',
+      disc: "We retain participants' data for a maximum of three months after the event.",
+    },
+    {
+      k: 8,
+      heading: 'Changes to This Privacy Policy',
+      disc: "We reserve the right to update this Privacy Policy at any time. Participants will be notified of any changes through email and updates on our website.",
+    },
+    {
+      k: 9,
+      heading: 'Contact Information',
+      disc: "If you have any questions about this Privacy Policy, please contact us via email or phone. Contact details are provided on the Contact Us page.",
+    },
+  ]
+  
+  const refund_policy =[
+    {
+      k: 1,
+      heading: 'Refund Eligibility',
+      disc: "Refunds will be provided under the following conditions:-",
+      conditions:[{
+        heading:"Event Cancellation:",
+        disc:"If the event is cancelled by the organizers, participants will be eligible for a full refund."},
+        {
+          heading:"Refunds Not Allowed:",
+          disc: "Refund requests will not be processed once the participant has received the admit card."}
+      ],
+    },
+    {
+      k: 2,
+      heading: 'Refund Process',
+      disc: "Participants wishing to request a refund must follow these steps:-",
+      conditions:[{
+        heading:"How to Request:",
+        disc:"Refund requests should be submitted via email or phone."},
+        {
+          heading:"Required Information:",
+          disc: "Participants need to provide the following details for a refund request Transaction ID, Participant Name, Contact Details"},
+        {
+          heading:"Refund Processing Time:",
+          disc: "Refund requests will be processed within 7-8 working days and credited to the participant’s bank account."}
+      ],
+    },
+    {
+      k: 3,
+      heading: 'Cancellation Rules',
+      disc: "Participants wishing to request a refund must follow these steps:-",
+      conditions:[{
+        heading:"Cancellation by Participant:",
+        disc:"Participants are not allowed to cancel their registration once submitted, except in the case of event cancellation by the organizers."},
+        {
+          heading:"Exceptions:",
+          disc: "There are no exceptions for cancellations, including medical emergencies."},
+      ],
+    },
+    {
+      k: 4,
+      heading: 'Mode of Refund',
+      disc: "Refunds will be processed using the original payment method, which may include:-",
+      conditions:[{
+        heading:"Razorpay:",
+        disc:"If used for payment."},
+        {
+          heading:"UPI:",
+          disc: "If the payment was made via UPI."},
+      ],
+    },
+    {
+      k: 5,
+      heading: 'Event Cancellation by Organizers',
+      disc: "",
+      conditions:[{
+        heading:"In Case of Cancellation or Rescheduling:",
+        disc:"If Techfest 5.0 is cancelled or rescheduled by the organizers, all participants will be eligible for a full refund."},
+        {
+          heading:"Full Refund Assurance:",
+          disc: "A full refund will be credited if the event is cancelled by the organizers."},
+      ],
+    },
+  ]
+  
   const queries=[
     {
       query:'Who can participate?',
@@ -55,6 +169,10 @@ const AboutPage = () => {
     {
       query:'Who do I contact for queries?',
       ans:'You can reach out to us at techfest.npgc@gmail.com or DM us on Instagram or LinkedIn @techfest5.0, We’re happy to help!'
+    },
+    {
+      query:'What should I bring?',
+      ans:'Bring your registration confirmation form, ID card, and anything that might verify your identity. We’ll provide internet, food, and workspace.'
     },
   ]
   
@@ -67,13 +185,13 @@ const AboutPage = () => {
     </h1>
     <section className="my-8 ">
         <div className=" my-2 w-[100%] flex-wrap">
-            <p className="text-gray-300 w-auto px-5 text-justify "><span className="text-grad font-extrabold  font-mono">National Post Graduate College</span>, established in 2005, stands as a beacon of academic excellence and innovation. With a serene and inclusive campus, the college is dedicated to nurturing talent and fostering growth in every student. The Computer Science department, a cornerstone of the institution, embraces the latest technological advancements to deliver a robust, industry-oriented education. The college equips students with the skills and confidence to excel in their chosen fields by emphasizing research, internships, and hands-on learning. Complemented by a vibrant array of cultural, sports, and extracurricular opportunities, the college shapes well-rounded individuals prepared to make meaningful contributions to society.
+            <p className="text-gray-300 w-auto px-5 text-justify "><a href="https://www.npgc.in/"><span className="text-grad font-extrabold  font-mono">National Post Graduate College</span></a>, established in 2005, stands as a beacon of academic excellence and innovation. With a serene and inclusive campus, the college is dedicated to nurturing talent and fostering growth in every student. The Computer Science department, a cornerstone of the institution, embraces the latest technological advancements to deliver a robust, industry-oriented education. The college equips students with the skills and confidence to excel in their chosen fields by emphasizing research, internships, and hands-on learning. Complemented by a vibrant array of cultural, sports, and extracurricular opportunities, the college shapes well-rounded individuals prepared to make meaningful contributions to society.
             </p>
         </div>
       </section>
     
-    {/* SECTION FOR CODE OF CUNDUCT */}
-    <section id="coc" className="aboutpage custom-hover">
+    {/* SECTION FOR CODE OF CUNDUCT */
+    <section id="coc" className="aboutpage">
         <h2 className="mb-2">
           Code of Conduct
         </h2>
@@ -96,22 +214,91 @@ const AboutPage = () => {
            </ul>
         </div>
     </section>
+    }
     
-    {/* SECTION FOR SPONSORS */}
-    <section id="sponsors" className="aboutpage">
-      Core Members
+    {/* SECTION FOR PRIVACY AND POLICY */
+    <section id="privacy-policy" className="aboutpage">
+      <h2 className="mb-2">Privacy Policy</h2>
+      <p className="text-gray-300 w-auto text-justify text-sm">
+      This Privacy Policy explains how <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>, organized by National Post Graduate College, Lucknow, collects, uses, and protects your information.
+      </p>
+      <div className="overflow-auto">
+        <ul>
+          {
+            privacy_policy.map((pnp) =>(
+              <>
+                <li
+                key={pnp.k}
+                className="text-xl my-4 text-grad">
+                 {pnp.k}. {pnp.heading}
+                </li>
+                <li className="text-sm pl-6 text-justify">
+                  {pnp.disc}
+                </li>
+             </>
+            ))
+          }
+        </ul>
+      </div>
     </section>
+    }
+    
+    {/* SECTION FOR REFUND POLICY */
+    <section id="refund-policy" className="aboutpage">
+      <h2 className="mb-2">Refund and Cancellation Policy</h2>
+      <p className="text-gray-300 w-auto text-justify text-sm">
+      We want to ensure a smooth and transparent process for all participants of <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>. Below is our Refund and Cancellation Policy:
+      </p>
+      <div className="overflow-auto">
+        <ul>
+          {
+            refund_policy.map((rp) =>(
+              <>
+                <li
+                key={rp.k}
+                className="text-xl my-4 text-grad">
+                 {rp.k}. {rp.heading}
+                </li>
+                <li className="text-sm pl-6 text-justify">
+                  {rp.disc}
+                  <ul>
+                    {
+                     (rp.conditions)?.map((co,index) =>(
+                        <>
+                          <li
+                          key={index}
+                          className="text-xl my-4 text-grad">
+                          {String.fromCharCode(index+97)}) {co.heading}
+                          </li>
+                          <li className="text-sm pl-6 text-justify">
+                            {co.disc}
+                          </li>
+                       </>
+                      ))
+                    }
+                  </ul>
+                </li>
+             </>
+            ))
+          }
+        </ul>
+      </div>
+      <p className="text-gray-300 w-auto text-justify text-sm my-10">
+      We hope this policy helps clarify any questions you may have. Thank you for participating in <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>!
+      </p>
+    </section>
+    }
     
     {/* SECTION FOR SPONSORS */}
     <section id="sponsors" className="aboutpage">
-      Sponsors
+      <h2 className="mb-0">Sponsors Coming Soon</h2>
     </section>
     
     {/* SECTION FOR QUERIES */}
     <section id="query" className="aboutpage">
-      <h1 className="mb-2">
+      <h2 className="mb-2">
         Queries
-      </h1>
+      </h2>
       {
       queries.map((q, index) => (
         <div className="border-[1px] border-[#aaa] bg-transparent-blur p-2 my-4">
@@ -133,9 +320,7 @@ const AboutPage = () => {
             </p>
           </div>)
           }
-      </div>
-        
-      ))
+      </div>))
       }
     </section>
     
@@ -156,7 +341,6 @@ const AboutPage = () => {
         <p>contact 2</p>
       </p>
     </section>
-    
   </container>
   );
 };

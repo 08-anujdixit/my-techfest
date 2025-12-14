@@ -21,7 +21,7 @@ const RegistrationForm = () => {
   const [teamName,setTeamName]=useState("");
   const [formData,setFormData]= useState({
     name:"",
-    phone:null,
+    phone:"",
     college:"",
     email:"",
     event:"",
@@ -42,28 +42,76 @@ const RegistrationForm = () => {
           : value.trim(), // trim only for text inputs
     }));
   }
- 
-  const handleSubmit= async (data)=>{
-    try {
-      const res = await register(data);
-      setResponse(res);
-    } catch (error) {
-      console.log(error);
-    }finally{
-      setFormData({});
-      setTeamName(null);
-      setMember([]);
-      setTimeout(()=>{
-        setRegBtn((p)=>!p);
-      }, 3000);
+
+  //EMAIL VALIDATION FUNCTION
+  function validateEmail(email) {
+    let validEmail = 1;
+
+    if (!email.includes('@') || !email.includes('.')) {
+        validEmail = 0;
+    } else {
+        const at_index = email.indexOf('@');
+        const dot_index = email.lastIndexOf('.');
+
+        if (!/^[A-Za-z]/.test(email[0])) {
+            validEmail = 0;
+        } else if (at_index > dot_index) {
+            validEmail = 0;
+        } else if (at_index === 0 || dot_index === email.length - 1) {
+            validEmail = 0;
+        }
     }
+    return (!validEmail);
+  }
+ 
+  const handleSubmit= async (data,e)=>{
+    if (formData.membercount>1 && member.length<(formData.membercount)-1){
+      setResponse({
+        message:"Members list is empty! Please add them by pressing 'Add Members' Button",
+        success:false,
+      });
+    }
+    //check if email is valid or not
+    else if (validateEmail(formData.email)){
+      setResponse({
+        message:"Please enter a valid email address.\nEmail must start with a letter and contain “@” and “.”",
+        success:false,
+      });
+    }
+    else{
+      try {
+        const res = await register(data);
+        setResponse(res);
+      } catch (error) {
+        console.log(error);
+      }finally{
+        setFormData({
+          name:"",
+          phone:"",
+          college:"",
+          email:"",
+          event:"",
+          membercount:null,
+        });
+        setTeamName(null);
+        setMember([]);
+        e.target.reset();
+      }
+    }
+    setTimeout(()=>{
+      setRegBtn((p)=>!p);
+      setResponse((prev)=>({
+        ...prev,
+        message:'Please Wait for a moment!',
+      }));
+    }, 5000);
   }
   
   return (
     <container className='w-auto h-auto flex justify-center my-10'>
       {/*MESSAGE RESPONSE BOX*/
         regBtn & (response?.success || response?.success==false) ?
-          <div className="absolute h-[60%] w-full z-[1000] left-0 flex justify-center items-center">
+          <div className="absolute h-[100%] w-full z-[1000] left-0 flex justify-center items-center bg-amber-10">
             <div className="bg-grad h-[40%] w-80 p-[1px] rounded-lg">
               <div className="bg-[#001] h-full w-full rounded-lg flex justify-center items-center">
                 <p className="text-white text-xl text-center text-justify p-10">
@@ -79,8 +127,7 @@ const RegistrationForm = () => {
         onSubmit={(e)=>{
           e.preventDefault();
           setRegBtn((p)=>!p);
-          handleSubmit({formData, teamName, member,});
-          e.target.reset();
+          handleSubmit({formData, teamName, member,},e);
         }}
         className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md: justify-around'>
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
@@ -190,6 +237,19 @@ const RegistrationForm = () => {
                 if((id.value.trim()).length>0) memberarray.push(id.value)
               }
               setMember(memberarray);
+              setRegBtn((p)=>!p)
+              setResponse((prev)=>({
+                ...prev,
+                message:"Members added successfully!",
+              }))
+              
+              setTimeout(()=>{
+                setRegBtn((p)=>!p)
+                setResponse((prev)=>({
+                  ...prev,
+                  message:'Please Wait for a moment!',
+                }))
+              }, 2000);
             }}
             >Add Members</Button>
              </div>) : null
@@ -222,6 +282,7 @@ const RegistrationForm = () => {
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
           '>
             <input
+            required
             onChange={handleChange}
             name='college'
             type='text'

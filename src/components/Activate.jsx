@@ -1,9 +1,7 @@
 import React,{ useState, useEffect } from 'react'
 import Logo from './Logo'
 import '../Custom.css'
-import {Howl, Howler} from 'howler';
 import {Link, useNavigate} from 'react-router-dom';
-import optimus from "../assets/sounds/transformer_venom.mp3"
 
 
 const Activate = () => {
@@ -16,28 +14,6 @@ const Activate = () => {
     },800);
   },[]);
   
-  //calling for sound effect
-  // useEffect(()=>{
-  //   const greeting = new Howl({
-  //     src: optimus,
-  //     volume: 0.5,
-  //   });
-  //   function playSegment(startTime, duration) {
-  //     greeting.seek(startTime);
-  //     greeting.play();
-
-  //     setTimeout(() => {
-  //       greeting.stop(); 
-  //     }, duration * 1000);
-  //   }
-    
-  //   playSegment(0.4, 0.8);
-  //   return ()=>{
-  //     greeting.stop();
-  //     greeting.unload();
-  //   };
-  // },[]);
-  
   return (
     <>
      <div 
@@ -47,7 +23,7 @@ const Activate = () => {
       />
      </div>
      <main
-    className={`${visible? 'hidden' : ''} w-full`}
+    className={`${visible? 'hidden' : ''} w-full h-[100%]`}
     >
         <div 
         className="h-[100%] w-full md:flex md:justify-center md:items-center py-10
@@ -73,14 +49,14 @@ const Activate = () => {
         
         <div className="h-[100%] pb-20 text-center">
             <h1 
-          className='text-2xl text-grad text-center font-serif md:text-2xl reverseFade 
+          className='text-2xl text-grad text-center font-serif md:text-3xl reverseFade 
           '>Presented by</h1>
           
-          <p className='text-3xl md:text-3xl text-grad text-center font-serif reverseFade 
+          <p className='text-3xl md:text-4xl text-grad text-center font-serif reverseFade 
           ' >Department of Computer Science</p>
           
-          <p className='text-2xl text-grad text-center font-serif reverseFade 
-          ' >National P.G. College</p>
+          <p className='text-2xl md:text-3xl text-grad text-center font-serif reverseFade' >National P.G. College</p>
+          <p className='text-2xl md:text-3xl text-grad text-center font-serif reverseFade' >Lucknow</p>
           </div>
     </main> 
    </>

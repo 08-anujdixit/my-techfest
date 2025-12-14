@@ -86,16 +86,16 @@ function Timeline() {
         TIMELINE
       </h1>
       <div
-      className='md:flex md:gap-32 px-7 font-mono'
+      className='md:gap-32 px-7 font-mono'
       >
       {
         timeline.map((tl, index) => (
         <div 
         key={index}
-        className='text-center w-fit my-4 mx-auto p-6'>
+        className='text-center w-full my-4 mx-auto p-6'>
           <h2 className="text-3xl font-extrabold text-white mb-12">{tl.day}</h2>
           {/* Timeline container */}
-          <div className="relative border-l-4 border-gray-400 pl-10">
+          <div className="relative border-l-4 border-gray-400 pl-10 md:ml-16">
             {tl.events_day.map((event, index) => (
               <div key={index} className="mb-10 relative text-start">
                 {/* Circle */}
@@ -103,7 +103,7 @@ function Timeline() {
     
                 {/* Event details */}
                 <div
-                className="inline-block mx-4"
+                className="block mx-4"
                 >
                   <h3 className="text-lg font-bold text-white">{event.title}</h3>
                   <p className="text-sm text-gray-300 italic">

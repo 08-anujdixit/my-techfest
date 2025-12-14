@@ -6,7 +6,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import EventsPage from './pages/EventsPage'
 import HomePage from './pages/HomePage'
 import RegistrationPage from './pages/RegistrationPage'
-import LeaderboardPage from './pages/LeaderboardPage'
 import AboutPage from './pages/AboutPage'
 import CodeAThon from './pages/hackathon/CodeAThon'
 import Activate from './components/Activate'
@@ -34,9 +33,6 @@ const router = createBrowserRouter([
       },
       { path: "register", 
         element: <RegistrationPage />,
-      },
-      { path: "leaderboard", 
-        element: <LeaderboardPage />,
       },
     ],
   },

@@ -4,7 +4,6 @@ import '../Custom.css'
 import {Link, useNavigate, useLocation} from 'react-router-dom'
 import Logo from './Logo'
 import Button from './Button'
-import { useSelector } from 'react-redux';
 import { HiOutlineMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 
@@ -15,7 +14,7 @@ export default function Navbar(){
   useEffect(()=>{
     setTimeout(()=>{
       setToggleMenu((prev)=>false);
-    }, 500);
+    }, 2000);
   },[location]);
   
   const navBar=[
@@ -35,14 +34,14 @@ export default function Navbar(){
       active: true,
     },
     {
-      name:"Hackathon",
-      slug:"/codeathon",
+      name:"Brochure",
+      slug:"/",
       active:true,
     },
     {
-      name:"Leaderboard",
-      slug:"/leaderboard",
-      active: true,
+      name:"Hackathon",
+      slug:"/codeathon",
+      active:true,
     },
     {
       name:"Registration",
@@ -63,7 +62,7 @@ export default function Navbar(){
   
   return (
     <header
-    className="h-auto w-full px-2 sticky top-2 z-[1000] mb-5">
+    className="h-auto w-full px-2 sticky top-2 z-[1100] mb-5">
       <ul
       className='mt-3 px-2 flex justify-between items-center bg-transparent-blur border-[0.8px] border-gray-500 w-full transition-all hover:border-white'
       >

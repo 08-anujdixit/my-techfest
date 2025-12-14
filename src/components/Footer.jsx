@@ -12,28 +12,34 @@ const Footer = () => {
   
   const quickLinks =[
     {
+      name:"Register Now",
+      slug:"/register",
+      active:true,
+    },
+    {
       name:"Code of Conduct",
       slug:"/about/#coc",
       active:true,
     },
-    {
-      name:"Have Any Queries",
-      slug:"/about/#query",
-      active:true,
-    },
+    
     {
       name:"Contact Us",
       slug:"/about/#contactus",
       active:true,
     },
-    { 
-      name:"Leader Board",
-      slug:"/leaderboard",
+    {
+      name:"Privacy and Policy",
+      slug:"/about/#privacy-policy",
       active:true,
     },
     {
-      name:"Our Team",
-      slug:"/about/#coreteam",
+      name:"Refund Policy",
+      slug:"/about/#refund-policy",
+      active:true,
+    },
+    {
+      name:"Have Any Queries",
+      slug:"/about/#query",
       active:true,
     },
     {
@@ -47,19 +53,13 @@ const Footer = () => {
       active:true,
     },
     {
-      name:"Register Now",
-      slug:"/register",
+      name:"Brochure",
+      slug:"/",
       active:true,
     },
   ]
   
   const socialMediaAcc = [
-  {
-    title: 'Instagram',
-    active:true,
-    icon: <FaInstagram />,
-    slug:"/",
-  },
   {
     title: 'Facebook',
     active:true,
@@ -67,22 +67,28 @@ const Footer = () => {
     slug:"/",
   },
   {
-    title: 'XTwiteter',
+    title: 'Instagram',
     active:true,
-    icon: <FaXTwitter />,
-    slug:"/",
+    icon: <FaInstagram />,
+    slug:"https://www.instagram.com/techfest5.0?igsh=cm9hZ2VnaDJlZmU4",
   },
   {
     title: 'LinkedIn',
     active:true,
+    icon: <FaLinkedin />,
+    slug:"https://www.linkedin.com/events/techfestnpgc7405912813782810624/",
+  },
+  {
+    title: 'YouTube',
+    active:true,
     icon: <FaYoutube />,
-    slug:"/",
+    slug:"https://youtube.com/@npgccomputerscience?si=JvZrymg4dLUGdQkv",
   },
 ]
   
   return (
     <>
-      <footer className='h-auto py-4 bg-gray-900 w-full relative z-[1000]'>
+      <footer className='h-auto py-4 bg-gray-900 w-full relative z-[1000] bottom-0'>
         <div className='flex items-center'>
           <Link
           to='/'
@@ -94,21 +100,20 @@ const Footer = () => {
           </Link>
           <p className='w-[90%] font-extrabold text-grad pb-1 md:text-xl'>Quick Links</p>
         </div>
-        <div className='w-auto h-auto '>
+        <div className='md:flex md:justify-center md:items-center w-auto h-auto px-2'>
           <ul 
-          className='m-5 columns-2 w-full 
-          ' >
+          className='my-5 grid grid-cols-3 gap-y-0 w-full' >
             {
               quickLinks?.map((l) =>(
                 l.active ? (<li
                 key={l.name}
-                className='text-[0.9rem] m-2
-                  md:text-[1.5rem] 
+                className='text-[0.8rem] my-1
+                  md:text-[1.5rem] text-center
                   '
                 >
                   <Link 
                     to={l.slug}
-                    className="text-gray-400"
+                    className="text-gray-400 hover-grad"
                   >{l.name}</Link>
                 </li>) : null
               ))
@@ -116,7 +121,7 @@ const Footer = () => {
           </ul>
         </div>
         
-        <div className=' my-3 p-2 flex text-3xl justify-around md:justify-evenly'>
+        <div className=' my-3 p-2 flex text-xl md:text-3xl justify-around md:justify-evenly'>
           {
             socialMediaAcc?.map((sma,i) =>(
               sma.active ? (
