@@ -112,7 +112,7 @@ const Footer = () => {
                   '
                 >
                   <a 
-                    href={l.name=='Brochure'?'/src/assets/data/brochure.pdf':l.slug}
+                    href={l.name=='Brochure'?'/public/brochure/brochure.pdf':l.slug}
                   download={l.name=='Brochure'?true:false}
                     className="text-gray-400 hover-grad"
                   >{l.name}</a>
