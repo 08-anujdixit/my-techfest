@@ -76,7 +76,7 @@ const Footer = () => {
     title: 'LinkedIn',
     active:true,
     icon: <FaLinkedin />,
-    slug:"https://www.linkedin.com/events/techfestnpgc7405912813782810624/",
+    slug:"https://www.linkedin.com/company/techfest5-0/",
   },
   {
     title: 'YouTube',
