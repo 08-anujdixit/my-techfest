@@ -205,7 +205,6 @@ const RegistrationForm = () => {
                   }}
                   name='membercount'
                   type='number'
-                  value={formData.membercount}
                   placeholder="Number of Members"
                   className="w-full bg-transparent-blur text-gray-50 p-2"
                   />
