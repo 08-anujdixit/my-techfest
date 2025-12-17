@@ -107,7 +107,7 @@ export default function Navbar(){
                 }}
                 >
                   <a
-                  href={item.name=='Brochure'?'/public/brochure/brochure.pdf':item.slug}
+                  href={item.name=='Brochure'?'/brochure/brochure.pdf':item.slug}
                   download={item.name=='Brochure'?true:false}
                   >{item.name}</a>
                 </button>
