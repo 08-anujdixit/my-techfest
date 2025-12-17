@@ -79,7 +79,7 @@ export default function Navbar(){
         </li>
         <li>
           <button
-          className={`w-[3rem]  flex justify-center text-2xl text-white rounded font-extrabold
+          className={`w-[3rem]  flex justify-center text-2xl md:text-4xl md:mr-[1rem] text-white rounded font-extrabold 
           `}
           onClick={()=>{setToggleMenu((prev)=>!prev)}}
           >
@@ -106,7 +106,10 @@ export default function Navbar(){
                   navigate(item.slug)
                 }}
                 >
-                  {item.name}
+                  <a
+                  href={item.name=='Brochure'?'/src/assets/data/brochure.pdf':item.slug}
+                  download={item.name=='Brochure'?true:false}
+                  >{item.name}</a>
                 </button>
               ):null
             )

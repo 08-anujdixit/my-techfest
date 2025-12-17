@@ -64,7 +64,7 @@ const Footer = () => {
     title: 'Facebook',
     active:true,
     icon: <FaFacebook />,
-    slug:"/",
+    slug:"https://www.facebook.com/share/1Av6JwqyF3/",
   },
   {
     title: 'Instagram',
@@ -111,10 +111,11 @@ const Footer = () => {
                   md:text-[1.5rem] text-center
                   '
                 >
-                  <Link 
-                    to={l.slug}
+                  <a 
+                    href={l.name=='Brochure'?'/src/assets/data/brochure.pdf':l.slug}
+                  download={l.name=='Brochure'?true:false}
                     className="text-gray-400 hover-grad"
-                  >{l.name}</Link>
+                  >{l.name}</a>
                 </li>) : null
               ))
             }

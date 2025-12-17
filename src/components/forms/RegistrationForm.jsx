@@ -65,9 +65,27 @@ const RegistrationForm = () => {
   }
  
   const handleSubmit= async (data,e)=>{
-    if (formData.membercount>1 && member.length<(formData.membercount)-1){
+    if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
       setResponse({
-        message:"Members list is empty! Please add them by pressing 'Add Members' Button",
+        message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
+        success:false,
+      });
+    }
+    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
+      setResponse({
+        message:`This event does not require team details. Kindly remove the team information or refill the form to proceed.`,
+        success:false,
+      });
+      setFormData((prev)=>({
+          ...prev,
+          membercount:null,
+        }));
+      setTeamName(null);
+      setMember([]);
+    }
+    else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
+      setResponse({
+        message:`You entered a team size of ${formData.membercount}, but entered ${Number(formData.membercount)+1} member names. Please update the member list by pressing 'Add Members' button to match the selected team size.`,
         success:false,
       });
     }
@@ -112,11 +130,13 @@ const RegistrationForm = () => {
       {/*MESSAGE RESPONSE BOX*/
         regBtn & (response?.success || response?.success==false) ?
           <div className="absolute h-[100%] w-full z-[1000] left-0 flex justify-center items-center bg-amber-10">
-            <div className="bg-grad h-[40%] w-80 p-[1px] rounded-lg">
-              <div className="bg-[#001] h-full w-full rounded-lg flex justify-center items-center">
-                <p className="text-white text-xl text-center text-justify p-10">
-                  {response?.message}
-                </p>
+            <div className="bg-grad h-[50%] w-80 p-[1px] rounded-lg text-center">
+              <div className="bg-[#001] h-full w-full rounded-lg">
+                <div className="h-full flex justify-center items-center">
+                  <p className="text-white text-xl text-center text-justify p-10">
+                    {response?.message}
+                  </p>
+                </div>
               </div>
             </div>
           </div>:null
@@ -176,7 +196,7 @@ const RegistrationForm = () => {
                   <input
                   required
                   onChange={(e)=>{
-                    if(e.target.value>4){
+                    if(e.target.value>4 || (e.target.value<2 && formData.event=="CODE-A-THON")){
                       e.target.value=null
                     }
                     else{
@@ -185,6 +205,7 @@ const RegistrationForm = () => {
                   }}
                   name='membercount'
                   type='number'
+                  value={formData.membercount}
                   placeholder="Number of Members"
                   className="w-full bg-transparent-blur text-gray-50 p-2"
                   />
@@ -206,7 +227,7 @@ const RegistrationForm = () => {
           </div>
           
           {
-            (formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )?(<div
+            ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt') && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )?(<div
             className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400"
             >
               <label className='text-grad'>
@@ -244,7 +265,7 @@ const RegistrationForm = () => {
               }))
               
               setTimeout(()=>{
-                setRegBtn((p)=>!p)
+                setRegBtn((p)=>!p);
                 setResponse((prev)=>({
                   ...prev,
                   message:'Please Wait for a moment!',

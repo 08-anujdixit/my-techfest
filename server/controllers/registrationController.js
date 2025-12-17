@@ -28,13 +28,31 @@ export const register = async (req, res) => {
       }
       
       //check if email is valid or not
-      if (validateEmail(formData.email)){
+      if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
+      return res.status(200).json({
+        message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
+        success:false,
+      });
+    }
+    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
+      return res.status(200).json({
+        message:`This event does not require team details. Kindly remove the team information or refill the form to proceed.`,
+        success:false,
+      });
+    }
+    else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
+      return res.status(200).json({
+        message:`You entered a team size of ${formData.membercount}, but entered ${Number(formData.membercount)+1} member names. Please update the member list by pressing 'Add Members' button to match the selected team size.`,
+        success:false,
+      });
+    }
+    //check if email is valid or not
+    else if (validateEmail(formData.email)){
         return res.status(200).json({
         message:'Please enter a valid email address.\nEmail must start with a letter and contain “@” and “.”',
         success:false,
         });
       }
-      
       // Find user by email, and event
        const registration = await Registration.findOne({email, enrolledEvent: formData.event});
        if (registration) {
@@ -69,7 +87,7 @@ export const register = async (req, res) => {
         email : email,
         phone: formData.phone,
         isTeam: (formData.membercount?true:false),
-        teamSize: formData.membercount,
+        teamSize: (formData.membercount!=null?formData.membercount:1),
         members: member,
         feeIsPaid: true,
         fee: 200,

@@ -26,10 +26,10 @@ const Activate = () => {
     className={`${visible? 'hidden' : ''} w-full h-[100%]`}
     >
         <div 
-        className="h-[100%] w-full md:flex md:justify-center md:items-center py-10
+        className="h-[100%] w-full py-10
         ">
           <h1 
-          className='text-7xl text-grad text-center font-serif md:text-8 reverseFade w-full
+          className='text-7xl text-grad text-center font-serif md:text-[6rem] reverseFade w-full
           '>Tech Fest 5.0</h1>
           
           <div 
@@ -49,14 +49,14 @@ const Activate = () => {
         
         <div className="h-[100%] pb-20 text-center">
             <h1 
-          className='text-2xl text-grad text-center font-serif md:text-3xl reverseFade 
+          className='text-xl text-grad text-center font-serif md:text-3xl reverseFade 
           '>Presented by</h1>
           
-          <p className='text-3xl md:text-4xl text-grad text-center font-serif reverseFade 
+          <p className='text-2xl md:text-4xl text-grad text-center font-serif reverseFade 
           ' >Department of Computer Science</p>
           
-          <p className='text-2xl md:text-3xl text-grad text-center font-serif reverseFade' >National P.G. College</p>
-          <p className='text-2xl md:text-3xl text-grad text-center font-serif reverseFade' >Lucknow</p>
+          <p className='text-2xl md:text-4xl text-grad text-center font-serif reverseFade' >National P.G. College</p>
+          <p className='text-2xl md:text-4xl text-grad text-center font-serif reverseFade' >Lucknow</p>
           </div>
     </main> 
    </>
