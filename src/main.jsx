@@ -9,32 +9,13 @@ import RegistrationPage from './pages/RegistrationPage'
 import AboutPage from './pages/AboutPage'
 import CodeAThon from './pages/hackathon/CodeAThon'
 import Activate from './components/Activate'
-import Page404 from "./pages/Page404";
+import Page404 from "./pages/Page404.jsx";
+import UnderDevelopment from "./pages/UnderDevelopment.jsx";
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
-    children: [
-      { path: "", 
-        element: <Activate />,
-      },
-      { path: "home", 
-        element: <HomePage />,
-      },
-      { path: "about",
-        element: <AboutPage />,
-      },
-      { path: "events",
-        element: <EventsPage />,
-      },
-      { path: "codeathon", 
-        element: <CodeAThon />,
-      },
-      { path: "register", 
-        element: <RegistrationPage />,
-      },
-    ],
+    element: <UnderDevelopment />,
   },
   { path: "*", 
     element: <Page404 />,
