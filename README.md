@@ -10,8 +10,6 @@ Built with the **MERN Stack** – **MongoDB**, **Express**, **React**, and **Nod
 - 📢 **Event Listings** – Showcase all fest events with details.
 - 📝 **Online Registration** – Participants can register directly from the site.
 - 📅 **Schedule Page** – Displays event dates and times.
-- 📧 **Contact Form** – Easy way to reach the organizing team.
-- 🔐 **Admin Panel** – Manage events, registrations, and content.
 - 📱 **Responsive Design** – Works on mobile, tablet, and desktop.
 - **Other Details** - Other pages like sponsors details, event managing team, organizers, etc.
 
