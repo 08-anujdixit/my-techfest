@@ -26,6 +26,7 @@ const RegistrationForm = () => {
     email:"",
     event:"",
     membercount:null,
+    terms_and_conditions:null,
   });
   const [response,setResponse]= useState({
     message:'Please Wait for a moment!',
@@ -110,6 +111,7 @@ const RegistrationForm = () => {
           email:"",
           event:"",
           membercount:null,
+          terms_and_conditions:null,
         });
         setTeamName(null);
         setMember([]);
@@ -309,6 +311,20 @@ const RegistrationForm = () => {
             placeholder='College/School'
             rows="4"
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
+          </div>
+          
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+          '>
+            <label
+            className="w-full bg-transparent-blur text-gray-50 p-2 text-sm flex gap-8 items-center">
+            I agree to all terms and conditions.
+            <input
+            required
+            onChange={handleChange}
+            name='terms_and_conditions'
+            type='checkbox'
+            className='w-[20px] h-[20px] accent-[#FF1F6A]'
+            /></label>
           </div>
           
           <div className="w-full text-center">

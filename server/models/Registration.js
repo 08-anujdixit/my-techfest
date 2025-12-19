@@ -57,6 +57,10 @@ const registrationSchema= new mongoose.Schema({
     type: String,
     default: '',
   },
+  terms_and_conditions:{
+    type:String,
+    default:'I accept.'
+  },
   createdAt: {
     type: Date,
     default: Date.now,
