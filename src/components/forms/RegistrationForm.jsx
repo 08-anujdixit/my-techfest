@@ -151,7 +151,8 @@ const RegistrationForm = () => {
           setRegBtn((p)=>!p);
           handleSubmit({formData, teamName, member,},e);
         }}
-        className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md: justify-around'>
+        className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md:justify-around'>
+
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
             <label className="text-grad">
@@ -229,7 +230,7 @@ const RegistrationForm = () => {
           
           {
             ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt') && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )?(<div
-            className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400"
+            className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 "
             >
               <label className='text-grad'>
                 Enter other member's details
