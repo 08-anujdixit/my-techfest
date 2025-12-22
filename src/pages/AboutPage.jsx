@@ -167,8 +167,8 @@ const AboutPage = () => {
       ans:'Anyone with a passion for tech can participate — students from any college, developers, and designers are all welcome.'
     },
     {
-      query:'Who do I contact for queries?',
-      ans:'You can reach out to us at techfest.npgc@gmail.com or DM us on Instagram or LinkedIn @techfest5.0, We’re happy to help!'
+      query:'Who do I contact for more queries?',
+      ans:'You can reach out to us at techfest.npgc@gmail.com or DM us on Instagram or LinkedIn @techfest5.0 or contact the coordinators from the Contact Us section, We’re happy to help!'
     },
     {
       query:'What should I bring?',

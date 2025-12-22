@@ -142,7 +142,7 @@ const Footer = () => {
         <div className='flex justify-center h-[20%] items-center'>
           <p
           className='text-grad md:text-2xl'
-          >&copy; 2025 Tech Fest. All Rights Reserved.</p>
+          >&copy; TechFest 5.0 — All Rights Reserved.</p>
         </div>
         
       </footer>
