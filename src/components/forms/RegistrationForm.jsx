@@ -341,7 +341,7 @@ const RegistrationForm = () => {
             <div className="bg-transparent-blur flex justify-between items-center p-4">
               <label
               className="w-auto text-gray-50 text-sm">
-              I agree to all terms and conditions.
+              I agree to all rules and regulations for the event.
               </label>
               <input
               disabled={regBtn}
