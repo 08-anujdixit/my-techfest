@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import EventCard from '../components/cards/EventCard'
 import Button from '../components/Button.jsx'
@@ -11,12 +11,11 @@ import hackathon from '../assets/images/hackathon.jpg'
 import braincode from '../assets/images/brain-n-code.jpg'
 import logodesign from '../assets/images/logo-desing.jpg'
 
+
 const EventsPage = () => {
   const navigate=useNavigate()
   const [detail,setDetail] = useState({});
-  
   const [show,setShow] = useState(false);
-  
   const events=[
     { name:'Renaissance Expo',
       slug: '/register',
@@ -55,6 +54,15 @@ const EventsPage = () => {
     },
   ]
   
+  useEffect(()=>{
+    if(show){
+      document.body.style.overflow='hidden';
+    }
+    else{
+      document.body.style.overflow='';
+    }
+  },);
+  
   return (
     <>
     <div className='my-6 text-center'>
@@ -62,7 +70,7 @@ const EventsPage = () => {
         Events
       </h1>
     </div>
-    <div className="p-8 flex flex-wrap grid md:grid-cols-2 gap-[2rem] md:gap-8 justify-center items-center reverseFade">
+    <div className={`p-8 flex flex-wrap grid md:grid-cols-2 gap-[2rem] md:gap-8 justify-center items-center reverseFade`}>
           {
             events.map((e,index) =>
             <EventCard
@@ -81,7 +89,7 @@ const EventsPage = () => {
           }
     </div>
     <container
-    className={` w-[100%] h-auto p-[2rem]  rounded-xl fixed top-[5rem] md:top-[7rem] z-[5] ${show?'':'hidden'}
+    className={` w-[100%] h-full p-[2rem] rounded-xl fixed top-0 z-[1200] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
     `}
     >
       <div

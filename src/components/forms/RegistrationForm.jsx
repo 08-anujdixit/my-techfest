@@ -1,10 +1,13 @@
 import React,{useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
 import '../../Custom.css';
 import Button from '../../components/Button';
 import { MdOutlineDoneOutline } from "react-icons/md";
 import { register } from "../../services/registrationService.js";
 
 const RegistrationForm = () => {
+  const navigate = useNavigate();
+ 
   const events=[
     {name:'Select Event', status:false},
     {name:'Renaissance Expo', status:true},
@@ -15,7 +18,6 @@ const RegistrationForm = () => {
     {name:'Brain & Code', status:true},
     {name:'Logo Desinging', status:true},
   ]
-  
   const [regBtn,setRegBtn]=useState(false)
   const [member,setMember]=useState([]);
   const [teamName,setTeamName]=useState("");
@@ -127,12 +129,23 @@ const RegistrationForm = () => {
     }, 5000);
   }
   
+  useEffect(()=>{
+    if (regBtn) {
+      navigate('#response-message')
+      document.body.style.overflow = 'hidden';
+    }else{
+      document.body.style.overflow = '';
+    }
+  },);
+  
   return (
     <container className='w-auto h-auto flex justify-center my-10'>
       {/*MESSAGE RESPONSE BOX*/
         regBtn & (response?.success || response?.success==false) ?
-          <div className="absolute h-[100%] w-full z-[1000] left-0 flex justify-center items-center bg-amber-10">
-            <div className="bg-grad h-[50%] w-80 p-[1px] rounded-lg text-center">
+          <div
+          id='response-message'
+          className="fixed h-full w-full z-[1200] top-0 flex justify-center items-center bg-transparent-blur">
+            <div className="bg-grad h-[50%] w-80 md:w-[60%] p-[1px] rounded-lg text-center">
               <div className="bg-[#001] h-full w-full rounded-lg">
                 <div className="h-full flex justify-center items-center">
                   <p className="text-white text-xl text-center text-justify p-10">
@@ -160,6 +173,7 @@ const RegistrationForm = () => {
               Choose Event to Enroll
             </label>
             <select
+            disabled={regBtn}
             required
             className="w-full bg-transparent-blur text-gray-50 p-2 "
             name='event'
@@ -179,11 +193,12 @@ const RegistrationForm = () => {
           </div>
           
           {
-            formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt' ? (
+            (formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt') ? (
               <>
               <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
             '>
               <input
+              disabled={regBtn}
               required
               onChange={(e)=>{
                 setTeamName(e.target.value)
@@ -198,6 +213,7 @@ const RegistrationForm = () => {
             <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
                 '>
                   <input
+                  disabled={regBtn}
                   required
                   onChange={(e)=>{
                     if(e.target.value>4 || (e.target.value<2 && formData.event=="CODE-A-THON")){
@@ -220,6 +236,7 @@ const RegistrationForm = () => {
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
             <input
+            disabled={regBtn}
             required
             onChange={handleChange}
             name='name'
@@ -240,6 +257,7 @@ const RegistrationForm = () => {
                 Array.from(
                 {length: formData.membercount - 1 }).map((_, i) => (
                     <input
+                      disabled={regBtn}
                       required
                       key={i}
                       id={`member${i}`}
@@ -282,6 +300,7 @@ const RegistrationForm = () => {
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
             <input
+            disabled={regBtn}
             required
             onChange={handleChange}
             name='phone'
@@ -294,6 +313,7 @@ const RegistrationForm = () => {
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 flex gap-2 items-center md:w-[30%]
           '>
             <input
+            disabled={regBtn}
             required
             onChange={handleChange}
             name='email'
@@ -306,6 +326,7 @@ const RegistrationForm = () => {
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
             <input
+            disabled={regBtn}
             required
             onChange={handleChange}
             name='college'
@@ -323,6 +344,7 @@ const RegistrationForm = () => {
               I agree to all terms and conditions.
               </label>
               <input
+              disabled={regBtn}
               required
               onChange={handleChange}
               name='terms_and_conditions'

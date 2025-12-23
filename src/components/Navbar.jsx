@@ -18,7 +18,7 @@ export default function Navbar(){
   useEffect(()=>{
     setTimeout(()=>{
       setToggleMenu((prev)=>false);
-    }, 2000);
+    }, 1000);
   },[location]);
   
   const navBar=[

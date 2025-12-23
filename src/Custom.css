@@ -84,7 +84,7 @@
   height: 20px;
   top: 0;
   left: 0;
-  z-index: -2; /* keeps particles behind UI */
+  z-index: -10; /* keeps particles behind UI */
 }
 
 /* ALL KEYFRAMES FOR ANIMATION */
