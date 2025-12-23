@@ -106,7 +106,7 @@ export default function Navbar(){
                 text-white object-contain
                 hover:border-[1px]
                 hover:border-white 
-                font-extrabold
+                font-bold
                 '
                 onClick={()=>{
                   navigate(item.slug)
