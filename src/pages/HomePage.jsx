@@ -82,7 +82,7 @@ function Timeline() {
   return (
     <div className="flex flex-col items-center py-2 px-4">
       {/* Title */}
-      <h1 className="text-5xl font-bold text-grad tracking-widest mb-6">
+      <h1 className="text-5xl md:text-6xl font-bold text-grad tracking-wide mb-6">
         TIMELINE
       </h1>
       <div
@@ -129,11 +129,11 @@ const HomePage = () => {
     <container
     className='reverseFade'>
       <section className="my-8">
-        <h1 className={`text-grad text-6xl text-center w-full my-4`}>
+        <h1 className={`text-grad text-5xl md:text-6xl font-bold tracking-wide text-center w-full my-4`}>
         Introduction
         </h1>
         <div className=" my-2 w-[100%] flex-wrap">
-            <p className="text-gray-300 w-auto px-5 text-justify ">
+            <p className="text-gray-300 w-auto px-5 text-justify">
                    At <span className="text-grad font-extrabold font-mono">TechFest 5.0</span>, we raise the bar even higher, uniting brilliant innovators, creative thinkers, and passionate tech enthusiasts under one banner for an extraordinary celebration of technology, innovation, and imagination. This year’s fest is bigger, bolder, and more immersive — blending cutting-edge technology with creativity, talent, and fun. With a wide spectrum of events crafted to spark curiosity and showcase talent, from AI-driven projects to digital artistry, every participant will discover a stage to shine and inspire.
             </p>
             <p className="text-gray-300 w-auto px-5 text-justify mt-3 ">

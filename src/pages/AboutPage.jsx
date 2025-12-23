@@ -180,19 +180,19 @@ const AboutPage = () => {
   <container className='reverseFade' >
     <h1
     id="aboutus"
-    className='text-6xl text-center text-grad'>
+    className='text-5xl md:text-6xl text-center text-grad font-bold tracking-wide'>
       ABOUT US
     </h1>
     <section className="my-8 ">
         <div className=" my-2 w-[100%] flex-wrap">
-            <p className="text-gray-300 w-auto px-5 text-justify "><a href="https://www.npgc.in/"><span className="text-grad font-extrabold  font-mono">National Post Graduate College</span></a>, established in 2005, stands as a beacon of academic excellence and innovation. With a serene and inclusive campus, the college is dedicated to nurturing talent and fostering growth in every student. The Computer Science department, a cornerstone of the institution, embraces the latest technological advancements to deliver a robust, industry-oriented education. The college equips students with the skills and confidence to excel in their chosen fields by emphasizing research, internships, and hands-on learning. Complemented by a vibrant array of cultural, sports, and extracurricular opportunities, the college shapes well-rounded individuals prepared to make meaningful contributions to society.
+            <p className="text-gray-300 w-auto px-5 text-justify "><a href="https://www.npgc.in/"><span className="text-grad font-extrabold font-mono">National Post Graduate College</span></a>, established in 2005, stands as a beacon of academic excellence and innovation. With a serene and inclusive campus, the college is dedicated to nurturing talent and fostering growth in every student. The Computer Science department, a cornerstone of the institution, embraces the latest technological advancements to deliver a robust, industry-oriented education. The college equips students with the skills and confidence to excel in their chosen fields by emphasizing research, internships, and hands-on learning. Complemented by a vibrant array of cultural, sports, and extracurricular opportunities, the college shapes well-rounded individuals prepared to make meaningful contributions to society.
             </p>
         </div>
       </section>
     
     {/* SECTION FOR CODE OF CUNDUCT */
     <section id="coc" className="aboutpage">
-        <h2 className="mb-2">
+        <h2 className="mb-2 font-bold">
           Code of Conduct
         </h2>
         <div className="overflow-auto">
@@ -218,7 +218,7 @@ const AboutPage = () => {
     
     {/* SECTION FOR PRIVACY AND POLICY */
     <section id="privacy-policy" className="aboutpage">
-      <h2 className="mb-2">Privacy Policy</h2>
+      <h2 className="mb-2 font-bold">Privacy Policy</h2>
       <p className="text-gray-300 w-auto text-justify text-sm">
       This Privacy Policy explains how <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>, organized by National Post Graduate College, Lucknow, collects, uses, and protects your information.
       </p>
@@ -245,7 +245,7 @@ const AboutPage = () => {
     
     {/* SECTION FOR REFUND POLICY */
     <section id="refund-policy" className="aboutpage">
-      <h2 className="mb-2">Refund and Cancellation Policy</h2>
+      <h2 className="mb-2 font-bold">Refund and Cancellation Policy</h2>
       <p className="text-gray-300 w-auto text-justify text-sm">
       We want to ensure a smooth and transparent process for all participants of <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>. Below is our Refund and Cancellation Policy:
       </p>
@@ -291,12 +291,12 @@ const AboutPage = () => {
     
     {/* SECTION FOR SPONSORS */}
     <section id="sponsors" className="aboutpage">
-      <h2 className="mb-0">Sponsors Coming Soon</h2>
+      <h2 className="mb-0 font-bold">Sponsors Coming Soon</h2>
     </section>
     
     {/* SECTION FOR QUERIES */}
     <section id="query" className="aboutpage">
-      <h2 className="mb-2">
+      <h2 className="mb-2 font-bold">
         Queries
       </h2>
       {
@@ -326,7 +326,9 @@ const AboutPage = () => {
     
     {/* SECTION FOR CONTACTING */}
     <section id="contactus" className="aboutpage">
-      Contact Us
+      <h2 class="mb-2 font-bold">
+        Contact Us
+      </h2>
       <p className="text-lg my-3">
         <strong className='text-grad'>Email Address: </strong>
         <p>techfest.npgc@gmail.com</p>

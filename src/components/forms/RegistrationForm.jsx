@@ -145,13 +145,14 @@ const RegistrationForm = () => {
       }
       <div className={`bg-grad w-[90%] flex justify-center p-[0.8px] rounded-lg
       ${regBtn?'opacity-50':''} `}>
-        <form 
+        <form
+        id='regForm'
         onSubmit={(e)=>{
           e.preventDefault();
           setRegBtn((p)=>!p);
           handleSubmit({formData, teamName, member,},e);
         }}
-        className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md:justify-around'>
+        className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md:justify-around md:items-start'>
 
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
@@ -180,7 +181,7 @@ const RegistrationForm = () => {
           {
             formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt' ? (
               <>
-              <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+              <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
             '>
               <input
               required
@@ -194,7 +195,7 @@ const RegistrationForm = () => {
               />
             </div>
             
-            <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+            <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
                 '>
                   <input
                   required
@@ -216,7 +217,7 @@ const RegistrationForm = () => {
             ) : null
           }
           
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
             <input
             required
@@ -230,7 +231,7 @@ const RegistrationForm = () => {
           
           {
             ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt') && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )?(<div
-            className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 "
+            className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]"
             >
               <label className='text-grad'>
                 Enter other member's details
@@ -250,7 +251,7 @@ const RegistrationForm = () => {
                     ))
               }
             <Button
-            css='mt-2'
+            css='mt-2 w-auto'
             type='button'
             onClick={(e)=>{
               e.preventDefault();
@@ -278,7 +279,7 @@ const RegistrationForm = () => {
              </div>) : null
           }
           
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
             <input
             required
@@ -290,7 +291,7 @@ const RegistrationForm = () => {
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
           </div>
           
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 flex gap-2 items-center
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 flex gap-2 items-center md:w-[30%]
           '>
             <input
             required
@@ -302,7 +303,7 @@ const RegistrationForm = () => {
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
           </div>
           
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
             <input
             required
@@ -314,18 +315,21 @@ const RegistrationForm = () => {
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
           </div>
           
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%] text-center
           '>
-            <label
-            className="w-full bg-transparent-blur text-gray-50 p-2 text-sm flex gap-8 items-center">
-            I agree to all terms and conditions.
-            <input
-            required
-            onChange={handleChange}
-            name='terms_and_conditions'
-            type='checkbox'
-            className='w-[20px] h-[20px] accent-[#FF1F6A]'
-            /></label>
+            <div className="bg-transparent-blur flex justify-between items-center p-4">
+              <label
+              className="w-auto text-gray-50 text-sm">
+              I agree to all terms and conditions.
+              </label>
+              <input
+              required
+              onChange={handleChange}
+              name='terms_and_conditions'
+              type='checkbox'
+              className='w-auto h-[20px] accent-[#FF1F6A]'
+              />
+            </div>
           </div>
           
           <div className="w-full text-center">

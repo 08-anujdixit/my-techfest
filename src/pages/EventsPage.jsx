@@ -57,6 +57,11 @@ const EventsPage = () => {
   
   return (
     <>
+    <div className='my-6 text-center'>
+      <h1 className='text-grad text-5xl md:text-6xl font-bold tracking-wide'>
+        Events
+      </h1>
+    </div>
     <div className="p-8 flex flex-wrap grid md:grid-cols-2 gap-[2rem] md:gap-8 justify-center items-center reverseFade">
           {
             events.map((e,index) =>

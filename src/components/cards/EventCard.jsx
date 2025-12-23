@@ -13,7 +13,7 @@ const EventCard = ({children,event,onClick, ...props}) => {
       {...props}
       >
           <div className="bg-[#000011] rounded-xl p-4 h-[100%] ">
-            <h1 className="text-grad text-4xl md:text-6xl text-center md:text-[2rem] md:h-16 md:flex md:items-center md:justify-center ">
+            <h1 className="text-grad text-3xl md:text-4xl text-center md:text-[2rem] md:h-16 md:flex md:items-center md:justify-center  font-bold">
               {event.name?event.name:null}
             </h1>
             

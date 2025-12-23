@@ -128,3 +128,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* @media screen and (min-width: 1200px) and (max-width: 1439px) {
+  #regForm div{
+    width:30%;
+  }
+} */

@@ -21,7 +21,6 @@ const Footer = () => {
       slug:"/about/#coc",
       active:true,
     },
-    
     {
       name:"Contact Us",
       slug:"/about/#contactus",

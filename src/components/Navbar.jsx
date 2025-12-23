@@ -11,6 +11,10 @@ export default function Navbar(){
   const navigate = useNavigate();
   const location = useLocation();
   const [toggleMenu,setToggleMenu] = useState(false);
+  const [download,setDownload] = useState({
+    status:false,
+    fade:'reverseFade',
+  });
   useEffect(()=>{
     setTimeout(()=>{
       setToggleMenu((prev)=>false);
@@ -35,7 +39,7 @@ export default function Navbar(){
     },
     {
       name:"Brochure",
-      slug:"/",
+      slug:"",
       active:true,
     },
     {
@@ -95,7 +99,9 @@ export default function Navbar(){
             item.active ? (
                 <button
                 key={item.name}
-                className='w-full text-[12px] rounded
+                className='
+                w-full text-[12px] 
+                rounded md:text-[18px]
                 my-3 text-white 
                 text-white object-contain
                 hover:border-[1px]
@@ -109,6 +115,23 @@ export default function Navbar(){
                   <a
                   href={item.name=='Brochure'?'/brochure/brochure.pdf':item.slug}
                   download={item.name=='Brochure'?true:false}
+                  onClick={item.name=='Brochure'?
+                  (e)=>{
+                    setDownload((p)=>({
+                      ...p,
+                      status:!status,
+                    }));
+                    setTimeout(()=>{
+                      setDownload((p)=>({
+                      ...p,
+                      fade: 'customFade',
+                    }));
+                    },1500);
+                    setDownload((p)=>({
+                      status:!status,
+                      fade: 'reverseFade'
+                    }));
+                  }:false}
                   >{item.name}</a>
                 </button>
               ):null
@@ -116,6 +139,14 @@ export default function Navbar(){
           }
           </div>) 
         }
+        
+      <div className={`w-full h-[4rem] fixed top-[6rem] flex justify-center items-center transition-all ${download.status?download.fade:"hidden"}`}>
+        <div className="p-2 inline bg-gray-200 rounded-3xl">
+          <span className="text-grad font-extrabold text-xl">
+            Download started!
+          </span>
+        </div>
+      </div>
     </header>
   )
 }
