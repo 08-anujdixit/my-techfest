@@ -3,6 +3,7 @@ import '../Custom.css'
 
 const Button = ({
   css='',
+  btnCss='',
   children,
   ...props
 }) => {
@@ -15,6 +16,7 @@ const Button = ({
             rounded-3xl bg-[#000011] md:w-fit
             md:w-36 md:text-xl md:text-center
             hover:text-white font-extrabold
+            ${btnCss}
           `}
           {...props}
           >

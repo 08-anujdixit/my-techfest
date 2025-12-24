@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import '../../Custom.css';
 import Button from '../../components/Button';
+import tflogo from '../../assets/images/Tflogo.jpg'
 import { MdOutlineDoneOutline } from "react-icons/md";
 import { register } from "../../services/registrationService.js";
 
@@ -9,16 +10,18 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
  
   const events=[
-    {name:'Select Event', status:false},
-    {name:'Renaissance Expo', status:true},
-    {name:'CODE-A-THON', status:true},
-    {name:'Tech Treasure Hunt', status:true},
-    {name:'Thumbnail Making', status:true},
-    {name:'Character Desinging', status:true},
-    {name:'Brain & Code', status:true},
-    {name:'Logo Desinging', status:true},
-  ]
-  const [regBtn,setRegBtn]=useState(false)
+    {name:'Select Event', status:false, fee: 100, },
+    {name:'Renaissance Expo', status:true, fee: 150.50, },
+    {name:'CODE-A-THON', status:true, fee: 600.00, },
+    {name:'Tech Treasure Hunt', status:true, fee: 100, },
+    {name:'Thumbnail Making', status:true, fee: 100, },
+    {name:'Character Desinging', status:true, fee: 100, },
+    {name:'Brain & Code', status:true, fee: 100, },
+    {name:'Logo Desinging', status:true, fee: 100, },
+  ];
+  const [fee,setFee]=useState(null);
+  const [regBtn,setRegBtn]=useState(false);
+  const [show,setShow] = useState(false);
   const [member,setMember]=useState([]);
   const [teamName,setTeamName]=useState("");
   const [formData,setFormData]= useState({
@@ -26,6 +29,7 @@ const RegistrationForm = () => {
     phone:"",
     college:"",
     email:"",
+    transactionId:"",
     event:"",
     membercount:null,
     terms_and_conditions:null,
@@ -111,6 +115,7 @@ const RegistrationForm = () => {
           phone:"",
           college:"",
           email:"",
+          transactionId:"",
           event:"",
           membercount:null,
           terms_and_conditions:null,
@@ -129,12 +134,22 @@ const RegistrationForm = () => {
     }, 5000);
   }
   
+  //TO STOP THE SCROLLING WHILE DISPLAYING ANY MESSAGES
   useEffect(()=>{
     if (regBtn) {
-      navigate('#response-message')
+      navigate('#regForm');
+      document.body.style.overflow = 'hidden';
+    }else if (show) {
+      navigate('#regForm');
       document.body.style.overflow = 'hidden';
     }else{
       document.body.style.overflow = '';
+    }
+    for (let i = 0; i < events.length; i++) {
+      if (events[i].name === formData.event) {
+         setFee(events[i].fee);
+        break;
+      }
     }
   },);
   
@@ -155,6 +170,43 @@ const RegistrationForm = () => {
               </div>
             </div>
           </div>:null
+      }
+      
+      {/*QR CODE FOR TRANSACTION*/
+        <div
+        id="qrcode"
+    className={` w-full h-full p-[2rem] rounded-xl fixed top-0 z-[1200] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
+    `}
+    >
+      <div
+      className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem] w-auto md:w-[50%] text-white"
+      >
+        <button
+          className='w-full text-end text-2xl text-white mb-4'
+          onClick={()=>{
+            setShow((p)=>!p);
+          }}
+        >X</button>
+        {formData.event?
+          (<>
+        <div className="text-white font-bold flex justify-between w-auto">
+          <p>
+            Registration fee
+          </p>
+          <p>
+           INR {fee}
+          </p>
+        </div>
+        <hr className='w-auto'/>
+        <div className="text-white rounded-xl w-full h-auto md:flex md:justify-center">
+          <img src={tflogo} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%]">
+          </img>
+        </div>
+          </>
+          ):(<p>Please select an event to view the QR and the registration fee.</p>)
+        }
+      </div>
+    </div>
       }
       <div className={`bg-grad w-[90%] flex justify-center p-[0.8px] rounded-lg
       ${regBtn?'opacity-50':''} `}>
@@ -246,9 +298,35 @@ const RegistrationForm = () => {
             />
           </div>
           
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
+          '>
+            <input
+            disabled={regBtn}
+            required
+            onChange={handleChange}
+            name='phone'
+            type='number'
+            placeholder='Contact'
+            value={formData.phone}
+            className="w-full bg-transparent-blur text-gray-50 p-2"/>
+          </div>
+          
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 flex gap-2 items-center md:w-[30%]
+          '>
+            <input
+            disabled={regBtn}
+            required
+            onChange={handleChange}
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={formData.email}
+            className="w-full bg-transparent-blur text-gray-50 p-2"/>
+          </div>
+          
           {
             ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt') && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )?(<div
-            className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]"
+            className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[100%] md:mx-6"
             >
               <label className='text-grad'>
                 Enter other member's details
@@ -303,32 +381,6 @@ const RegistrationForm = () => {
             disabled={regBtn}
             required
             onChange={handleChange}
-            name='phone'
-            type='number'
-            placeholder='Contact'
-            value={formData.phone}
-            className="w-full bg-transparent-blur text-gray-50 p-2"/>
-          </div>
-          
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 flex gap-2 items-center md:w-[30%]
-          '>
-            <input
-            disabled={regBtn}
-            required
-            onChange={handleChange}
-            name='email'
-            type='text'
-            placeholder='Email'
-            value={formData.email}
-            className="w-full bg-transparent-blur text-gray-50 p-2"/>
-          </div>
-          
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
-          '>
-            <input
-            disabled={regBtn}
-            required
-            onChange={handleChange}
             name='college'
             type='text'
             placeholder='College/School'
@@ -336,9 +388,32 @@ const RegistrationForm = () => {
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
           </div>
           
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%] flex gap-4 justify-center items-center
+          '>
+            <input
+            disabled={regBtn}
+            required
+            onChange={handleChange}
+            name='transactionId'
+            type='text'
+            placeholder='Transaction Number'
+            rows="4"
+            className="w-full bg-transparent-blur text-gray-50 p-2"/>
+            
+            <Button
+            css='m-0 h-auto'
+            btnCss='p-0 md:text-sm'
+            type='button'
+            onClick={(e)=>{
+              e.preventDefault();
+              !show?setShow((prev)=>!prev):null;
+            }}
+            >QR</Button>
+          </div>
+          
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%] text-center
           '>
-            <div className="bg-transparent-blur flex justify-between items-center p-4">
+            <div className="bg-transparent-blur flex justify-between items-center gap-2 p-2">
               <label
               className="w-auto text-gray-50 text-sm">
               I agree to all rules and regulations for the event.

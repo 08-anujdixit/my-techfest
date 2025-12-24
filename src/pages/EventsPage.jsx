@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import EventCard from '../components/cards/EventCard'
 import Button from '../components/Button.jsx'
 import '../Custom.css'
-import pfp from '../assets/images/CollegeBg.jpg'
+import tflogo from '../assets/images/Tflogo.jpg'
 import expo from '../assets/images/renaissance-expo.jpg'
 import thumbnail from '../assets/images/thumbnail-making.jpg'
 import character from '../assets/images/character-designing.jpg'
@@ -81,7 +81,7 @@ const EventsPage = () => {
               !show?setShow((prev)=>!prev):null;
             }}
             ><img 
-              src={e.image?e.image:pfp}
+              src={e.image?e.image:tflogo}
               alt={e.name}
               className="h-auto w-auto md:w-[15rem] m-8 object-contain"/>
               </EventCard>
@@ -89,7 +89,7 @@ const EventsPage = () => {
           }
     </div>
     <container
-    className={` w-[100%] h-full p-[2rem] rounded-xl fixed top-0 z-[1200] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
+    className={` w-[100%] h-full p-[2rem] rounded-xl fixed top-0 z-[1000] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
     `}
     >
       <div

@@ -5,8 +5,9 @@ import '../Custom.css'
 
 const RegistrationPage = () => {
   const notices=[
-    'notice1 is about event and registration.',
-    'notice2 is about update in timing schedule.',
+    'Refer to the official brochure for detailed rules and guidelines.',
+    'Registration verification may take 1–2 business days.',
+    'Ensure valid email and phone details for communication.',
     ]
   return (
     <container className='reverseFade'>
@@ -20,11 +21,11 @@ const RegistrationPage = () => {
             notices.length && true?
             <div className='my-5 mx-auto p-5 bg-transparent-blur border-[1px] border-gray-900 w-[90%]
           '>
-          <h3 className="text-xl text-gray-300 font-bold underline p-2 mb-2 bg-transparent-blur">Notice</h3>
+          <h3 className="text-xl text-gray-200 font-bold underline p-2 mb-2 bg-transparent-blur">Notices</h3>
           {notices.map((n, i) =>(
             <p
             key={i}
-            className="text-gray-400 pt-2 text-sm text-justify">#{i+1}. {n}</p>
+            className="text-gray-300 pt-2 text-sm text-justify font-bold">#{i+1}. {n}</p>
           ))}
           </div>:null
       }

@@ -23,8 +23,11 @@ const registrationSchema= new mongoose.Schema({
     type: String,
     required: true,
     lowercase: true,
-    // unique: true,
     match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  },
+  transactionId: {
+    type: String,
+    required: true,
   },
   college: {
     type: String,
