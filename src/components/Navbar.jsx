@@ -28,11 +28,6 @@ export default function Navbar(){
       active:true,
     },
     {
-      name:"About Us",
-      slug:"/about/#aboutus",
-      active:true,
-    },
-    {
       name:"Events",
       slug:"/events",
       active: true,
@@ -50,6 +45,11 @@ export default function Navbar(){
     {
       name:"Registration",
       slug:"/register",
+      active:true,
+    },
+    {
+      name:"About Us",
+      slug:"/about/#aboutus",
       active:true,
     },
     {
