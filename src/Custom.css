@@ -33,42 +33,22 @@
 .popUp{
   animation: pop 0.5s linear forwards;
 }
-@keyframes pop {
-  from {
-    width:0px;
-    height:0px;
-  }
-  to {
-    width:20rem;
-    height:20rem;
-  }
-}
-
 
 .slide{
   animation: slide 0.5s linear forwards;
 }
-@keyframes slide {
-  from {}
-  to {translate: 20.5rem 0;}
-}
+
 .revers-slide{
   animation: rslide 0.8s linear forwards;
-}
-@keyframes rslide {
-  from {translate: 20rem 0;}
-  to {translate: -20rem 0;}
 }
 
 .customFade{
   animation: fade 1s linear forwards;
 }
-@keyframes fade {100%{opacity: 0;}}
 
 .reverseFade{
   animation: rfade 1s linear forwards;
 }
-@keyframes rfade {0%{opacity: 0;}100%{opacity: 1;}}
 
 .typeWriter{
   line-height: 1.8rem;
@@ -78,16 +58,26 @@
 }
 
 /* For Particle background */
-#tsparticles {
-  position: absolute;
+#particlesBg {
+  position: fixed;
   width: 100%;
   height: 20px;
   top: 0;
   left: 0;
-  z-index: -10; /* keeps particles behind UI */
+  z-index: -10;
 }
 
 /* ALL KEYFRAMES FOR ANIMATION */
+@keyframes pop {
+  from {
+    scale: 0;
+    
+  }
+  to {
+    scale: 1;
+  }
+}
+
 @keyframes Typing {
   0%{
     width: 0;
@@ -97,6 +87,7 @@
     width: 100%;
   }
 }
+
 @keyframes Blink {
   0%, 100%{
     border-right: 2px solid #05eeffb1;
@@ -105,6 +96,20 @@
     border-right : transparent;
   }
 }
+
+@keyframes slide {
+  from {}
+  to {translate: 20.5rem 0;}
+}
+
+@keyframes rslide {
+  from {translate: 20rem 0;}
+  to {translate: -20rem 0;}
+}
+
+@keyframes fade {100%{opacity: 0;}}
+
+@keyframes rfade {0%{opacity: 0;}100%{opacity: 1;}}
 
 /* ABOUT PAGE */
 .aboutpage{
@@ -118,10 +123,11 @@
   color: whitesmoke;
   
 }
-
+/* ALL HOVER CLASSES AND EFFECTS */
 .hover-grad{
   transition:color;
 }
+
 
 .hover-grad:hover{
   background: linear-gradient(100deg,#FF0050, #FF1F6A, #5D00ff);
@@ -133,4 +139,4 @@
   #regForm div{
     width:30%;
   }
-} */
+}*/

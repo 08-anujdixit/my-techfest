@@ -66,6 +66,7 @@ export default function Navbar(){
   
   return (
     <header
+    id='navBar'
     className="h-auto w-full px-2 sticky top-2 z-[1100] mb-5">
       <ul
       className='mt-3 px-2 flex justify-between items-center bg-transparent-blur border-[0.8px] border-gray-500 w-full transition-all hover:border-white'

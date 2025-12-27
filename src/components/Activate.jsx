@@ -28,7 +28,7 @@ const Activate = () => {
         <div 
         className="h-[100%] w-full py-10
         ">
-          <h1 
+          <h1
           className='text-7xl text-grad text-center font-serif md:text-[6rem] reverseFade w-full
           '>Tech Fest 5.0</h1>
           

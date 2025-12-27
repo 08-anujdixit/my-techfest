@@ -56,16 +56,19 @@ const EventsPage = () => {
   
   useEffect(()=>{
     if(show){
+      navigate('#events');
       document.body.style.overflow='hidden';
     }
     else{
       document.body.style.overflow='';
     }
-  },);
+  },[show]);
   
   return (
     <>
-    <div className='my-6 text-center'>
+    <div 
+    id='events'
+    className='my-6 text-center'>
       <h1 className='text-grad text-5xl md:text-6xl font-bold tracking-wide'>
         Events
       </h1>
@@ -93,7 +96,7 @@ const EventsPage = () => {
     `}
     >
       <div
-      className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem]"
+      className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem] reverseFade"
       >
         <button
         className='w-[95%] text-end text-2xl text-white mb-4'
@@ -114,7 +117,6 @@ const EventsPage = () => {
         </Button>
       </div>
     </container>
-    
     </>
   )
 }

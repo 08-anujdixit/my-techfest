@@ -10,7 +10,8 @@ const RegistrationPage = () => {
     'Ensure valid email and phone details for communication.',
     ]
   return (
-    <container className='reverseFade'>
+    <container
+    className='reverseFade'>
       <div className='my-6 text-center'>
           <h1 className='text-grad text-5xl md:text-6xl font-bold tracking-wide'>
             Registration Form
@@ -30,7 +31,9 @@ const RegistrationPage = () => {
           </div>:null
       }
       <RegistrationForm/>
-      <ParticlesBackground/>
+      <div id="particlesBg">
+        <ParticlesBackground/>
+      </div>
     </container>
   );
 };

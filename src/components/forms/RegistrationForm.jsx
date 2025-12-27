@@ -8,7 +8,6 @@ import { register } from "../../services/registrationService.js";
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
- 
   const events=[
     {name:'Select Event', status:false, fee: 100, },
     {name:'Renaissance Expo', status:true, fee: 150.50, },
@@ -39,6 +38,7 @@ const RegistrationForm = () => {
     success:false,
   });
   
+  //UPDATING THE FORM DATA FOR SUBMISSION
   const handleChange = (e) => {
     const { name, value, tagName, type } = e.target;
     setFormData((prev) => ({
@@ -53,13 +53,11 @@ const RegistrationForm = () => {
   //EMAIL VALIDATION FUNCTION
   function validateEmail(email) {
     let validEmail = 1;
-
     if (!email.includes('@') || !email.includes('.')) {
         validEmail = 0;
     } else {
         const at_index = email.indexOf('@');
         const dot_index = email.lastIndexOf('.');
-
         if (!/^[A-Za-z]/.test(email[0])) {
             validEmail = 0;
         } else if (at_index > dot_index) {
@@ -123,10 +121,20 @@ const RegistrationForm = () => {
         setTeamName(null);
         setMember([]);
         e.target.reset();
+        setTimeout(()=>{
+          setRegBtn((p)=>!p);
+          setResponse((prev)=>({
+            ...prev,
+            message:'Please Wait for a moment!',
+          }));
+          setTimeout(()=>{
+            window.location.reload();
+          }, 600);
+        }, 5000);
       }
     }
     setTimeout(()=>{
-      setRegBtn((p)=>!p);
+      setRegBtn(false);
       setResponse((prev)=>({
         ...prev,
         message:'Please Wait for a moment!',
@@ -151,7 +159,7 @@ const RegistrationForm = () => {
         break;
       }
     }
-  },);
+  },[regBtn, show]);
   
   return (
     <container className='w-auto h-auto flex justify-center my-10'>
@@ -179,7 +187,7 @@ const RegistrationForm = () => {
     `}
     >
       <div
-      className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem] w-auto md:w-[50%] text-white"
+      className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem] w-auto md:w-[50%] text-white reverseFade"
       >
         <button
           className='w-full text-end text-2xl text-white mb-4'
@@ -208,6 +216,7 @@ const RegistrationForm = () => {
       </div>
     </div>
       }
+      
       <div className={`bg-grad w-[90%] flex justify-center p-[0.8px] rounded-lg
       ${regBtn?'opacity-50':''} `}>
         <form
@@ -277,7 +286,7 @@ const RegistrationForm = () => {
                   }}
                   name='membercount'
                   type='number'
-                  placeholder="Number of Members"
+                  placeholder="Number of Members (1-4)"
                   className="w-full bg-transparent-blur text-gray-50 p-2"
                   />
                 </div>
@@ -388,7 +397,7 @@ const RegistrationForm = () => {
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
           </div>
           
-          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%] flex gap-4 justify-center items-center
+          <div className='my-5 p-3 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%] flex gap-4 justify-center items-center
           '>
             <input
             disabled={regBtn}
@@ -402,7 +411,7 @@ const RegistrationForm = () => {
             
             <Button
             css='m-0 h-auto'
-            btnCss='p-0 md:text-sm'
+            btnCss='p-0 md:text-[12px]'
             type='button'
             onClick={(e)=>{
               e.preventDefault();
@@ -443,6 +452,5 @@ const RegistrationForm = () => {
     </container>
   );
 };
-
 
 export default RegistrationForm;
