@@ -47,6 +47,12 @@ export const register = async (req, res) => {
           success:false,
         });
       }
+      else if(formData.phone<1000000000 && formData.phone>9999999999){
+        return res.status(200).json({
+          message:'Please enter a valid 10 digit phone number.',
+          success:false,
+        });
+      }
       //check if email is valid or not
       else if (validateEmail(formData.email)){
           return res.status(200).json({

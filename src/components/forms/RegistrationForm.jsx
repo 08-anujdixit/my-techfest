@@ -107,6 +107,13 @@ const RegistrationForm = () => {
         success:false,
       });
     }
+    else if(formData.phone<1000000000 && formData.phone>9999999999){
+      setLoader((p)=>!p);
+      setResponse({
+        message:"Please enter a valid 10 digit phone number.",
+        success:false,
+      });
+    }
     else{
       try {
         const res = await register(data);
