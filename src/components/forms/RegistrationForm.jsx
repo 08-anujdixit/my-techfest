@@ -149,7 +149,7 @@ const RegistrationForm = () => {
     }
     setTimeout(()=>{
       setRegBtn(false);
-      setLoader((p)=>!p);
+      setLoader(false);
       setResponse((prev)=>({
         ...prev,
         message:'Please Wait for a moment!',
