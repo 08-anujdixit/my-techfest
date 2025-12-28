@@ -56,7 +56,10 @@ const EventsPage = () => {
   
   useEffect(()=>{
     if(show){
-      navigate('#events');
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
       document.body.style.overflow='hidden';
     }
     else{

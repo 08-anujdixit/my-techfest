@@ -99,7 +99,7 @@ function Timeline() {
             {tl.events_day.map((event, index) => (
               <div key={index} className="mb-10 relative text-start">
                 {/* Circle */}
-                <div className="absolute -left-[22px] w-5 h-5 rounded-full bg-grad border-4 border-gray-400"></div>
+                <div className="absolute top-[8px] -left-[22px] w-3 h-3 rounded-full bg-grad border-[2px] border-gray-400"></div>
     
                 {/* Event details */}
                 <div

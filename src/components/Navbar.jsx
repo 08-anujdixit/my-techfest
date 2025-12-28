@@ -28,23 +28,23 @@ export default function Navbar(){
       active:true,
     },
     {
-      name:"Events",
-      slug:"/events",
-      active: true,
-    },
-    {
       name:"Brochure",
       slug:"",
       active:true,
     },
     {
-      name:"Hackathon",
-      slug:"/codeathon",
+      name:"Registration",
+      slug:"/register",
       active:true,
     },
     {
-      name:"Registration",
-      slug:"/register",
+      name:"Events",
+      slug:"/events",
+      active: true,
+    },
+    {
+      name:"Hackathon",
+      slug:"/codeathon",
       active:true,
     },
     {

@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import '../../Custom.css';
 import Button from '../../components/Button';
+import Loader from '../../components/Loader';
 import tflogo from '../../assets/images/Tflogo.jpg'
 import { MdOutlineDoneOutline } from "react-icons/md";
 import { register } from "../../services/registrationService.js";
@@ -20,6 +21,7 @@ const RegistrationForm = () => {
   ];
   const [fee,setFee]=useState(null);
   const [regBtn,setRegBtn]=useState(false);
+  const [loader,setLoader]=useState(false);
   const [show,setShow] = useState(false);
   const [member,setMember]=useState([]);
   const [teamName,setTeamName]=useState("");
@@ -71,12 +73,14 @@ const RegistrationForm = () => {
  
   const handleSubmit= async (data,e)=>{
     if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
+      setLoader((p)=>!p);
       setResponse({
         message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
         success:false,
       });
     }
     else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
+      setLoader((p)=>!p);
       setResponse({
         message:`This event does not require team details. Kindly remove the team information or refill the form to proceed.`,
         success:false,
@@ -89,6 +93,7 @@ const RegistrationForm = () => {
       setMember([]);
     }
     else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
+      setLoader((p)=>!p);
       setResponse({
         message:`You entered a team size of ${formData.membercount}, but entered ${Number(formData.membercount)+1} member names. Please update the member list by pressing 'Add Members' button to match the selected team size.`,
         success:false,
@@ -96,6 +101,7 @@ const RegistrationForm = () => {
     }
     //check if email is valid or not
     else if (validateEmail(formData.email)){
+      setLoader((p)=>!p);
       setResponse({
         message:"Please enter a valid email address.\nEmail must start with a letter and contain “@” and “.”",
         success:false,
@@ -104,6 +110,7 @@ const RegistrationForm = () => {
     else{
       try {
         const res = await register(data);
+        setLoader((p)=>!p);
         setResponse(res);
       } catch (error) {
         console.log(error);
@@ -135,6 +142,7 @@ const RegistrationForm = () => {
     }
     setTimeout(()=>{
       setRegBtn(false);
+      setLoader((p)=>!p);
       setResponse((prev)=>({
         ...prev,
         message:'Please Wait for a moment!',
@@ -144,11 +152,11 @@ const RegistrationForm = () => {
   
   //TO STOP THE SCROLLING WHILE DISPLAYING ANY MESSAGES
   useEffect(()=>{
-    if (regBtn) {
-      navigate('#regForm');
-      document.body.style.overflow = 'hidden';
-    }else if (show) {
-      navigate('#regForm');
+    if (regBtn || show) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
       document.body.style.overflow = 'hidden';
     }else{
       document.body.style.overflow = '';
@@ -172,6 +180,7 @@ const RegistrationForm = () => {
               <div className="bg-[#001] h-full w-full rounded-lg">
                 <div className="h-full flex justify-center items-center">
                   <p className="text-white text-xl text-center text-justify p-10">
+                    {loader?<Loader/>:null}
                     {response?.message}
                   </p>
                 </div>
@@ -183,7 +192,7 @@ const RegistrationForm = () => {
       {/*QR CODE FOR TRANSACTION*/
         <div
         id="qrcode"
-    className={` w-full h-full p-[2rem] rounded-xl fixed top-0 z-[1200] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
+    className={`w-full h-full p-[2rem] rounded-xl fixed top-0 z-[1200] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
     `}
     >
       <div
@@ -211,7 +220,7 @@ const RegistrationForm = () => {
           </img>
         </div>
           </>
-          ):(<p>Please select an event to view the QR and the registration fee.</p>)
+          ):(<p className='p-2'>Please select an event to view the QR and the registration fee.</p>)
         }
       </div>
     </div>
@@ -224,6 +233,7 @@ const RegistrationForm = () => {
         onSubmit={(e)=>{
           e.preventDefault();
           setRegBtn((p)=>!p);
+          setLoader((p)=>!p);
           handleSubmit({formData, teamName, member,},e);
         }}
         className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md:justify-around md:items-start'>
