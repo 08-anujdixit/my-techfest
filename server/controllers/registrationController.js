@@ -105,18 +105,17 @@ export const register = async (req, res) => {
       
       const newRegistration = new Registration({
         regID: regID,
-        isRegistered: true,
-        name : formData.name,
-        college: formData.college,
-        email : email,
         transactionId: formData.transactionId,
+        name : formData.name,
+        email : email,
         phone: formData.phone,
+        college: formData.college,
+        enrolledEvent: formData.event,
         isTeam: (formData.membercount?true:false),
+        teamName: (teamName??""),
         teamSize: (formData.membercount!=null?formData.membercount:1),
         members: member,
-        feeIsPaid: true,
         fee: amount,
-        enrolledEvent: formData.event,
         terms_and_conditions: formData.terms_and_conditions?'I accept':formData.terms_and_conditions,
         createdAt: new Date(),
       });

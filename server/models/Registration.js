@@ -5,19 +5,14 @@ const registrationSchema= new mongoose.Schema({
     type: String,
     default: "",
   },
-  isRegistered: {
-    type: Boolean,
-    default: false,
+  transactionId: {
+    type: String,
+    required: true,
   },
   name: {
     type: String,
     required: true,
     trim: true,
-  },
-  phone: {
-    type: String,
-    match: /^[0-9]{10}$/,
-    default: "",
   },
   email: {
     type: String,
@@ -25,18 +20,27 @@ const registrationSchema= new mongoose.Schema({
     lowercase: true,
     match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
-  transactionId: {
+  phone: {
     type: String,
-    required: true,
+    match: /^[0-9]{10}$/,
+    default: "",
   },
   college: {
     type: String,
     trim: true,
     default: "",
   },
+  enrolledEvent: {
+    type: String,
+    default: '',
+  },
   isTeam: {
     type:Boolean,
     default:false
+  },
+  teamName:{
+    type: String,
+    default:""
   },
   teamSize: {
     type: Number,
@@ -47,18 +51,14 @@ const registrationSchema= new mongoose.Schema({
     type: [String],
     default: [],
   },
-  feeIsPaid: {
-    type: Boolean,
-    default: false,
-  },
   fee: {
     type: Number,
     default: 0,
     min:0,
   },
-  enrolledEvent: {
-    type: String,
-    default: '',
+  feeIsPaid: {
+    type: Boolean,
+    default: false,
   },
   terms_and_conditions:{
     type:String,
