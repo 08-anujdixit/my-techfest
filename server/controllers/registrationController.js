@@ -41,13 +41,19 @@ export const register = async (req, res) => {
           success:false,
         });
       }
+      else if (!formData.event || formData.event === "Select Event") {
+        return res.status(200).json({
+          message: "Please select an event to proceed.",
+          success: false,
+        });
+      }
       else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
         return res.status(200).json({
           message:`You entered a team size of ${formData.membercount}, but entered ${Number(formData.membercount)+1} member names. Please update the member list by pressing 'Add Members' button to match the selected team size.`,
           success:false,
         });
       }
-      else if(formData.phone<1000000000 || formData.phone>9999999999){
+      else if (!/^\d{10}$/.test(formData.phone.trim())) {
         return res.status(200).json({
           message:'Please enter a valid 10 digit phone number.',
           success:false,

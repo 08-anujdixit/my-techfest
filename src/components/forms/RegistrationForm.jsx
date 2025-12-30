@@ -73,14 +73,14 @@ const RegistrationForm = () => {
  
   const handleSubmit= async (data,e)=>{
     if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
-      setLoader((p)=>!p);
+      setLoader(false);
       setResponse({
         message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
         success:false,
       });
     }
     else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
-      setLoader((p)=>!p);
+      setLoader(false);
       setResponse({
         message:`This event does not require team details. Kindly remove the team information or refill the form to proceed.`,
         success:false,
@@ -92,8 +92,15 @@ const RegistrationForm = () => {
       setTeamName(null);
       setMember([]);
     }
+    else if (!formData.event || formData.event === "Select Event") {
+      setLoader(false);
+      setResponse({
+        message: "Please select an event to proceed.",
+        success: false,
+      });
+    }
     else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
-      setLoader((p)=>!p);
+      setLoader(false);
       setResponse({
         message:`You entered a team size of ${formData.membercount}, but entered ${Number(formData.membercount)+1} member names. Please update the member list by pressing 'Add Members' button to match the selected team size.`,
         success:false,
@@ -101,14 +108,15 @@ const RegistrationForm = () => {
     }
     //check if email is valid or not
     else if (validateEmail(formData.email)){
-      setLoader((p)=>!p);
+      setLoader(false);
       setResponse({
         message:"Please enter a valid email address.\nEmail must start with a letter and contain “@” and “.”",
         success:false,
       });
     }
-    else if(formData.phone<1000000000 || formData.phone>9999999999){
-      setLoader((p)=>!p);
+    else if (!/^\d{10}$/.test(formData.phone.trim()))
+    {
+      setLoader(false);
       setResponse({
         message:"Please enter a valid 10 digit phone number.",
         success:false,
@@ -329,10 +337,13 @@ const RegistrationForm = () => {
             <input
             disabled={regBtn}
             required
+            maxLength={10}
+            pattern ="[0-9]{10}"
+            inputMode = 'numeric'
             onChange={handleChange}
             name='phone'
-            type='number'
-            placeholder='Contact'
+            type='tel'
+            placeholder='Contact Number'
             value={formData.phone}
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
           </div>

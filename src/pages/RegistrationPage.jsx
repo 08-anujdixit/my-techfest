@@ -12,15 +12,15 @@ const RegistrationPage = () => {
   return (
     <container
     className='reverseFade'>
-      <div className='my-6 text-center'>
-          <h1 className='text-grad text-5xl md:text-6xl font-bold tracking-wide'>
+      <div className='my-8 h-auto text-center'>
+          <h1 className='text-grad text-5xl md:text-6xl font-bold tracking-wide py-4'>
             Registration Form
           </h1>
         </div>
       { /* NOTICES*/ }
       {
             notices.length && true?
-            <div className='my-5 mx-auto p-5 bg-transparent-blur border-[1px] border-gray-900 w-[90%]
+            <div className='my-6 mx-auto p-5 bg-transparent-blur border-[1px] border-gray-900 w-[90%]
           '>
           <h3 className="text-xl text-gray-200 font-bold underline p-2 mb-2 bg-transparent-blur">Notices</h3>
           {notices.map((n, i) =>(
