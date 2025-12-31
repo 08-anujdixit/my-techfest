@@ -55,11 +55,11 @@ const Activate = () => {
           className='text-xl text-grad text-center font-serif md:text-3xl reverseFade 
           '>Presented by</h1>
           
-          <p className='text-2xl md:text-4xl text-grad text-center font-serif reverseFade 
+          <p className='text-[22px] md:text-4xl text-grad text-center font-serif reverseFade 
           ' >Department of Computer Science</p>
           
-          <p className='text-2xl md:text-4xl text-grad text-center font-serif reverseFade' >National P.G. College</p>
-          <p className='text-2xl md:text-4xl text-grad text-center font-serif reverseFade' >Lucknow</p>
+          <p className='text-[22px] md:text-4xl text-grad text-center font-serif reverseFade' >National P.G. College</p>
+          <p className='text-[22px] md:text-4xl text-grad text-center font-serif reverseFade' >Lucknow</p>
           
           </div>
     </main> 
