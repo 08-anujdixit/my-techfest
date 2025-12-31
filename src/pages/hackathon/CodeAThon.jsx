@@ -79,12 +79,28 @@ const CodeAThon = () => {
 
   return (
   <div className="h-auto w-full reverseFade">
-  
-    <div className='pt-0 mt-0 h-[20rem] flex justify-center'>
+    {/* LOGO CREATED FROM DIV*/}
+    {
+    <div className=" h-auto w-full p-20 md:p-auto">
+      <div className="h-[8rem] w-[8rem] md:sticky left-[40%]">
+        {/*Rings*/}
+        <div className="p-2 h-full w-full size border-t-8 border-8 border-[#5D00ff] rotate-45">
+        <div className="absolute right-2 p-2 h-full w-full border-8 border-[#5D00ff]">
+          <div className="absolute -right-2 bottom-2 p-2 h-full w-full border-b-8  border-l-8 border-[#5D00ff]">
+          </div>
+        </div>
+      </div>
+        <pre className='relative bottom-20 left-14 tracking-[10px] text-white font-bold  bg-[#001] w-auto p-1'>CODE-A-THON</pre>
+      </div>
+    </div>
+    }
+    
+    {/* LOGO PNG*/}
+    <div className='pt-0 mt-0 h-[20rem] flex justify-center hidden'>
       <img src={CodeAthon} />
     </div>
     
-    <div className='flex justify-center'>
+    <div className=' flex justify-center'>
       <Button
       onClick={()=>{
         navigate('/register');

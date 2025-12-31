@@ -4,11 +4,11 @@ import EventCard from '../components/cards/EventCard'
 import Button from '../components/Button'
 import '../Custom.css'
 
-
+//COMPLETE TIMELINE FOR EVENT
 function Timeline() {
   const timeline = [
     {
-      day:"DAY 1",
+      day:"12",
       events_day : [
         {
           title: "Opening Ceremony",
@@ -38,7 +38,7 @@ function Timeline() {
       ],
     },
     {
-      day:"DAY 2",
+      day:"13",
       events_day : [
         {
           title: "CODE-A-THON",
@@ -63,7 +63,7 @@ function Timeline() {
       ],
     },
     {
-      day:"DAY 3",
+      day:"14",
       events_day : [
         {
           title: "CODE-A-THON (Presentation)",
@@ -83,7 +83,7 @@ function Timeline() {
     <div className="flex flex-col items-center py-2 px-4">
       {/* Title */}
       <h1 className="text-5xl md:text-6xl font-bold text-grad tracking-wide mb-6">
-        TIMELINE
+        Timeline
       </h1>
       <div
       className='md:gap-32 px-7 font-mono'
@@ -93,7 +93,7 @@ function Timeline() {
         <div 
         key={index}
         className='text-center w-full my-4 mx-auto p-6'>
-          <h2 className="text-3xl font-extrabold text-white mb-12">{tl.day}</h2>
+          <h2 className="text-3xl font-extrabold text-white mb-12">{tl.day}<sup className="text-white">th</sup> February</h2>
           {/* Timeline container */}
           <div className="relative border-l-4 border-gray-400 pl-10 md:ml-16">
             {tl.events_day.map((event, index) => (
@@ -121,8 +121,8 @@ function Timeline() {
     </div>
   );
 }
-  
 
+//EVENT INTRODUCTION
 const HomePage = () => {
   const navigate=useNavigate();
   return (
@@ -149,16 +149,6 @@ const HomePage = () => {
         }}
         >Register Now »</Button>
       </div>
-      <section className="my-8 hidden">
-        <h1 className={`text-grad text-6xl text-center w-full my-4`}>
-        About The College
-        </h1>
-        <div className=" my-2 w-[100%] flex-wrap">
-            <p className="text-gray-300 w-auto px-5 text-justify "><span className="text-grad font-extrabold  font-mono">National Post Graduate College</span>, established in 2005, stands as a beacon of academic excellence and innovation. With a serene and inclusive campus, the college is dedicated to nurturing talent and fostering growth in every student. The Computer Science department, a cornerstone of the institution, embraces the latest technological advancements to deliver a robust, industry-oriented education. The college equips students with the skills and confidence to excel in their chosen fields by emphasizing research, internships, and hands-on learning. Complemented by a vibrant array of cultural, sports, and extracurricular opportunities, the college shapes well-rounded individuals prepared to make meaningful contributions to society.
-            </p>
-        </div>
-      </section>
-      
       <section className="my-8 py-2">
         <Timeline/>
       </section>

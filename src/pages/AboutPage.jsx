@@ -181,7 +181,7 @@ const AboutPage = () => {
     <h1
     id="aboutus"
     className='text-5xl md:text-6xl text-center text-grad font-bold tracking-wide'>
-      ABOUT US
+      About Us
     </h1>
     <section className="my-8 ">
         <div className=" my-2 w-[100%] flex-wrap">

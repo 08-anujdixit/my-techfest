@@ -81,7 +81,7 @@
   line-height: 1.8rem;
   overflow: hidden;
   display: inline;
-  animation: Typing 2s ease-in-out
+  animation: Typing 2s steps(20) linear;
 }
 
 /* For Particle background */
