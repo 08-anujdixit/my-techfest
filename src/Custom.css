@@ -81,7 +81,8 @@
   line-height: 1.8rem;
   overflow: hidden;
   display: inline;
-  animation: Typing 2s steps(20) linear;
+  width: auto;
+  animation: Typing 1s linear;
 }
 
 /* For Particle background */
@@ -108,7 +109,6 @@
 @keyframes Typing {
   0%{
     width: 0;
-    padding: 0;
   }
   100%{
     width: 100%;

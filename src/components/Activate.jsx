@@ -29,8 +29,8 @@ const Activate = () => {
         className="h-[100%] w-full py-10
         ">
           <h1
-          className='text-7xl text-grad text-center font-serif md:text-[6rem] reverseFade w-full
-          '>Tech Fest 5.0</h1>
+          className='text-[65px] text-grad text-center font-serif md:text-[6rem] reverseFade w-full
+          '>TechFest 5.0</h1>
           <p className='text-2xl md:text-4xl text-grad text-center font-serif reverseFade my-2' >
            ( 12<sup className="text-grad">th</sup> -
             14<sup className="text-grad">th</sup> February 2026 )
