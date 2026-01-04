@@ -116,6 +116,7 @@ export const register = async (req, res) => {
         email : email,
         phone: formData.phone,
         college: formData.college,
+        studentID: formData.studentID,
         enrolledEvent: formData.event,
         isTeam: (formData.membercount?true:false),
         teamName: (teamName??""),

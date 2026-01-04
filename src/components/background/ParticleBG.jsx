@@ -40,7 +40,7 @@ export default function ParticlesBackground() {
             distance: 150,
             enable: true,
             opacity: 0.8,
-            width: 0.8
+            width: 1,
           },
           
           move: { enable: true, speed: 2 },

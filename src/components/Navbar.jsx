@@ -114,7 +114,7 @@ export default function Navbar(){
                 }}
                 >
                   <a
-                  href={item.name=='Brochure'?'/brochure/brochure.pdf':item.slug}
+                  href={item.name=='Brochure'?'/brochure/Tflogo.jpg':item.slug}
                   download={item.name=='Brochure'?true:false}
                   onClick={item.name=='Brochure'?
                   (e)=>{
@@ -143,7 +143,7 @@ export default function Navbar(){
         
       <div className={`w-full h-[4rem] fixed top-[6rem] flex justify-center items-center transition-all ${download.status?download.fade:"hidden"}`}>
         <div className="p-2 inline bg-gray-200 rounded-3xl">
-          <span className="text-grad font-extrabold text-xl">
+          <span className="text-grad font-extrabold text-sm">
             Download started!
           </span>
         </div>

@@ -11,29 +11,39 @@ function Timeline() {
       day:"12",
       events_day : [
         {
-          title: "Opening Ceremony",
+          title: "Registration",
+          location: "Science Block",
+          time: "8:00 a.m. - 9:00 a.m.",
+        },
+        {
+          title: "Inaugration Ceremony",
           location: "Auditorium 1",
-          time: "10:00 a.m - 10:30a.m",
+          time: "9:00 a.m. - 11:00a.m.",
         },
         {
           title: "Guest lecture",
           location: "Auditorium 1",
-          time: "",
+          time: "9:00 a.m. - 11:00 a.m.",
         },
         {
           title: "Renaissance Expo",
           location: "Lab 1 + Corridor",
-          time: "10:00 a.m - 02:00 p.m",
+          time: "11:00 a.m. - 3:00 p.m.",
         },
         {
           title: "Thumbnail Making",
           location: "Lab 4",
-          time: "10:00 a.m - 12:00 p.m",
+          time: "11:30 a.m. - 1:30 p.m.",
         },
         {
           title: "Character Desinging",
           location: "Lab 3",
-          time: "10:00 a.m - 12:00 p.m",
+          time: "11:30 a.m. - 1:30 p.m.",
+        },
+        {
+          title: "Raft Debate",
+          location: "Lab 3",
+          time: "12:00 p.m. - 2:00 p.m.",
         },
       ],
     },
@@ -41,24 +51,24 @@ function Timeline() {
       day:"13",
       events_day : [
         {
-          title: "CODE-A-THON",
-          location: "Auditorium 1",
-          time: "08:00 a.m - 05:00 p.m",
+          title: "Registration",
+          location: "Science Block",
+          time: "8:00 a.m. - 9:00 a.m.",
         },
         {
-          title: "Tech Treasure Hunt",
-          location: "Lab 1",
-          time: "10:00 a.m - 12:00 p.m",
+          title: "CODE-A-THON",
+          location: "Auditorium 1",
+          time: "8:00 a.m. - 5:00 p.m.",
         },
         {
           title: "Brain & Code",
-          location: "Lab 1",
-          time: "12:00 p.m - 02:00 p.m",
+          location: "Lab 1 + Lab 4",
+          time: "10:00 a.m. - 12:00 p.m.",
         },
         {
           title: "Logo Desinging",
           location: "Lab 3",
-          time: "12:30 p.m - 01:30 p.m",
+          time: "12:30 p.m. - 1:30 p.m.",
         },
       ],
     },
@@ -68,12 +78,12 @@ function Timeline() {
         {
           title: "CODE-A-THON (Presentation)",
           location: "Auditorium 1",
-          time: "10:00 a.m - 12:00 p.m",
+          time: "09:00 a.m. - 11:00 p.m.",
         },
         {
-          title: "Certificate Distribution",
+          title: "Prize Distribution",
           location: "Auditorium 1",
-          time: "From 12:00 p.m onwards",
+          time: "From 11:00 a.m. onwards.",
         },
       ],
     },
@@ -99,17 +109,17 @@ function Timeline() {
             {tl.events_day.map((event, index) => (
               <div key={index} className="mb-10 relative text-start">
                 {/* Circle */}
-                <div className="absolute top-[8px] -left-[22px] w-3 h-3 rounded-full bg-grad border-[2px] border-gray-400"></div>
+                <div className="absolute top-[8px] -left-[22px] w-2 h-2 rounded-full bg-grad border-[1.2px] border-gray-400"></div>
     
                 {/* Event details */}
                 <div
-                className="block mx-4"
+                className="block mx-0"
                 >
                   <h3 className="text-lg font-bold text-white">{event.title}</h3>
-                  <p className="text-sm text-gray-300 italic">
+                  <p className="text-sm font-bold text-gray-300 italic">
                     {event.location}
                   </p>
-                  <p className="text-sm text-gray-400">{event.time? event.time: null}</p>
+                  <p className="text-sm font-bold text-gray-400">{event.time? event.time: null}</p>
                 </div>
               </div>
             ))}

@@ -87,7 +87,7 @@ const Footer = () => {
   
   return (
     <>
-      <footer className='h-auto py-4 bg-gray-900 w-full relative z-[1000] bottom-0'>
+      <footer className='h-auto py-4 bg-gray-900 w-full relative z-[500] bottom-0'>
         <div className='flex items-center'>
           <Link
           to='/'
@@ -111,7 +111,7 @@ const Footer = () => {
                   '
                 >
                   <a 
-                    href={l.name=='Brochure'?'/brochure/brochure.pdf':l.slug}
+                    href={l.name=='Brochure'?'/brochure/Tflogo.jpg':l.slug}
                   download={l.name=='Brochure'?true:false}
                     className="text-gray-400 hover-grad"
                   >{l.name}</a>

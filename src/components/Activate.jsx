@@ -29,10 +29,12 @@ const Activate = () => {
         className="h-[100%] w-full py-10
         ">
           <h1
-          className='text-[65px] text-grad text-center font-serif md:text-[6rem] reverseFade w-full
+          className='text-[62px] text-grad text-center font-serif md:text-[6rem] reverseFade w-full
           '>TechFest 5.0</h1>
-          <p className='text-2xl md:text-4xl text-grad text-center font-serif reverseFade my-2' >
-           ( 12<sup className="text-grad">th</sup> -
+          <p className='text-xl md:text-3xl text-grad text-center font-serif reverseFade mb-[18px]' >Innovation | Inspiration | Impact</p>
+          <p className='text-lg md:text-2xl text-grad text-center font-serif reverseFade my-2' >
+           ( 12<sup className="text-grad">th</sup>,
+            13<sup className="text-grad">th</sup> &amp;
             14<sup className="text-grad">th</sup> February 2026 )
           </p>
           <div 

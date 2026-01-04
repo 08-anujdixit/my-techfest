@@ -10,7 +10,7 @@ import { register } from "../../services/registrationService.js";
 const RegistrationForm = () => {
   const navigate = useNavigate();
   const events=[
-    {name:'Select Event', status:false, fee: 100, },
+    {name:'Choose Event to Enroll', status:false, fee: 0.0, },
     {name:'Renaissance Expo', status:true, fee: 150.50, },
     {name:'CODE-A-THON', status:true, fee: 600.00, },
     {name:'Tech Treasure Hunt', status:true, fee: 100, },
@@ -28,6 +28,7 @@ const RegistrationForm = () => {
   const [formData,setFormData]= useState({
     name:"",
     phone:"",
+    studentID:"",
     college:"",
     email:"",
     transactionId:"",
@@ -79,7 +80,7 @@ const RegistrationForm = () => {
         success:false,
       });
     }
-    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
+    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Brain & Code' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
       setLoader(false);
       setResponse({
         message:`This event does not require team details. Kindly remove the team information or refill the form to proceed.`,
@@ -133,6 +134,7 @@ const RegistrationForm = () => {
         setFormData({
           name:"",
           phone:"",
+          studentID:"",
           college:"",
           email:"",
           transactionId:"",
@@ -190,7 +192,7 @@ const RegistrationForm = () => {
         regBtn & (response?.success || response?.success==false) ?
           <div
           id='response-message'
-          className="fixed h-full w-full z-[1200] top-0 flex justify-center items-center bg-transparent-blur">
+          className="fixed h-full w-full z-[1500] top-0 flex justify-center items-center bg-transparent-blur">
             <div className="bg-grad h-[50%] w-80 md:w-[60%] p-[1px] rounded-lg text-center">
               <div className="bg-[#001] h-full w-full rounded-lg">
                 <div className="h-full flex justify-center items-center">
@@ -207,7 +209,7 @@ const RegistrationForm = () => {
       {/*QR CODE FOR TRANSACTION*/
         <div
         id="qrcode"
-    className={`w-full h-full p-[2rem] rounded-xl fixed top-0 z-[1200] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
+    className={`w-full h-full p-[2rem] rounded-xl fixed top-0 z-[1000] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
     `}
     >
       <div
@@ -255,9 +257,7 @@ const RegistrationForm = () => {
 
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
-            <label className="text-grad">
-              Choose Event to Enroll
-            </label>
+            
             <select
             disabled={regBtn}
             required
@@ -279,7 +279,7 @@ const RegistrationForm = () => {
           </div>
           
           {
-            (formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt') ? (
+            (formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event ==='Brain & Code' || formData.event === 'Tech Treasure Hunt') ? (
               <>
               <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
             '>
@@ -302,12 +302,13 @@ const RegistrationForm = () => {
                   disabled={regBtn}
                   required
                   onChange={(e)=>{
-                    if(e.target.value>4 || (e.target.value<2 && formData.event=="CODE-A-THON")){
-                      e.target.value=null
+                    if(e.target.value>4 || (e.target.value<2 && formData.event==="CODE-A-THON")){
+                      e.target.value=null;
                     }
-                    else{
-                      handleChange(e);
+                    else if(formData.event==='Brain & Code'){
+                      e.target.value=2;
                     }
+                    handleChange(e);
                   }}
                   name='membercount'
                   type='number'
@@ -362,7 +363,7 @@ const RegistrationForm = () => {
           </div>
           
           {
-            ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event === 'Tech Treasure Hunt') && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 )?(<div
+            ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event ==='Brain & Code' ||  formData.event === 'Tech Treasure Hunt') && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 && formData.membercount != null )?(<div
             className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[100%] md:mx-6"
             >
               <label className='text-grad'>
@@ -411,6 +412,19 @@ const RegistrationForm = () => {
             >Add Members</Button>
              </div>) : null
           }
+          
+          <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 flex gap-2 items-center md:w-[30%]
+          '>
+            <input
+            disabled={regBtn}
+            required
+            onChange={handleChange}
+            name='studentID'
+            type='text'
+            placeholder='Student ID'
+            value={formData.studentID}
+            className="w-full bg-transparent-blur text-gray-50 p-2"/>
+          </div>
           
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>

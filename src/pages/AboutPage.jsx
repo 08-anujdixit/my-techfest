@@ -339,8 +339,8 @@ const AboutPage = () => {
       </p>
       <p className="text-lg my-3">
         <strong className='text-grad'>Sutdent Coordinators: </strong>
-        <p>contact 1</p>
-        <p>contact 2</p>
+        <p>Contact details will be updated soon.</p>
+        
       </p>
     </section>
   </container>

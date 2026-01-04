@@ -30,6 +30,11 @@ const registrationSchema= new mongoose.Schema({
     trim: true,
     default: "",
   },
+  studentID: {
+    type: String,
+    trim: true,
+    default: "",
+  },
   enrolledEvent: {
     type: String,
     default: '',
