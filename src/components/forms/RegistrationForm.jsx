@@ -6,19 +6,51 @@ import Loader from '../../components/Loader';
 import tflogo from '../../assets/images/Tflogo.jpg'
 import { MdOutlineDoneOutline } from "react-icons/md";
 import { register } from "../../services/registrationService.js";
+//QR CODES FOR TRANSACTIONS
+import rs50 from '../../assets/qrImages/Rs50qr.jpg'
+import rs100 from '../../assets/qrImages/Rs100qr.jpg'
+import rs200 from '../../assets/qrImages/Rs200qr.jpg'
+import rs600 from '../../assets/qrImages/Rs600qr.jpg'
+
+const returnQR=(eName, events)=>{
+  for (let i=0; i<events.length; i++){
+    if(eName === (events[i]).name){
+      return ((events[i]).qr);
+    }
+  }
+  return tflogo;
+}
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
   const events=[
-    {name:'Choose Event to Enroll', status:false, fee: 0.0, },
-    {name:'Renaissance Expo', status:true, fee: 150.50, },
-    {name:'CODE-A-THON', status:true, fee: 600.00, },
-    {name:'Tech Treasure Hunt', status:true, fee: 100, },
-    {name:'Thumbnail Making', status:true, fee: 100, },
-    {name:'Character Desinging', status:true, fee: 100, },
-    {name:'Brain & Code', status:true, fee: 100, },
-    {name:'Logo Desinging', status:true, fee: 100, },
+    {name:'Choose Event to Enroll', status:false, fee: 0.0, qr: null },
+    {name:'Renaissance Expo', status:true, fee: 200.00, qr: rs200 },
+    {name:'CODE-A-THON', status:true, fee: 600.00, qr: rs600 },
+    {name:'Raft Debate', status:true, fee: 100, qr: rs100 },
+    {name:'Thumbnail Making', status:true, fee: 50.00, qr: rs50},
+    {name:'Character Desinging', status:true, fee: 50.00, qr: rs50},
+    {name:'IT Quize', status:true, fee: 100.00, qr: rs100},
+    {name:'Logo Desinging', status:true, fee: 50.00, qr: rs50},
   ];
+  const techRoles = [
+  { role:'Choose a role', status: false },
+  { role: "Software Engineer", status: true },
+  { role: "Artificial Intelligence Engineer", status: true },
+  { role: "Ethical Hacker", status: true },
+  { role: "Cybersecurity Analyst", status: true },
+  { role: "Data Scientist", status: true },
+  { role: "Cloud Architect", status: true },
+  { role: "Network Engineer", status: true },
+  { role: "Robotics Engineer", status: true },
+  { role: "UI/UX Designer", status: true },
+  { role: "Blockchain Developer", status: true },
+  { role: "DevOps Engineer", status: true },
+  { role: "Game Developer", status: true },
+  { role: "Space Technology Engineer", status: true },
+  { role: "Tech Entrepreneur", status: true },
+  { role: "Digital Ethics & Policy Expert", status: true }
+];
   const [fee,setFee]=useState(null);
   const [regBtn,setRegBtn]=useState(false);
   const [loader,setLoader]=useState(false);
@@ -33,6 +65,7 @@ const RegistrationForm = () => {
     email:"",
     transactionId:"",
     event:"",
+    raftDebateRole:"",
     membercount:null,
     terms_and_conditions:null,
   });
@@ -67,6 +100,8 @@ const RegistrationForm = () => {
             validEmail = 0;
         } else if (at_index === 0 || dot_index === email.length - 1) {
             validEmail = 0;
+        }else if(at_index === dot_index - 1){
+          validEmail = 0;
         }
     }
     return (!validEmail);
@@ -80,10 +115,10 @@ const RegistrationForm = () => {
         success:false,
       });
     }
-    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Brain & Code' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
+    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
       setLoader(false);
       setResponse({
-        message:`This event does not require team details. Kindly remove the team information or refill the form to proceed.`,
+        message:`Team details are applicable only for team-based events. Please remove the team information or select an appropriate event to continue.`,
         success:false,
       });
       setFormData((prev)=>({
@@ -100,6 +135,17 @@ const RegistrationForm = () => {
         success: false,
       });
     }
+    else if(formData.event!=='Raft Debate' && formData.raftDebateRole){
+      setLoader(false);
+      setResponse({
+        message:`Raft Debate role selection is applicable only for the Raft Debate event. Please remove the role information or reselect the appropriate event to continue.`,
+        success:false,
+      });
+      setFormData((prev)=>({
+        ...prev,
+        raftDebateRole:"",
+      }));
+    }
     else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
       setLoader(false);
       setResponse({
@@ -111,7 +157,7 @@ const RegistrationForm = () => {
     else if (validateEmail(formData.email)){
       setLoader(false);
       setResponse({
-        message:"Please enter a valid email address.\nEmail must start with a letter and contain “@” and “.”",
+        message:`Please enter a valid email address (the correct format is abc@pqr.xyz). Email must start with a letter and contain “@” and “.”`,
         success:false,
       });
     }
@@ -139,6 +185,7 @@ const RegistrationForm = () => {
           email:"",
           transactionId:"",
           event:"",
+          raftDebateRole:"",
           membercount:null,
           terms_and_conditions:null,
         });
@@ -189,7 +236,7 @@ const RegistrationForm = () => {
   return (
     <container className='w-auto h-auto flex justify-center my-10'>
       {/*MESSAGE RESPONSE BOX*/
-        regBtn & (response?.success || response?.success==false) ?
+        regBtn && (response?.success || response?.success==false) ?
           <div
           id='response-message'
           className="fixed h-full w-full z-[1500] top-0 flex justify-center items-center bg-transparent-blur">
@@ -199,6 +246,13 @@ const RegistrationForm = () => {
                   <p className="text-white text-xl text-center text-justify p-10">
                     {loader?<Loader/>:null}
                     {response?.message}
+                    {response.success?(
+                      <>
+                        <br/>
+                        <div className='mt-5 text-center'>
+                        <p className="text-white text-xl text-center font-bold inline">Thank you for registering! </p> &#128522;</div>
+                      </>
+                    ):null}
                   </p>
                 </div>
               </div>
@@ -233,7 +287,7 @@ const RegistrationForm = () => {
         </div>
         <hr className='w-auto'/>
         <div className="text-white rounded-xl w-full h-auto md:flex md:justify-center">
-          <img src={tflogo} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%]">
+          <img src={returnQR(formData.event, events)} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%] ">
           </img>
         </div>
           </>
@@ -277,9 +331,34 @@ const RegistrationForm = () => {
               }
             </select>
           </div>
+
+          { formData.event==='Raft Debate'?
+            (
+              <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
+          '>
+            <select
+            disabled={regBtn}
+            required
+            className="w-full bg-transparent-blur text-gray-50 p-2 "
+            name='raftDebateRole'
+            onChange={handleChange}
+            >
+              {
+                techRoles.map((tr, i) =>(
+                  <option 
+                  disabled={!tr.status}
+                  selected={!tr.status && i===0}
+                  >
+                    {tr.role}
+                  </option>
+                ))
+              }
+            </select>
+          </div>):null
+          }
           
           {
-            (formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event ==='Brain & Code' || formData.event === 'Tech Treasure Hunt') ? (
+            (formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event ==='IT Quize') ? (
               <>
               <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
             '>
@@ -305,7 +384,7 @@ const RegistrationForm = () => {
                     if(e.target.value>4 || (e.target.value<2 && formData.event==="CODE-A-THON")){
                       e.target.value=null;
                     }
-                    else if(formData.event==='Brain & Code'){
+                    else if(formData.event==='IT Quize'){
                       e.target.value=2;
                     }
                     handleChange(e);
@@ -363,7 +442,7 @@ const RegistrationForm = () => {
           </div>
           
           {
-            ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event ==='Brain & Code' ||  formData.event === 'Tech Treasure Hunt') && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 && formData.membercount != null )?(<div
+            ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event ==='IT Quize' ) && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 && formData.membercount != null )?(<div
             className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[100%] md:mx-6"
             >
               <label className='text-grad'>

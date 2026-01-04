@@ -39,6 +39,10 @@ const registrationSchema= new mongoose.Schema({
     type: String,
     default: '',
   },
+  raftDebateRole: {
+    type: String,
+    default: '',
+  },
   isTeam: {
     type:Boolean,
     default:false

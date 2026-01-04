@@ -41,8 +41,8 @@ function Timeline() {
           time: "11:30 a.m. - 1:30 p.m.",
         },
         {
+          location: "Auditorium 1",
           title: "Raft Debate",
-          location: "Lab 3",
           time: "12:00 p.m. - 2:00 p.m.",
         },
       ],

@@ -23,6 +23,8 @@ export const register = async (req, res) => {
                 validEmail = 0;
             } else if (at_index === 0 || dot_index === email.length - 1) {
                 validEmail = 0;
+            }else if(at_index === dot_index - 1){
+              validEmail = 0;
             }
         }
         return (!validEmail);
@@ -35,9 +37,9 @@ export const register = async (req, res) => {
         success:false,
       });
     }
-      else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Brain & Code' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
+      else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'IT Quize' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
         return res.status(200).json({
-          message:`This event does not require team details. Kindly remove the team information or refill the form to proceed.`,
+          message:`Team details are applicable only for team-based events. Please remove the team information or select an appropriate event to continue.`,
           success:false,
         });
       }
@@ -45,6 +47,12 @@ export const register = async (req, res) => {
         return res.status(200).json({
           message: "Please select an event to proceed.",
           success: false,
+        });
+      }
+      else if(formData.event!=='Raft Debate' && formData.raftDebateRole){
+        return res.status(200).json({
+          message:`Raft Debate role selection is applicable only for the Raft Debate event. Please remove the role information or reselect the appropriate event to continue.`,
+          success:false,
         });
       }
       else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
@@ -76,6 +84,15 @@ export const register = async (req, res) => {
          });
        }
        
+       const isRole = await Registration.findOne({enrolledEvent:'Raft Debate', raftDebateRole: formData.raftDebateRole});
+       
+       if(isRole){
+         return res.status(200).json({
+           message: "The selected role has already been assigned to another participant. Please choose a different role to proceed.",
+           success:false,
+         });
+       }
+       
       //Simple Random OTP Generator
       function generateOTP(length = 6) {
         let otp = "TF";
@@ -95,12 +112,12 @@ export const register = async (req, res) => {
       
       const eventsFee=[
         {name:'Renaissance Expo', feeAmount:200},
-        {name:'CODE-A-THON', feeAmount:800},
-        {name:'Tech Treasure Hunt', feeAmount:200},
-        {name:'Thumbnail Making', feeAmount:200},
-        {name:'Character Desinging', feeAmount:200},
-        {name:'Brain & Code', feeAmount:200},
-        {name:'Logo Desinging', feeAmount:200},
+        {name:'CODE-A-THON', feeAmount:600},
+        {name:'Raft Debate', feeAmount:100},
+        {name:'Thumbnail Making', feeAmount:50},
+        {name:'Character Desinging', feeAmount:50},
+        {name:'IT Quize', feeAmount:100},
+        {name:'Logo Desinging', feeAmount:50},
       ]
       let amount=0;
       for (let i of eventsFee) {
@@ -118,6 +135,7 @@ export const register = async (req, res) => {
         college: formData.college,
         studentID: formData.studentID,
         enrolledEvent: formData.event,
+        raftDebateRole: formData.raftDebateRole,
         isTeam: (formData.membercount?true:false),
         teamName: (teamName??""),
         teamSize: (formData.membercount!=null?formData.membercount:1),

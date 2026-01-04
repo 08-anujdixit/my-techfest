@@ -12,7 +12,7 @@ const RegistrationPage = () => {
   return (
     <container
     className='reverseFade'>
-      <div className='my-8 h-auto text-center'>
+      <div className='my-0 h-auto text-center'>
           <h1 className='text-grad text-5xl md:text-6xl font-bold tracking-wide py-4'>
             Registration Form
           </h1>

@@ -97,11 +97,11 @@ const Footer = () => {
               w="w-[4rem] md:w-[5rem]"
             />
           </Link>
-          <p className='w-[90%] font-extrabold text-grad pb-1 md:text-xl'>Quick Links</p>
+          <p className='w-[90%] font-bold text-grad pb-1 text-xl md:text-3xl'>Quick Links</p>
         </div>
         <div className='md:flex md:justify-center md:items-center w-auto h-auto px-2'>
           <ul 
-          className='my-5 grid grid-cols-3 gap-y-0 w-full' >
+          className='my-0 grid grid-cols-3 gap-y-0 w-full' >
             {
               quickLinks?.map((l) =>(
                 l.active ? (<li
