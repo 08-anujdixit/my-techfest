@@ -61,7 +61,7 @@ function Timeline() {
           time: "8:00 a.m. - 5:00 p.m.",
         },
         {
-          title: "Brain & Code",
+          title: "IT Quize",
           location: "Lab 1 + Lab 4",
           time: "10:00 a.m. - 12:00 p.m.",
         },
