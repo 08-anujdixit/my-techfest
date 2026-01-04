@@ -35,7 +35,7 @@ export const register = async (req, res) => {
         success:false,
       });
     }
-      else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
+      else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'Brain & Code' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
         return res.status(200).json({
           message:`This event does not require team details. Kindly remove the team information or refill the form to proceed.`,
           success:false,

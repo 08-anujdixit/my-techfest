@@ -18,7 +18,7 @@ export default function Navbar(){
   useEffect(()=>{
     setTimeout(()=>{
       setToggleMenu((prev)=>false);
-    }, 1000);
+    }, 800);
   },[location]);
   
   const navBar=[
@@ -29,7 +29,7 @@ export default function Navbar(){
     },
     {
       name:"Brochure",
-      slug:"",
+      slug:"/",
       active:true,
     },
     {
@@ -49,7 +49,7 @@ export default function Navbar(){
     },
     {
       name:"About Us",
-      slug:"/about/#aboutus",
+      slug:"/about",
       active:true,
     },
     {

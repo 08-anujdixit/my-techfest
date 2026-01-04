@@ -104,7 +104,7 @@ const EventsPage = () => {
         >X</button>
         
         <div className="text-white rounded-xl w-[100%] h-full text-justify">{detail.description?detail.description:null }
-        <br/>(For more information on the event, please refer to the brochure.)
+        <br/>(For more information about the event, please refer to the brochure or contact the event coordinators.)
         </div>
         
         <Button

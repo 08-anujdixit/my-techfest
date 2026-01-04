@@ -17,6 +17,16 @@ const Footer = () => {
       active:true,
     },
     {
+      name:"Brochure",
+      slug:"/",
+      active:true,
+    },
+    {
+      name:"Events",
+      slug:"/events",
+      active:true,
+    },
+    {
       name:"Code of Conduct",
       slug:"/about/#coc",
       active:true,
@@ -42,18 +52,8 @@ const Footer = () => {
       active:true,
     },
     {
-      name:"Events",
-      slug:"/events",
-      active:true,
-    },
-    {
       name:"Sponsors",
       slug:"/about/#sponsors",
-      active:true,
-    },
-    {
-      name:"Brochure",
-      slug:"/",
       active:true,
     },
   ]
