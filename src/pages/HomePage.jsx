@@ -41,12 +41,12 @@ function Timeline() {
           time: "11:00 a.m. - 12:00 p.m.",
         },
         {
-          title: "IT Quize",
+          title: "IT Quiz",
           location: "Lab 1",
           time: "11:00 a.m. - 12:00 p.m.",
         },
         {
-          title: "IT Quize (Final Round)",
+          title: "IT Quiz (Final Round)",
           location: "Auditorium 1",
           time: "1:00 p.m. - 2:00 p.m.",
         },

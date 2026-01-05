@@ -31,7 +31,7 @@ export const register = async (req, res) => {
       }
       
       //VALIDATIONS
-      if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
+      if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quiz') && (member.length || formData.membercount || teamName)){
         return res.status(200).json({
           message:`Team details are applicable only for team-based events. Please remove the team information or select an appropriate event to continue.`,
           success:false,
@@ -116,7 +116,7 @@ export const register = async (req, res) => {
         {name:'Last Protocol', feeAmount:100},
         {name:'Pixel Perfect', feeAmount:50},
         {name:'Future Forge', feeAmount:50},
-        {name:'IT Quize', feeAmount:100},
+        {name:'IT Quiz', feeAmount:100},
         {name:'Brand Blitz', feeAmount:50},
       ]
       let amount=0;

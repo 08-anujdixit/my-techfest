@@ -30,7 +30,7 @@ const RegistrationForm = () => {
     {name:'Last Protocol', status:true, fee: 100, qr: rs100 },
     {name:'Pixel Perfect', status:true, fee: 50.00, qr: rs50},
     {name:'Future Forge', status:true, fee: 50.00, qr: rs50},
-    {name:'IT Quize', status:true, fee: 100.00, qr: rs100},
+    {name:'IT Quiz', status:true, fee: 100.00, qr: rs100},
     {name:'Brand Blitz', status:true, fee: 50.00, qr: rs50},
   ];
   const techRoles = [
@@ -108,7 +108,7 @@ const RegistrationForm = () => {
   }
  
   const handleSubmit= async (data,e)=>{
-    if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
+    if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quiz') && (member.length || formData.membercount || teamName)){
       setLoader(false);
       setResponse({
         message:`Team details are applicable only for team-based events. Please remove the team information or select an appropriate event to continue.`,
@@ -358,7 +358,7 @@ const RegistrationForm = () => {
           }
           
           {
-            (formData.event === 'CODE-A-THON' || formData.event === 'Expo Renaissance' || formData.event ==='IT Quize') ? (
+            (formData.event === 'CODE-A-THON' || formData.event === 'Expo Renaissance' || formData.event ==='IT Quiz') ? (
               <>
               <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
             '>
@@ -384,7 +384,7 @@ const RegistrationForm = () => {
                     if(e.target.value>4 || (e.target.value<2 && formData.event==="CODE-A-THON")){
                       e.target.value=null;
                     }
-                    else if(formData.event==='IT Quize'){
+                    else if(formData.event==='IT Quiz'){
                       e.target.value=2;
                     }
                     handleChange(e);
@@ -442,7 +442,7 @@ const RegistrationForm = () => {
           </div>
           
           {
-            ((formData.event === 'CODE-A-THON' || formData.event === 'Expo Renaissance' || formData.event ==='IT Quize' ) && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 && formData.membercount != null )?(<div
+            ((formData.event === 'CODE-A-THON' || formData.event === 'Expo Renaissance' || formData.event ==='IT Quiz' ) && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 && formData.membercount != null )?(<div
             className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[100%] md:mx-6"
             >
               <label className='text-grad'>
