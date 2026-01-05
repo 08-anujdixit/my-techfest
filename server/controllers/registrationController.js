@@ -31,13 +31,7 @@ export const register = async (req, res) => {
       }
       
       //VALIDATIONS
-      if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
-      return res.status(200).json({
-        message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
-        success:false,
-      });
-    }
-      else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
+      if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
         return res.status(200).json({
           message:`Team details are applicable only for team-based events. Please remove the team information or select an appropriate event to continue.`,
           success:false,
@@ -55,6 +49,12 @@ export const register = async (req, res) => {
           success:false,
         });
       }
+      else if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
+      return res.status(200).json({
+        message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
+        success:false,
+      });
+    }
       else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
         return res.status(200).json({
           message:`You entered a team size of ${formData.membercount}, but entered ${Number(formData.membercount)+1} member names. Please update the member list by pressing 'Add Members' button to match the selected team size.`,

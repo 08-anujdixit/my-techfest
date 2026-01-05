@@ -13,12 +13,12 @@ import rs200 from '../../assets/qrImages/Rs200qr.jpg'
 import rs600 from '../../assets/qrImages/Rs600qr.jpg'
 
 const returnQR=(eName, events)=>{
+  return tflogo;
   for (let i=0; i<events.length; i++){
     if(eName === (events[i]).name){
       return ((events[i]).qr);
     }
   }
-  return tflogo;
 }
 
 const RegistrationForm = () => {
@@ -108,14 +108,7 @@ const RegistrationForm = () => {
   }
  
   const handleSubmit= async (data,e)=>{
-    if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
-      setLoader(false);
-      setResponse({
-        message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
-        success:false,
-      });
-    }
-    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
+    if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
       setLoader(false);
       setResponse({
         message:`Team details are applicable only for team-based events. Please remove the team information or select an appropriate event to continue.`,
@@ -145,6 +138,13 @@ const RegistrationForm = () => {
         ...prev,
         raftDebateRole:"",
       }));
+    }
+    else if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
+      setLoader(false);
+      setResponse({
+        message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
+        success:false,
+      });
     }
     else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
       setLoader(false);
