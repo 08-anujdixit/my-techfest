@@ -18,32 +18,42 @@ function Timeline() {
         {
           title: "Inaugration Ceremony",
           location: "Auditorium 1",
-          time: "9:00 a.m. - 11:00a.m.",
+          time: "9:00 a.m. - 10:00 a.m.",
         },
         {
           title: "Guest lecture",
           location: "Auditorium 1",
-          time: "9:00 a.m. - 11:00 a.m.",
+          time: "10:00 a.m. - 11:00 a.m.",
         },
         {
-          title: "Renaissance Expo",
-          location: "Lab 1 + Corridor",
+          title: "Expo Renaissance",
+          location: "Auditorium 1",
           time: "11:00 a.m. - 3:00 p.m.",
         },
         {
-          title: "Thumbnail Making",
-          location: "Lab 4",
-          time: "11:30 a.m. - 1:30 p.m.",
-        },
-        {
-          title: "Character Desinging",
-          location: "Lab 3",
-          time: "11:30 a.m. - 1:30 p.m.",
-        },
-        {
+          title: "Last Protocol",
           location: "Auditorium 1",
-          title: "Raft Debate",
-          time: "12:00 p.m. - 2:00 p.m.",
+          time: "11:00 p.m. - 1:00 p.m.",
+        },
+        {
+          title: "Brand Blitz",
+          location: "Lab 3",
+          time: "11:00 a.m. - 12:00 p.m.",
+        },
+        {
+          title: "IT Quize",
+          location: "Lab 1",
+          time: "11:00 a.m. - 12:00 p.m.",
+        },
+        {
+          title: "IT Quize (Final Round)",
+          location: "Auditorium 1",
+          time: "1:00 p.m. - 2:00 p.m.",
+        },
+        {
+          title: "Awards & Closing",
+          location: "Auditorium 1",
+          time: "2:00 p.m. - 3:00 p.m.",
         },
       ],
     },
@@ -58,17 +68,17 @@ function Timeline() {
         {
           title: "CODE-A-THON",
           location: "Auditorium 1",
-          time: "8:00 a.m. - 5:00 p.m.",
+          time: "9:00 a.m. - 5:00 p.m.",
         },
         {
-          title: "IT Quize",
-          location: "Lab 1 + Lab 4",
-          time: "10:00 a.m. - 12:00 p.m.",
+          title: "Pixel Perfect",
+          location: "Lab 4",
+          time: "11:30 a.m. - 12:30 p.m.",
         },
         {
-          title: "Logo Desinging",
+          title: "Future Forge",
           location: "Lab 3",
-          time: "12:30 p.m. - 1:30 p.m.",
+          time: "12:30 a.m. - 2:30 p.m.",
         },
       ],
     },
@@ -83,7 +93,7 @@ function Timeline() {
         {
           title: "Prize Distribution",
           location: "Auditorium 1",
-          time: "From 11:00 a.m. onwards.",
+          time: "11:00 a.m. - 12 p.m.",
         },
       ],
     },
@@ -96,7 +106,7 @@ function Timeline() {
         Timeline
       </h1>
       <div
-      className='md:gap-32 px-7 font-mono'
+      className='md:gap-18 px-7 font-mono md:flex'
       >
       {
         timeline.map((tl, index) => (
@@ -105,7 +115,7 @@ function Timeline() {
         className='text-center w-full my-4 mx-auto p-6'>
           <h2 className="text-3xl font-extrabold text-white mb-12">{tl.day}<sup className="text-white">th</sup> February</h2>
           {/* Timeline container */}
-          <div className="relative border-l-4 border-gray-400 pl-10 md:ml-16">
+          <div className="relative border-l-4 border-gray-400 pl-10 md:ml-16 h-[15rem] overflow-auto">
             {tl.events_day.map((event, index) => (
               <div key={index} className="mb-10 relative text-start">
                 {/* Circle */}
@@ -147,7 +157,7 @@ const HomePage = () => {
                    At <span className="text-grad font-extrabold font-mono">TechFest 5.0</span>, we raise the bar even higher, uniting brilliant innovators, creative thinkers, and passionate tech enthusiasts under one banner for an extraordinary celebration of technology, innovation, and imagination. This year’s fest is bigger, bolder, and more immersive — blending cutting-edge technology with creativity, talent, and fun. With a wide spectrum of events crafted to spark curiosity and showcase talent, from AI-driven projects to digital artistry, every participant will discover a stage to shine and inspire.
             </p>
             <p className="text-gray-300 w-auto px-5 text-justify mt-3 ">
-              The mission of <span className="text-grad font-extrabold  font-mono">TechFest 5.0</span> is to drive forward innovation and foster a culture of collaboration, learning, and exploration among students and young professionals. By offering a platform where technology meets creativity, we empower the next generation of problem-solvers, entrepreneurs, and esports champions. This fest is a movement that highlights the ever-expanding role of technology in shaping our future.
+              The mission of <span className="text-grad font-extrabold  font-mono">TechFest 5.0</span> is to drive forward innovation and foster a culture of collaboration, learning, and exploration among students and young professionals. By offering a platform where technology meets creativity, we empower the next generation of problem-solvers, entrepreneurs, and coders. This fest is a movement that highlights the ever-expanding role of technology in shaping our future.
             </p>
         </div>
       </section>

@@ -36,40 +36,69 @@ const CodeAThon = () => {
     details: "Presentation, Judging & Certificate Distribution",
   },
 ]
-  const rules = [
-  "Any violation of rules will result in disqualification.",
+  const hackathonRules = [
+  "Any violation of rules will result in immediate disqualification.",
+
   "Latecomers will be disqualified.",
-  "All participants must maintain a respectful and collaborative environment. Harassment, discrimination, or any form of misconduct will not be tolerated and will lead to immediate disqualification.",
-  "The organizing team reserves the right to modify event dates, schedules, rules, or other details as needed. In the unlikely event of a cancellation, all participants will receive a full refund of their registration fees.",
-  "The hackathon is open to all students of any college or university.",
-  "Teams must consist of a minimum of 2 and maximum of 4 members.",
-  "All team members must be officially registered for the hackathon before it commences.",
+
+  "All participants must maintain a respectful and collaborative environment. Harassment, discrimination, or any form of misconduct will lead to immediate disqualification.",
+
+  "The organizing team reserves the right to modify event dates, schedules, rules, or other details as required. In case of event cancellation, a full refund of the registration fee will be provided.",
+
+  "The hackathon is open to students from any college or university.",
+
+  "Teams must consist of a minimum of 2 and a maximum of 4 members.",
+
+  "All team members must be officially registered before the hackathon begins.",
+
   "No changes to team members are allowed after the hackathon has officially started.",
-  "Participants are not allowed to cancel their registration once submitted, except in the case of event cancellation by the organizers.",
-  "All teams will be given 8 hours on the first day to build, deploy, and submit their project. The first 30 minutes will be reserved for the welcome speech, explanation of rules, judging criteria, submission process, and announcement of the theme/problem statement.",
-  "Teams must start all development from scratch at the beginning of the event.",
-  "Teams are required to work on one problem statement.",
-  "All team members must be present for the duration of the event.",
-  "Teams can use any tech stack they prefer (e.g., MERN Stack, MEAN Stack, MEVN Stack, Django Stack, etc.).",
-  "Implement 2 to 4 backend functionalities.",
-  "Projects without backend functionality will be accepted; however, no marks/points will be awarded for backend functionality.",
-  "No pre-written code is allowed. Use of AI is strictly prohibited. Only open-source libraries approved by the organizers are permitted.",
-  "All teams retain full ownership of what they build. However, organizers may showcase the projects for promotional purposes with due credit to the respective teams.",
-  "Every participant must bring their own necessary technical equipment and have their own internet connection (like laptop, laptop charger etc.).",
-  "Mentorship will be provided to teams during the event to guide them as needed.",
-  "No use of internet is allowed at the time of ongoing event.",
-  "Internet will be allowed only in the first and last hour of the hackathon for dependencies, setup, and GitHub push.",
-  "Internet will be provided only if participants don’t have their own; otherwise, they must arrange it themselves.",
-  "Teams must push their complete project on GitHub and have to host it.",
-  "Any changes to the code or project after submission will result in disqualification.",
+
+  "Participants cannot cancel their registration once submitted, except in the case of event cancellation by the organizers.",
+
+  "Teams will be given a total of 8 hours to build, deploy, and submit their project. The first 30 minutes will be reserved for the welcome session, rules explanation, judging criteria, submission process, and announcement of the problem statement.",
+
+  "All development must start from scratch at the beginning of the event.",
+
+  "Teams are required to work on only one problem statement.",
+
+  "All team members must be present for the entire duration of the event.",
+
+  "Teams may use any preferred technology stack such as MERN, MEAN, MEVN, Django, etc.",
+
+  "Teams are encouraged to implement 2 to 4 backend functionalities.",
+
+  "Mentorship will be provided during the event to guide teams when required.",
+
+  "Projects without backend functionality will be accepted; however, no marks will be awarded for backend implementation.",
+
+  "Use of pre-written code and AI-based code generation tools is strictly prohibited. Only approved open-source libraries may be used.",
+
+  "Teams retain full ownership of their projects. Organizers may showcase the projects for promotional purposes with proper credit.",
+
+  "Participants must bring their own technical equipment such as laptops, chargers, and required accessories.",
+
+  "Internet access is allowed throughout the event for documentation, package installation, debugging, and deployment.",
+
+  "Internet will be provided only if participants do not have their own; otherwise, they must arrange it themselves.",
+
+  "Teams must push their complete project to GitHub and deploy the project.",
+
+  "Final evaluation will be based on the GitHub repository state at the submission deadline.",
+
+  "The submission timestamp will be considered as the GitHub push time, not the local commit time.",
+
+  "Any changes made to the project after submission will result in disqualification.",
+
   "Teams must present their projects to the judges either on the same day after coding or on the following day, depending on the event schedule.",
-  "Teams must submit an abstract of the project, project code files/snapshots, presentation file, GitHub repo of the project and working URL of the website.",
-  "Teams must submit their project through e-mail, Google Forms, or any other platform specified by the organizers. Late submissions will not be accepted.",
-  ];
+
+  "Teams must submit the project abstract, source code or snapshots, final GitHub push screenshot, presentation file, GitHub repository link, and a working deployment URL.",
+
+  "Project submissions must be made via email, Google Forms, or any other platform specified by the organizers. Late submissions will not be accepted."
+];
   const rules_judging=[
     {
       heading:'Competition Rules',
-      rules:rules,
+      rules: hackathonRules,
     },
     {
       heading:'Judging Criteria',

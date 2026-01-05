@@ -25,13 +25,13 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const events=[
     {name:'Choose Event to Enroll', status:false, fee: 0.0, qr: null },
-    {name:'Renaissance Expo', status:true, fee: 200.00, qr: rs200 },
+    {name:'Expo Renaissance', status:true, fee: 200.00, qr: rs200 },
     {name:'CODE-A-THON', status:true, fee: 600.00, qr: rs600 },
-    {name:'Raft Debate', status:true, fee: 100, qr: rs100 },
-    {name:'Thumbnail Making', status:true, fee: 50.00, qr: rs50},
-    {name:'Character Desinging', status:true, fee: 50.00, qr: rs50},
+    {name:'Last Protocol', status:true, fee: 100, qr: rs100 },
+    {name:'Pixel Perfect', status:true, fee: 50.00, qr: rs50},
+    {name:'Future Forge', status:true, fee: 50.00, qr: rs50},
     {name:'IT Quize', status:true, fee: 100.00, qr: rs100},
-    {name:'Logo Desinging', status:true, fee: 50.00, qr: rs50},
+    {name:'Brand Blitz', status:true, fee: 50.00, qr: rs50},
   ];
   const techRoles = [
   { role:'Choose a role', status: false },
@@ -115,7 +115,7 @@ const RegistrationForm = () => {
         success:false,
       });
     }
-    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
+    else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
       setLoader(false);
       setResponse({
         message:`Team details are applicable only for team-based events. Please remove the team information or select an appropriate event to continue.`,
@@ -135,7 +135,7 @@ const RegistrationForm = () => {
         success: false,
       });
     }
-    else if(formData.event!=='Raft Debate' && formData.raftDebateRole){
+    else if(formData.event!=='Last Protocol' && formData.raftDebateRole){
       setLoader(false);
       setResponse({
         message:`Raft Debate role selection is applicable only for the Raft Debate event. Please remove the role information or reselect the appropriate event to continue.`,
@@ -200,7 +200,7 @@ const RegistrationForm = () => {
           }));
           setTimeout(()=>{
             window.location.reload();
-          }, 600);
+          }, 500);
         }, 5000);
       }
     }
@@ -332,7 +332,7 @@ const RegistrationForm = () => {
             </select>
           </div>
 
-          { formData.event==='Raft Debate'?
+          { formData.event==='Last Protocol'?
             (
               <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>
@@ -358,7 +358,7 @@ const RegistrationForm = () => {
           }
           
           {
-            (formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event ==='IT Quize') ? (
+            (formData.event === 'CODE-A-THON' || formData.event === 'Expo Renaissance' || formData.event ==='IT Quize') ? (
               <>
               <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
             '>
@@ -442,7 +442,7 @@ const RegistrationForm = () => {
           </div>
           
           {
-            ((formData.event === 'CODE-A-THON' || formData.event === 'Renaissance Expo' || formData.event ==='IT Quize' ) && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 && formData.membercount != null )?(<div
+            ((formData.event === 'CODE-A-THON' || formData.event === 'Expo Renaissance' || formData.event ==='IT Quize' ) && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 && formData.membercount != null )?(<div
             className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[100%] md:mx-6"
             >
               <label className='text-grad'>

@@ -37,7 +37,7 @@ export const register = async (req, res) => {
         success:false,
       });
     }
-      else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Renaissance Expo' && formData.event !== 'IT Quize' && formData.event !== 'Tech Treasure Hunt') && (member.length || formData.membercount || teamName)){
+      else if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quize') && (member.length || formData.membercount || teamName)){
         return res.status(200).json({
           message:`Team details are applicable only for team-based events. Please remove the team information or select an appropriate event to continue.`,
           success:false,
@@ -49,7 +49,7 @@ export const register = async (req, res) => {
           success: false,
         });
       }
-      else if(formData.event!=='Raft Debate' && formData.raftDebateRole){
+      else if(formData.event!=='Last Protocol' && formData.raftDebateRole){
         return res.status(200).json({
           message:`Raft Debate role selection is applicable only for the Raft Debate event. Please remove the role information or reselect the appropriate event to continue.`,
           success:false,
@@ -84,8 +84,7 @@ export const register = async (req, res) => {
          });
        }
        
-       const isRole = await Registration.findOne({enrolledEvent:'Raft Debate', raftDebateRole: formData.raftDebateRole});
-       
+       const isRole = await Registration.findOne({enrolledEvent:'Last Protocol', raftDebateRole: formData.raftDebateRole});
        if(isRole){
          return res.status(200).json({
            message: "The selected role has already been assigned to another participant. Please choose a different role to proceed.",
@@ -95,7 +94,7 @@ export const register = async (req, res) => {
        
       //Simple Random OTP Generator
       function generateOTP(length = 6) {
-        let otp = "TF";
+        let otp = "@TF5.0-";
         for (let i = 0; i < length; i++) {
           otp += Math.floor(Math.random() * 10);
         }
@@ -105,19 +104,20 @@ export const register = async (req, res) => {
       while (true){
         regID = generateOTP();
         const flag = await Registration.findOne({regID});
+        
         if (!flag){
           break;
         }
       }
       
       const eventsFee=[
-        {name:'Renaissance Expo', feeAmount:200},
+        {name:'Expo Renaissance', feeAmount:200},
         {name:'CODE-A-THON', feeAmount:600},
-        {name:'Raft Debate', feeAmount:100},
-        {name:'Thumbnail Making', feeAmount:50},
-        {name:'Character Desinging', feeAmount:50},
+        {name:'Last Protocol', feeAmount:100},
+        {name:'Pixel Perfect', feeAmount:50},
+        {name:'Future Forge', feeAmount:50},
         {name:'IT Quize', feeAmount:100},
-        {name:'Logo Desinging', feeAmount:50},
+        {name:'Brand Blitz', feeAmount:50},
       ]
       let amount=0;
       for (let i of eventsFee) {

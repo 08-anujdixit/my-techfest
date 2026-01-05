@@ -3,7 +3,6 @@ import '../Custom.css';
 
 const AboutPage = () => {
   const [showQuery,setShowQuery] = useState(null)
-  
   const terms_and_conditions =[
     {
       k: 1,
@@ -13,7 +12,7 @@ const AboutPage = () => {
     {
       k: 2,
       heading: 'Registration',
-      disc: "The deadline for registration is February 1, 2025. Participants may edit their registration details by contacting the registration team, but cancellations are not permitted once registration is confirmed.",
+      disc: "The deadline for registration is in February, 2026. Participants may edit their registration details by contacting the registration team, but cancellations are not permitted once registration is confirmed.",
     },
     {
       k: 3,
@@ -46,7 +45,6 @@ const AboutPage = () => {
       disc: "For any questions regarding these Terms and Conditions, please refer to the Contact Us Section on our website's About Us page.",
     },
   ]
-  
   const privacy_policy =[
     {
       k: 1,
@@ -56,7 +54,7 @@ const AboutPage = () => {
     {
       k: 2,
       heading: 'Use of Collected Information',
-      disc: "We use the collected information solely for processing your registration for the event.\n\nWe do not use your data for promotional purposes.",
+      disc: "We use the collected information solely for processing your registration for the event. We do not use your data for promotional purposes.",
     },
     {
       k: 3,
@@ -66,7 +64,7 @@ const AboutPage = () => {
     {
       k: 4,
       heading: 'Data Protection',
-      disc: "Your personal information is stored securely and is under strict observation. We take full responsibility for its confidentiality.\n\nPayments are processed securely through Razorpay.",
+      disc: "Your personal information is stored securely and is under strict observation. We take full responsibility for its confidentiality. Payments are processed securely through Razorpay.",
     },
     {
       k: 5,
@@ -76,7 +74,7 @@ const AboutPage = () => {
     {
       k: 6,
       heading: 'User Rights',
-      disc: "Participants can access, update, or request deletion of their personal information by contacting us through the details provided on our Contact Us page.\n\nSupport is available via email and phone.",
+      disc: "Participants can access, update, or request deletion of their personal information by contacting us through the details provided on our Contact Us page. Support is available via email and phone.",
     },
     {
       k: 7,
@@ -94,7 +92,6 @@ const AboutPage = () => {
       disc: "If you have any questions about this Privacy Policy, please contact us via email or phone. Contact details are provided on the Contact Us page.",
     },
   ]
-  
   const refund_policy =[
     {
       k: 1,
@@ -160,7 +157,6 @@ const AboutPage = () => {
       ],
     },
   ]
-  
   const queries=[
     {
       query:'Who can participate?',
