@@ -33,7 +33,7 @@ const EventsPage = () => {
       description:'Brand Blitz is a creative competition where participants design original logos from scratch within a limited time. The event evaluates creativity, simplicity, relevance, and visual impact while encouraging participants to express brand identity through thoughtful design.',
       image: logodesign,
     },
-    {name:'IT Quize',
+    {name:'IT Quiz',
       description:'The IT Quiz is an engaging competition that tests participants’ knowledge of computer science, information technology, current tech trends, and logical reasoning. Open to students from all branches, the event encourages quick thinking, teamwork, and problem-solving through a two-round format—an initial computer-based test (CBT) followed by an on-stage quiz round with buzzer questions and rapid-fire challenges. With live scoring and an energetic atmosphere, the IT Quiz offers a perfect blend of learning and competition.',
       image: quize,
     },
