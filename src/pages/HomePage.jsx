@@ -106,7 +106,7 @@ function Timeline() {
         Timeline
       </h1>
       <div
-      className='md:gap-18 px-7 font-mono md:flex'
+      className='md:gap-36 px-7 font-mono'
       >
       {
         timeline.map((tl, index) => (
@@ -115,7 +115,7 @@ function Timeline() {
         className='text-center w-full my-4 mx-auto p-6'>
           <h2 className="text-3xl font-extrabold text-white mb-12">{tl.day}<sup className="text-white">th</sup> February</h2>
           {/* Timeline container */}
-          <div className="relative border-l-4 border-gray-400 pl-10 md:ml-16 h-[15rem] overflow-auto">
+          <div className="relative border-l-4 border-gray-400 pl-10 md:ml-16 h-auto">
             {tl.events_day.map((event, index) => (
               <div key={index} className="mb-10 relative text-start">
                 {/* Circle */}

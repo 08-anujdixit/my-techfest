@@ -291,6 +291,7 @@ const AboutPage = () => {
     </section>
     
     {/* SECTION FOR QUERIES */}
+    {
     <section id="query" className="aboutpage">
       <h2 className="mb-2 font-bold">
         Queries
@@ -319,6 +320,7 @@ const AboutPage = () => {
       </div>))
       }
     </section>
+    }
     
     {/* SECTION FOR CONTACTING */}
     <section id="contactus" className="aboutpage">
@@ -331,7 +333,7 @@ const AboutPage = () => {
       </p>
       <p className="text-lg my-3">
         <strong className='text-grad'>Operational Address: </strong>
-        <p>National Post Graduate College, Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh, India</p>
+        <p>National Post Graduate College, 2 Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh, India</p>
       </p>
       <p className="text-lg my-3">
         <strong className='text-grad'>Sutdent Coordinators: </strong>
