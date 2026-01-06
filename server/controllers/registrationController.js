@@ -150,11 +150,9 @@ export const register = async (req, res) => {
       res.status(201).json({
         message:'Participant Registered successfully.',
         registration: {
-          reg_id: newRegistration.regID,
           name: newRegistration.name,
           email: newRegistration.email,
           phone: newRegistration.phone,
-          date: newRegistration.createdAt,
           event: newRegistration.enrolledEvent,
         },
         success:true,

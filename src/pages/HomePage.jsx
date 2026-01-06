@@ -142,6 +142,7 @@ function Timeline() {
   );
 }
 
+
 //EVENT INTRODUCTION
 const HomePage = () => {
   const navigate=useNavigate();
@@ -169,7 +170,7 @@ const HomePage = () => {
         }}
         >Register Now »</Button>
       </div>
-      <section className="my-8 py-2">
+      <section className="my-8 py-2 md:flex md:justify-center">
         <Timeline/>
       </section>
     </container>

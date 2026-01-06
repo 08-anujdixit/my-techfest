@@ -17,16 +17,16 @@ const Activate = () => {
   return (
     <>
      <div 
-     className={`h-[100vh] w-full  ${visible? '' : 'hidden'} flex justify-center items-center`}>
+     className={`h-[85vh] md:h-[94vh] w-full  ${visible? '' : 'hidden'} flex justify-center items-center`}>
       <Logo
-      animate={`rounded-full popUp`}
+      animate={`popUp`}
       />
      </div>
      <main
     className={`${visible? 'hidden' : ''} w-full h-[100%]`}
     >
         <div 
-        className="h-[100%] w-full py-10
+        className="h-[100%] w-full py-10 md:py-2
         ">
           <h1
           className='text-[62px] text-grad text-center font-serif md:text-[6rem] reverseFade w-full
@@ -47,7 +47,8 @@ const Activate = () => {
             }} 
             >
               <Logo
-              animate='rounded-full animate-[spin_7s_linear_infinite]'/>
+              custom_style='my-4'
+              animate='animate-[spin_7s_linear_infinite]'/>
             </button>
           </div>
         </div>

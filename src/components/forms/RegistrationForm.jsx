@@ -6,6 +6,7 @@ import Loader from '../../components/Loader';
 import tflogo from '../../assets/images/Tflogo.jpg'
 import { MdOutlineDoneOutline } from "react-icons/md";
 import { register } from "../../services/registrationService.js";
+import { fetchRoles } from "../../services/fetchData.js";
 //QR CODES FOR TRANSACTIONS
 import rs50 from '../../assets/qrImages/Rs50qr.jpg'
 import rs100 from '../../assets/qrImages/Rs100qr.jpg'
@@ -13,12 +14,12 @@ import rs200 from '../../assets/qrImages/Rs200qr.jpg'
 import rs600 from '../../assets/qrImages/Rs600qr.jpg'
 
 const returnQR=(eName, events)=>{
-  return tflogo;
   for (let i=0; i<events.length; i++){
     if(eName === (events[i]).name){
       return ((events[i]).qr);
     }
   }
+  return tflogo;
 }
 
 const RegistrationForm = () => {
@@ -33,7 +34,8 @@ const RegistrationForm = () => {
     {name:'IT Quiz', status:true, fee: 100.00, qr: rs100},
     {name:'Brand Blitz', status:true, fee: 50.00, qr: rs50},
   ];
-  const techRoles = [
+  
+  const [techRoles, setTechRoles] = useState([
   { role:'Choose a role', status: false },
   { role: "Software Engineer", status: true },
   { role: "Artificial Intelligence Engineer", status: true },
@@ -50,7 +52,8 @@ const RegistrationForm = () => {
   { role: "Space Technology Engineer", status: true },
   { role: "Tech Entrepreneur", status: true },
   { role: "Digital Ethics & Policy Expert", status: true }
-];
+]);
+
   const [fee,setFee]=useState(null);
   const [regBtn,setRegBtn]=useState(false);
   const [loader,setLoader]=useState(false);
@@ -233,6 +236,26 @@ const RegistrationForm = () => {
     }
   },[regBtn, show]);
   
+  const fetchDebateRoles= async ()=>{
+    try {
+      const res = await fetchRoles();
+      if(res){
+        const registeredRoles = res.rolesData;
+        setTechRoles(prevRoles =>
+          prevRoles.map(roleObj => ({
+            ...roleObj,
+            status: roleObj.role === "Choose a role"
+            ? false
+            : !registeredRoles.includes(roleObj.role)
+          }))
+        );
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  fetchDebateRoles();
+  
   return (
     <container className='w-auto h-auto flex justify-center my-10'>
       {/*MESSAGE RESPONSE BOX*/
@@ -246,13 +269,15 @@ const RegistrationForm = () => {
                   <p className="text-white text-xl text-center text-justify p-10">
                     {loader?<Loader/>:null}
                     {response?.message}
-                    {response.success?(
+                    {
+                      response.success?(
                       <>
                         <br/>
                         <div className='mt-5 text-center'>
-                        <p className="text-white text-xl text-center font-bold inline">Thank you for registering! </p> &#128522;</div>
+                        <p className="text-white text-xl text-center font-bold inline">Thank you for registering! </p>&#128522;</div>
                       </>
-                    ):null}
+                      ):null
+                    }
                   </p>
                 </div>
               </div>
@@ -323,7 +348,7 @@ const RegistrationForm = () => {
                 events.map((event, index) =>(
                   <option 
                   disabled={!event.status}
-                  selected={!event.status}
+                  selected={!event.status && index===0}
                   >
                     {event.name}
                   </option>

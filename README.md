@@ -1,4 +1,4 @@
-# 🎉 TechFest Website
+# 🎉 TechFest 5.0 Website
 
 A modern, responsive web application for managing and showcasing our college's **TechFest** events, registrations, and updates.  
 Built with the **MERN Stack** – **MongoDB**, **Express**, **React**, and **Node.js**.
@@ -66,5 +66,4 @@ techfest-website/                  # React Frontend
 │   └── package.json
 │
 ├── .gitignore
-├── README.md
-└── LICENSE
+└── README.md

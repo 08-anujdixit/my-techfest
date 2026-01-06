@@ -9,7 +9,7 @@ const CodeAThon = () => {
   const schedule = [
   {
     time: "8:00 – 9:00 AM",
-    details: "Registration + Morning Refreshment",
+    details: "Registration",
   },
   {
     time: "9:00 – 9:30 AM",
@@ -128,7 +128,7 @@ const CodeAThon = () => {
         <p
         className='text-justify'
         >
-          The Mini Hackathon is designed to challenge participants and test
+          The Hackathon is designed to challenge participants and test
           their technical skills, communication ability, and logical thinking.
           In this hackathon a central problem statement will be provided to all
           teams, and participants must identify sub-problems within it to build
@@ -180,8 +180,8 @@ const CodeAThon = () => {
             <tr
             key={index}
             >
-              <td className="border border-gray-400 p-2">{element.time}</td>
-              <td className="border border-gray-400 p-2">
+              <td className="border border-gray-400 p-2 w-[40%] md:w-auto">{element.time}</td>
+              <td className="border border-gray-400 p-2 w-auto">
                 {element.details}
               </td>
             </tr>

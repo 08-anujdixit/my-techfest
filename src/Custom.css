@@ -9,11 +9,11 @@
 }
 
 .bg-grad{
-  background: linear-gradient(130deg,#FF0050, #FF1F6A, #5D00ff);
+  background: linear-gradient(130deg,#FF2D55, #FF1F6A, #6A00ff);
 }  
 
 .text-grad{
-  background: linear-gradient(100deg,#FF0050, #FF1F6A, #5D00ff);
+  background: linear-gradient(100deg,#FF2D55, #FF1F6A, #6A00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -24,6 +24,14 @@
   text-align: center;
   background: rgba(100, 100, 100, 0.4);
   backdrop-filter: blur(4.9px);
+}
+
+.bg-transparent-blur-xl{
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  background: rgba(100, 100, 100, 0.4);
+  backdrop-filter: blur(9rem);
 }
 
 .shadow-grad{
@@ -45,7 +53,7 @@
   border-radius: 50%;
   padding: 2px;
   border: 4px solid gray;
-  border-top: 4px solid #FF0050;
+  border-top: 4px solid #FF2D55;
   animation: loader 1s linear infinite;
   display: flex;
   justify-content: center;
@@ -54,7 +62,7 @@
 
 .loader div{
   border: 4px solid gray;
-  border-bottom: 4px solid #5D00ff;
+  border-bottom: 4px solid #6A00ff;
 }
 
 .popUp{
@@ -162,13 +170,9 @@
 
 
 .hover-grad:hover{
-  background: linear-gradient(100deg,#FF0050, #FF1F6A, #5D00ff);
+  background: linear-gradient(100deg,#FF2D55, #FF1F6A, #6D00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* @media screen and (min-width: 1200px) and (max-width: 1439px) {
-  #regForm div{
-    width:30%;
-  }
-}*/
+

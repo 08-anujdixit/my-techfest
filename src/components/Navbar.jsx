@@ -15,6 +15,7 @@ export default function Navbar(){
     status:false,
     fade:'reverseFade',
   });
+  
   useEffect(()=>{
     setTimeout(()=>{
       setToggleMenu((prev)=>false);
@@ -69,16 +70,14 @@ export default function Navbar(){
     id='navBar'
     className="h-auto w-full px-2 sticky top-2 z-[1100] mb-5">
       <ul
-      className='mt-3 px-2 flex justify-between items-center bg-transparent-blur border-[0.8px] border-gray-500 w-full transition-all hover:border-white'
+      className='mt-3 px-3 flex justify-between items-center bg-transparent-blur border-[0.8px] border-gray-500 w-full transition-all hover:border-white'
       >
         <li>
           <Link
           to='/'
           >
             <Logo
-            h="h-[3rem] md:h-[5rem]"
-            w="w-[3rem] md:w-[5rem]"
-            custom_style='rounded-full'
+            h="h-[2.5rem] md:h-[4rem]"
             />
           </Link>
         </li>
@@ -114,14 +113,16 @@ export default function Navbar(){
                 }}
                 >
                   <a
-                  href={item.name=='Brochure'?'/brochure/Tflogo.jpg':item.slug}
+                  href={item.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':item.slug}
                   download={item.name=='Brochure'?true:false}
                   onClick={item.name=='Brochure'?
                   (e)=>{
-                    setDownload((p)=>({
-                      ...p,
-                      status:!status,
-                    }));
+                    setTimeout(()=>{
+                      setDownload((p)=>({
+                        ...p,
+                        status:!status,
+                      }));
+                    }, 1000 * 5);
                     setTimeout(()=>{
                       setDownload((p)=>({
                       ...p,
@@ -132,7 +133,7 @@ export default function Navbar(){
                       status:!status,
                       fade: 'reverseFade'
                     }));
-                  }:false}
+                  }:null}
                   >{item.name}</a>
                 </button>
               ):null

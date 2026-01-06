@@ -280,7 +280,7 @@ const AboutPage = () => {
         </ul>
       </div>
       <p className="text-gray-300 w-auto text-justify text-sm my-10">
-      We hope this policy helps clarify any questions you may have. Thank you for participating in <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>!
+      We hope this policy helps clarify any questions you may have. Thank you for participating in <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a> !
       </p>
     </section>
     }
@@ -329,7 +329,7 @@ const AboutPage = () => {
       </h2>
       <p className="text-lg my-3">
         <strong className='text-grad'>Email Address: </strong>
-        <p>techfest.npgc@gmail.com</p>
+        <p>techfest5.0@gmail.com</p>
       </p>
       <p className="text-lg my-3">
         <strong className='text-grad'>Operational Address: </strong>
@@ -337,8 +337,7 @@ const AboutPage = () => {
       </p>
       <p className="text-lg my-3">
         <strong className='text-grad'>Sutdent Coordinators: </strong>
-        <p>Contact details will be updated soon.</p>
-        
+        <p>+91 91401 84684</p>
       </p>
     </section>
   </container>

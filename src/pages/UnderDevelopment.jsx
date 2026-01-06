@@ -8,17 +8,17 @@ const UnderDevelopment = () => {
       
       {/* Icon */}
       <div className="mb-6 animate-bounce">
-        <Construction size={64} className="text-[#5D00ff]" />
+        <Construction size={84} className="text-[#6D00ff]" />
       </div>
 
       {/* Heading */}
       <h1 className="text-3xl md:text-4xl font-bold text-grad mb-3">
-        Website Under Development
+        Website Under Maintenance
       </h1>
 
       {/* Message */}
       <p className="text-gray-400 max-w-md mb-6">
-        The TechFest 5.0 website is currently under development.
+        The TechFest 5.0 website is currently under maintenance.
         We’re working hard to bring you something exciting. Please check back soon!
       </p>
 
