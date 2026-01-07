@@ -89,6 +89,30 @@ const RegistrationForm = () => {
           : value.trim(), // trim only for text inputs
     }));
   }
+  
+  //Add Members names
+  const handleMember = (e)=>{
+    e.preventDefault();
+    const memberarray=[]
+    for (let i = 0; i < formData.membercount- 1; i++){
+      let id = document.getElementById(`member${i}`);
+      if((id.value.trim()).length>0) memberarray.push(id.value)
+    }
+              
+    setMember(memberarray);
+    setResponse(prev => ({
+      ...prev,
+      message: (memberarray.length == 0 && formData.membercount > 1)? "Please add all team member names before proceeding." : "Members added successfully!",
+    }));
+    setRegBtn((p)=>!p)
+    setTimeout(()=>{
+      setRegBtn((p)=>!p);
+      setResponse((prev)=>({
+        ...prev,
+        message:'Please Wait for a moment!',
+      }))
+    }, 2000);
+  }
 
   //EMAIL VALIDATION FUNCTION
   function validateEmail(email) {
@@ -130,6 +154,13 @@ const RegistrationForm = () => {
       setResponse({
         message: "Please select an event to proceed.",
         success: false,
+      });
+    }
+    else if ((!formData.raftDebateRole || formData.raftDebateRole === "Select Event") && formData.event==='Last Protocol'){
+      setLoader(false);
+      setResponse({
+        message:`Please select a role for the Raft Debate event to proceed.`,
+        success:false,
       });
     }
     else if(formData.event!=='Last Protocol' && formData.raftDebateRole){
@@ -495,30 +526,8 @@ const RegistrationForm = () => {
             css='mt-2 w-auto'
             type='button'
             onClick={(e)=>{
-              e.preventDefault();
-              const memberarray=[]
-              for (let i = 0; i < formData.membercount- 1; i++) {
-                let id = document.getElementById(`member${i}`);
-                if((id.value.trim()).length>0) memberarray.push(id.value)
-              }
-              setMember(memberarray);
-              setResponse(prev => ({
-                ...prev,
-                message:
-                  member.length === 0 && formData.membercount > 1
-                    ? "Please add all team member names before proceeding."
-                    : "Members added successfully!",
-                success: !(member.length === 0 && formData.membercount > 1),
-              }));
-              setRegBtn((p)=>!p)
-              setTimeout(()=>{
-                setRegBtn((p)=>!p);
-                setResponse((prev)=>({
-                  ...prev,
-                  message:'Please Wait for a moment!',
-                }))
-              }, 2000);
-            }}
+              handleMember(e)}
+            }
             >Add Members</Button>
              </div>) : null
           }

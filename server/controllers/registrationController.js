@@ -43,6 +43,12 @@ export const register = async (req, res) => {
           success: false,
         });
       }
+      else if ((!formData.raftDebateRole || formData.raftDebateRole === "Select Event") && formData.event==='Last Protocol'){
+        return res.status(200).json({
+          message:`Please select a role for the Raft Debate event to proceed.`,
+          success:false,
+        });
+      }
       else if(formData.event!=='Last Protocol' && formData.raftDebateRole){
         return res.status(200).json({
           message:`Raft Debate role selection is applicable only for the Raft Debate event. Please remove the role information or reselect the appropriate event to continue.`,
@@ -84,12 +90,14 @@ export const register = async (req, res) => {
          });
        }
        
-       const isRole = await Registration.findOne({enrolledEvent:'Last Protocol', raftDebateRole: formData.raftDebateRole});
-       if(isRole){
-         return res.status(200).json({
-           message: "The selected role has already been assigned to another participant. Please choose a different role to proceed.",
-           success:false,
-         });
+       if(formData.event === 'Last Protocol'){
+         const isRole = await Registration.findOne({enrolledEvent:'Last Protocol', raftDebateRole: formData.raftDebateRole});
+         if(isRole){
+           return res.status(200).json({
+             message: "The selected role has already been assigned to another participant. Please choose a different role to proceed.",
+             success:false,
+           });
+         }
        }
        
       //Simple Random OTP Generator
