@@ -502,7 +502,6 @@ const RegistrationForm = () => {
                 if((id.value.trim()).length>0) memberarray.push(id.value)
               }
               setMember(memberarray);
-              setRegBtn((p)=>!p)
               if(member.length===0 && formData.membercount>1){
                   setResponse((prev)=>({
                     ...prev,
@@ -515,7 +514,7 @@ const RegistrationForm = () => {
                     message:"Members added successfully!",
                   }))
                 }
-              
+              setRegBtn((p)=>!p)
               setTimeout(()=>{
                 setRegBtn((p)=>!p);
                 setResponse((prev)=>({
