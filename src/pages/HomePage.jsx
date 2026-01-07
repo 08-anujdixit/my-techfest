@@ -148,7 +148,7 @@ const HomePage = () => {
   const navigate=useNavigate();
   return (
     <container
-    className='reverseFade'>
+    className=''>
       <section className="my-8">
         <h1 className={`text-grad text-5xl md:text-6xl font-bold tracking-wide text-center w-full my-4`}>
         Introduction

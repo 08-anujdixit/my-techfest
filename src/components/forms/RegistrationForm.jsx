@@ -220,10 +220,12 @@ const RegistrationForm = () => {
   //TO STOP THE SCROLLING WHILE DISPLAYING ANY MESSAGES
   useEffect(()=>{
     if (regBtn || show) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      if(show && !formData.event){
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
       document.body.style.overflow = 'hidden';
     }else{
       document.body.style.overflow = '';
@@ -500,10 +502,18 @@ const RegistrationForm = () => {
               }
               setMember(memberarray);
               setRegBtn((p)=>!p)
-              setResponse((prev)=>({
-                ...prev,
-                message:"Members added successfully!",
-              }))
+              if(member.length===0 && formData.membercount>1){
+                  setResponse((prev)=>({
+                    ...prev,
+                    message:"Please add all team member names before proceeding.",
+                  }))
+                }
+                else{
+                  setResponse((prev)=>({
+                    ...prev,
+                    message:"Members added successfully!",
+                  }))
+                }
               
               setTimeout(()=>{
                 setRegBtn((p)=>!p);

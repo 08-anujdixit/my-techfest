@@ -173,7 +173,7 @@ const AboutPage = () => {
   ]
   
   return (
-  <container className='reverseFade' >
+  <container className='' >
     <h1
     id="aboutus"
     className='text-5xl md:text-6xl text-center text-grad font-bold tracking-wide'>

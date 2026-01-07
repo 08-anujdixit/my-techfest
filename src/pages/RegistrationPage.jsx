@@ -6,7 +6,6 @@ import '../Custom.css'
 
 const RegistrationPage = () => {
   const notices=[
-    'Refer to the official brochure for detailed rules and guidelines.',
     'Registration verification may take 1–2 business days.',
     'Ensure valid email and phone details for communication.',
     ]
@@ -43,7 +42,7 @@ const RegistrationPage = () => {
   ); */
   return (
     <container
-    className='reverseFade'>
+    className=''>
       <div className='my-0 h-auto text-center'>
           <h1 className='text-grad text-5xl md:text-6xl font-bold tracking-wide py-4'>
             Registration Form

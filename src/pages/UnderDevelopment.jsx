@@ -13,12 +13,12 @@ const UnderDevelopment = () => {
 
       {/* Heading */}
       <h1 className="text-3xl md:text-4xl font-bold text-grad mb-3">
-        Website Under Maintenance
+        Website Under Development
       </h1>
 
       {/* Message */}
       <p className="text-gray-400 max-w-md mb-6">
-        The TechFest 5.0 website is currently under maintenance.
+        The TechFest 5.0 website is currently under development.
         We’re working hard to bring you something exciting. Please check back soon!
       </p>
 

@@ -73,7 +73,7 @@ const EventsPage = () => {
         Events
       </h1>
     </div>
-    <div className={`p-8 flex flex-wrap grid md:grid-cols-2 gap-[2rem] md:gap-8 justify-center items-center reverseFade`}>
+    <div className={`p-8 flex flex-wrap grid md:grid-cols-2 gap-[2rem] md:gap-8 justify-center items-center `}>
           {
             events.map((event,index) =>
             <EventCard

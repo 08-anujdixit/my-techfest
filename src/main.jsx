@@ -13,9 +13,8 @@ import Page404 from "./pages/Page404.jsx";
 import UnderDevelopment from "./pages/UnderDevelopment.jsx";
 
 const router = createBrowserRouter([
-  {
+ /*  {
     path: '/',
-    // element: <UnderDevelopment />,
     element: <App />,
     children: [
       { path: "", 
@@ -37,9 +36,10 @@ const router = createBrowserRouter([
         element: <RegistrationPage />,
       },
     ],
-  },
+  }, */
   { path: "*", 
-    element: <Page404 />,
+    // element: <Page404 />,
+    element: <UnderDevelopment />,
   },
 ]);
 

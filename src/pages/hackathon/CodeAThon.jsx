@@ -107,7 +107,7 @@ const CodeAThon = () => {
   ]
 
   return (
-  <div className="h-auto w-full reverseFade">
+  <div className="h-auto w-full">
     {/* LOGO PNG*/}
     <div className='pt-0 mt-0 h-[20rem] flex justify-center '>
       <img src={CodeAthon} />
