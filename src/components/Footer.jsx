@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../index.css'
 import '../Custom.css'
 import {Link} from 'react-router-dom'
@@ -9,6 +9,10 @@ import Logo from "./Logo";
 
 
 const Footer = () => {
+  const [download,setDownload] = useState({
+    status:false,
+    fade:'reverseFade',
+  });
   
   const quickLinks =[
     {
@@ -18,7 +22,7 @@ const Footer = () => {
     },
     {
       name:"Brochure",
-      slug:"/",
+      slug:"",
       active:true,
     },
     {
@@ -98,6 +102,15 @@ const Footer = () => {
           </Link>
           <p className='w-auto font-bold text-grad py-1 text-xl md:text-4xl'>Quick Links</p>
         </div>
+        
+        <div className={`w-full h-[4rem] fixed top-[6rem] flex justify-center items-center transition-all ${download.status?download.fade:"hidden"}`}>
+          <div className="p-2 inline bg-gray-200 rounded-3xl">
+            <span className="text-grad font-extrabold text-sm">
+              Brochure will be available soon!
+            </span>
+          </div>
+        </div>
+        
         <div className='md:flex md:justify-center md:items-center w-auto h-auto px-2'>
           <ul 
           className='my-0 grid grid-cols-3 gap-y-0 w-full' >
@@ -110,8 +123,27 @@ const Footer = () => {
                   '
                 >
                   <a 
-                    // href={l.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':l.slug}
-//                     download={l.name=='Brochure'?true:false}
+                    href={l.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':l.slug}
+                    download={l.name=='Brochure'?true:false}
+                    onClick={l.name=='Brochure'?
+                    (e)=>{
+                      setTimeout(()=>{
+                        setDownload((p)=>({
+                          ...p,
+                          status:!status,
+                        }));
+                      }, 500 );
+                      setTimeout(()=>{
+                        setDownload((p)=>({
+                        ...p,
+                        fade: 'customFade',
+                      }));
+                      },1000);
+                      setDownload((p)=>({
+                        status:!status,
+                        fade: 'reverseFade'
+                      }));
+                    }:null}
                     className="text-gray-400 hover-grad"
                   >{l.name}</a>
                 </li>) : null

@@ -30,7 +30,7 @@ export default function Navbar(){
     },
     {
       name:"Brochure",
-      slug:"/",
+      slug:"",
       active:true,
     },
     {
@@ -87,7 +87,11 @@ export default function Navbar(){
           `}
           onClick={()=>{setToggleMenu((prev)=>!prev)}}
           >
-            {toggleMenu? <RxCross2 /> : <HiOutlineMenu/>}
+            {toggleMenu? <RxCross2 className={
+              `${toggleMenu?'reverseFade':'customFade'}`
+            } /> : <HiOutlineMenu className={
+              `${toggleMenu?'customFade':'reverseFade'}`
+            } />}
           </button>
         </li>
       </ul>
@@ -109,12 +113,14 @@ export default function Navbar(){
                 font-bold
                 '
                 onClick={()=>{
-                  navigate(item.slug)
+                  navigate(item.slug);
                 }}
                 >
                   <a
-//                   href={item.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':item.slug}
-//                   download={item.name=='Brochure'?true:false}
+                  href={
+                    item.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':item.slug}
+                  download={
+                    item.name=='Brochure'?true:false}
                   onClick={item.name=='Brochure'?
                   (e)=>{
                     setTimeout(()=>{
@@ -122,13 +128,13 @@ export default function Navbar(){
                         ...p,
                         status:!status,
                       }));
-                    }, 1000 * 5);
+                    }, 500);
                     setTimeout(()=>{
                       setDownload((p)=>({
                       ...p,
                       fade: 'customFade',
                     }));
-                    },1500);
+                    },1000);
                     setDownload((p)=>({
                       status:!status,
                       fade: 'reverseFade'

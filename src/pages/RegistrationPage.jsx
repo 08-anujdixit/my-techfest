@@ -10,7 +10,7 @@ const RegistrationPage = () => {
     'Registration verification may take 1–2 business days.',
     'Ensure valid email and phone details for communication.',
     ]
-  return (
+  /* return (
     <div className="min-h-[60vh] flex justify-center items-center px-4">
       <div className="bg-grad p-[1px] rounded-2xl w-full max-w-xl">
         <div className="bg-[#000011] rounded-2xl p-8 text-center">
@@ -40,7 +40,7 @@ const RegistrationPage = () => {
         </div>
       </div>
     </div>
-  );
+  ); */
   return (
     <container
     className='reverseFade'>

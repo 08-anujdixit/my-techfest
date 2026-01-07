@@ -337,7 +337,7 @@ const AboutPage = () => {
       </p>
       <p className="text-lg my-3">
         <strong className='text-grad'>Sutdent Coordinators: </strong>
-        <p>+91 91401 84684</p>
+        <p>+91 9140184684</p>
       </p>
     </section>
   </container>
