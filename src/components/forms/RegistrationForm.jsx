@@ -502,18 +502,14 @@ const RegistrationForm = () => {
                 if((id.value.trim()).length>0) memberarray.push(id.value)
               }
               setMember(memberarray);
-              if(member.length===0 && formData.membercount>1){
-                  setResponse((prev)=>({
-                    ...prev,
-                    message:"Please add all team member names before proceeding.",
-                  }))
-                }
-                else{
-                  setResponse((prev)=>({
-                    ...prev,
-                    message:"Members added successfully!",
-                  }))
-                }
+              setResponse(prev => ({
+                ...prev,
+                message:
+                  member.length === 0 && formData.membercount > 1
+                    ? "Please add all team member names before proceeding."
+                    : "Members added successfully!",
+                success: !(member.length === 0 && formData.membercount > 1),
+              }));
               setRegBtn((p)=>!p)
               setTimeout(()=>{
                 setRegBtn((p)=>!p);
