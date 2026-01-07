@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import '../../Custom.css';
 import Button from '../../components/Button';
 import Loader from '../../components/Loader';
+import EventRules from '../../components/EventRules';
 import tflogo from '../../assets/images/Tflogo.jpg'
 import { MdOutlineDoneOutline } from "react-icons/md";
 import { register } from "../../services/registrationService.js";
@@ -576,6 +577,8 @@ const RegistrationForm = () => {
             >QR</Button>
           </div>
           
+          <EventRules event={formData.event} />
+          
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%] text-center
           '>
             <div className="bg-transparent-blur flex justify-between items-center gap-2 p-2">
@@ -593,7 +596,7 @@ const RegistrationForm = () => {
               />
             </div>
           </div>
-          
+           
           <div className="w-full text-center">
             <Button
             disabled={regBtn}
