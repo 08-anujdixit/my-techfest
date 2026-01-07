@@ -156,7 +156,7 @@ const RegistrationForm = () => {
         success: false,
       });
     }
-    else if ((!formData.raftDebateRole || formData.raftDebateRole === "Select Event") && formData.event==='Last Protocol'){
+    else if ((!formData.raftDebateRole || formData.raftDebateRole === "Select Role") && formData.event==='Last Protocol'){
       setLoader(false);
       setResponse({
         message:`Please select a role for the Raft Debate event to proceed.`,
@@ -174,18 +174,22 @@ const RegistrationForm = () => {
         raftDebateRole:"",
       }));
     }
-    else if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
+    else if (formData.membercount > 1 && member.length < formData.membercount - 1 ) {
       setLoader(false);
       setResponse({
-        message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
-        success:false,
+        message: `You selected a team size of ${formData.membercount}, but have added only ${
+          member.length + 1
+        } member(s). Please add the remaining team members using the "Add Members" button.`,
+        success: false,
       });
     }
     else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
       setLoader(false);
       setResponse({
-        message:`You entered a team size of ${formData.membercount}, but entered ${Number(formData.membercount)+1} member names. Please update the member list by pressing 'Add Members' button to match the selected team size.`,
-        success:false,
+        message: `Team size mismatch detected. Selected team size is ${formData.membercount}, but ${
+          member.length + 1
+        } member(s) were provided. Please update the team details to proceed.`,
+        success: false,
       });
     }
     //check if email is valid or not

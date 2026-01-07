@@ -57,13 +57,13 @@ export const register = async (req, res) => {
       }
       else if ((formData.membercount>1 && member.length<(formData.membercount)-1)){
       return res.status(200).json({
-        message:`Members list is empty! Please add them by pressing 'Add Members' Button.`,
+        message: `You selected a team size of ${formData.membercount}, but have added only ${member.length + 1} member(s). Please add the remaining team members using the "Add Members" button.`,
         success:false,
       });
     }
       else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
         return res.status(200).json({
-          message:`You entered a team size of ${formData.membercount}, but entered ${Number(formData.membercount)+1} member names. Please update the member list by pressing 'Add Members' button to match the selected team size.`,
+          message: `Team size mismatch detected. Selected team size is ${formData.membercount}, but ${member.length + 1} member(s) were provided. Please update the team details to proceed.`,
           success:false,
         });
       }
