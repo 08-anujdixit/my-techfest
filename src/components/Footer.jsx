@@ -88,7 +88,7 @@ const Footer = () => {
   return (
     <>
       <footer className='h-auto py-4 bg-gray-900 w-full relative z-[500] bottom-0'>
-        <div className='flex items-center px-2'>
+        <div className='flex items-center px-4 md:px-6 pb-2'>
           <Link
           to='/'
           >
@@ -96,7 +96,7 @@ const Footer = () => {
               h="h-[2.5rem] md:h-[4rem]"
             />
           </Link>
-          <p className='w-auto font-bold text-grad py-1 text-xl md:text-3xl'>Quick Links</p>
+          <p className='w-auto font-bold text-grad py-1 text-xl md:text-4xl'>Quick Links</p>
         </div>
         <div className='md:flex md:justify-center md:items-center w-auto h-auto px-2'>
           <ul 
@@ -110,8 +110,8 @@ const Footer = () => {
                   '
                 >
                   <a 
-                    href={l.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':l.slug}
-                  download={l.name=='Brochure'?true:false}
+                    // href={l.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':l.slug}
+//                     download={l.name=='Brochure'?true:false}
                     className="text-gray-400 hover-grad"
                   >{l.name}</a>
                 </li>) : null

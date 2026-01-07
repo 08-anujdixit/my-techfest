@@ -10,7 +10,7 @@ export const sendRoles= async (req, res)=>{
     for(let i=0; i<roles.length; i++)
       rolesData.push((roles[i]).raftDebateRole);
     
-    res.status(201).json({
+    res.status(200).json({
         message:'successfull',
         success:true,
         rolesData
