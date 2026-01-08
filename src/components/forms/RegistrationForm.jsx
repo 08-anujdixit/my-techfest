@@ -8,12 +8,14 @@ import tflogo from '../../assets/images/Tflogo.jpg'
 import { MdOutlineDoneOutline } from "react-icons/md";
 import { register } from "../../services/registrationService.js";
 import { fetchRoles } from "../../services/fetchData.js";
+
 //QR CODES FOR TRANSACTIONS
 import rs50 from '../../assets/qrImages/Rs50qr.jpg'
 import rs100 from '../../assets/qrImages/Rs100qr.jpg'
 import rs200 from '../../assets/qrImages/Rs200qr.jpg'
 import rs600 from '../../assets/qrImages/Rs600qr.jpg'
 
+//FUNCTION TO RETURM QR ACCORDING TO THE SELECTED EVENT
 const returnQR=(eName, events)=>{
   for (let i=0; i<events.length; i++){
     if(eName === (events[i]).name){
@@ -25,6 +27,7 @@ const returnQR=(eName, events)=>{
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
+  
   const events=[
     {name:'Choose Event to Enroll', status:false, fee: 0.0, qr: null },
     {name:'Expo Renaissance', status:true, fee: 200.00, qr: rs200 },
@@ -56,11 +59,17 @@ const RegistrationForm = () => {
 ]);
 
   const [fee,setFee]=useState(null);
+  
   const [regBtn,setRegBtn]=useState(false);
+  
   const [loader,setLoader]=useState(false);
+  
   const [show,setShow] = useState(false);
+  
   const [member,setMember]=useState([]);
+  
   const [teamName,setTeamName]=useState("");
+  
   const [formData,setFormData]= useState({
     name:"",
     phone:"",
@@ -73,6 +82,7 @@ const RegistrationForm = () => {
     membercount:null,
     terms_and_conditions:null,
   });
+  
   const [response,setResponse]= useState({
     message:'Please Wait for a moment!',
     success:false,
@@ -94,17 +104,21 @@ const RegistrationForm = () => {
   const handleMember = (e)=>{
     e.preventDefault();
     const memberarray=[]
+    
     for (let i = 0; i < formData.membercount- 1; i++){
       let id = document.getElementById(`member${i}`);
       if((id.value.trim()).length>0) memberarray.push(id.value)
     }
-              
+    
     setMember(memberarray);
+    
     setResponse(prev => ({
       ...prev,
       message: (memberarray.length == 0 && formData.membercount > 1)? "Please add all team member names before proceeding." : "Members added successfully!",
     }));
+    
     setRegBtn((p)=>!p)
+    
     setTimeout(()=>{
       setRegBtn((p)=>!p);
       setResponse((prev)=>({
@@ -117,6 +131,7 @@ const RegistrationForm = () => {
   //EMAIL VALIDATION FUNCTION
   function validateEmail(email) {
     let validEmail = 1;
+    
     if (!email.includes('@') || !email.includes('.')) {
         validEmail = 0;
     } else {
@@ -135,7 +150,8 @@ const RegistrationForm = () => {
     return (!validEmail);
   }
  
-  const handleSubmit= async (data,e)=>{
+  const handleSubmit = async (data,e)=>{
+    
     if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quiz') && (member.length || formData.membercount || teamName)){
       setLoader(false);
       setResponse({
@@ -149,6 +165,7 @@ const RegistrationForm = () => {
       setTeamName(null);
       setMember([]);
     }
+    
     else if (!formData.event || formData.event === "Select Event") {
       setLoader(false);
       setResponse({
@@ -156,6 +173,7 @@ const RegistrationForm = () => {
         success: false,
       });
     }
+    
     else if ((!formData.raftDebateRole || formData.raftDebateRole === "Select Role") && formData.event==='Last Protocol'){
       setLoader(false);
       setResponse({
@@ -163,6 +181,7 @@ const RegistrationForm = () => {
         success:false,
       });
     }
+    
     else if(formData.event!=='Last Protocol' && formData.raftDebateRole){
       setLoader(false);
       setResponse({
@@ -174,6 +193,7 @@ const RegistrationForm = () => {
         raftDebateRole:"",
       }));
     }
+    
     else if (formData.membercount > 1 && member.length < formData.membercount - 1 ) {
       setLoader(false);
       setResponse({
@@ -183,6 +203,7 @@ const RegistrationForm = () => {
         success: false,
       });
     }
+    
     else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
       setLoader(false);
       setResponse({
@@ -192,7 +213,7 @@ const RegistrationForm = () => {
         success: false,
       });
     }
-    //check if email is valid or not
+    
     else if (validateEmail(formData.email)){
       setLoader(false);
       setResponse({
@@ -200,8 +221,8 @@ const RegistrationForm = () => {
         success:false,
       });
     }
-    else if (!/^\d{10}$/.test(formData.phone.trim()))
-    {
+    
+    else if (!/^\d{10}$/.test(formData.phone.trim())){
       setLoader(false);
       setResponse({
         message:"Please enter a valid 10 digit phone number.",
@@ -209,12 +230,15 @@ const RegistrationForm = () => {
       });
     }
     else{
+      
       try {
         const res = await register(data);
         setLoader((p)=>!p);
         setResponse(res);
+        
       } catch (error) {
         console.log(error);
+        
       }finally{
         setFormData({
           name:"",
@@ -228,24 +252,34 @@ const RegistrationForm = () => {
           membercount:null,
           terms_and_conditions:null,
         });
+        
         setTeamName(null);
+        
         setMember([]);
+        
         e.target.reset();
+        
         setTimeout(()=>{
           setRegBtn((p)=>!p);
+          
           setResponse((prev)=>({
             ...prev,
             message:'Please Wait for a moment!',
           }));
+          
           setTimeout(()=>{
             window.location.reload();
           }, 500);
         }, 5000);
+        
       }
     }
     setTimeout(()=>{
+      
       setRegBtn(false);
+      
       setLoader(false);
+      
       setResponse((prev)=>({
         ...prev,
         message:'Please Wait for a moment!',
@@ -255,48 +289,68 @@ const RegistrationForm = () => {
   
   //TO STOP THE SCROLLING WHILE DISPLAYING ANY MESSAGES
   useEffect(()=>{
+    
     if (regBtn || show) {
+      
       if(show && !formData.event){
         window.scrollTo({
           top: 0,
           behavior: "smooth"
         });
       }
+      
       document.body.style.overflow = 'hidden';
+      
     }else{
       document.body.style.overflow = '';
+      
     }
-    for (let i = 0; i < events.length; i++) {
-      if (events[i].name === formData.event) {
+    
+    for (let i = 0; i < events.length; i++){
+      
+      if (events[i].name === formData.event){
          setFee(events[i].fee);
         break;
+        
       }
+      
     }
   },[regBtn, show]);
   
   const fetchDebateRoles= async ()=>{
+    
     try {
       const res = await fetchRoles();
+      
       if(res){
         const registeredRoles = res.rolesData;
-        setTechRoles(prevRoles =>
+        
+        setTechRoles(prevRoles =>(
           prevRoles.map(roleObj => ({
             ...roleObj,
+            
             status: roleObj.role === "Choose a role"
             ? false
             : !registeredRoles.includes(roleObj.role)
+            
           }))
-        );
+        ));
+        
       }
+      
     } catch (error) {
       console.error(error);
+      
     }
   }
+  
   fetchDebateRoles();
   
   return (
     <container className='w-auto h-auto flex justify-center my-10'>
-      {/*MESSAGE RESPONSE BOX*/
+    
+      {/*MESSAGE RESPONSE BOX*/}
+      {
         regBtn && (response?.success || response?.success==false) ?
           <div
           id='response-message'
@@ -323,41 +377,41 @@ const RegistrationForm = () => {
           </div>:null
       }
       
-      {/*QR CODE FOR TRANSACTION*/
+      {/*QR CODE FOR TRANSACTION*/}
+      {
         <div
         id="qrcode"
-    className={`w-full h-full p-[2rem] rounded-xl fixed top-0 z-[1000] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}
-    `}
-    >
-      <div
-      className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem] w-auto md:w-[50%] text-white reverseFade"
-      >
-        <button
-          className='w-full text-end text-2xl text-white mb-4'
-          onClick={()=>{
-            setShow((p)=>!p);
-          }}
-        >X</button>
-        {formData.event?
-          (<>
-        <div className="text-white font-bold flex justify-between w-auto">
-          <p>
-            Registration fee
-          </p>
-          <p>
-           INR {fee}
-          </p>
+        className={`w-full h-full p-[2rem] rounded-xl fixed top-0 z-[1000] flex justify-center items-center ${show?'bg-transparent-blur':'hidden'}`}
+        >
+          <div
+          className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem] w-auto md:w-[50%] text-white reverseFade"
+          >
+            <button
+              className='w-full text-end text-2xl text-white mb-4'
+              onClick={()=>{
+                setShow((p)=>!p);
+              }}
+            >X</button>
+            {formData.event?
+              (<>
+            <div className="text-white font-bold flex justify-between w-auto">
+              <p>
+                Registration fee
+              </p>
+              <p>
+               INR {fee}
+              </p>
+            </div>
+            <hr className='w-auto'/>
+            <div className="text-white rounded-xl w-full h-auto md:flex md:justify-center">
+              <img src={returnQR(formData.event, events)} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%] ">
+              </img>
+            </div>
+              </>
+              ):(<p className='p-2'>Please select an event to view the QR and the registration fee.</p>)
+            }
+          </div>
         </div>
-        <hr className='w-auto'/>
-        <div className="text-white rounded-xl w-full h-auto md:flex md:justify-center">
-          <img src={returnQR(formData.event, events)} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%] ">
-          </img>
-        </div>
-          </>
-          ):(<p className='p-2'>Please select an event to view the QR and the registration fee.</p>)
-        }
-      </div>
-    </div>
       }
       
       <div className={`bg-grad w-[90%] flex justify-center p-[0.8px] rounded-lg

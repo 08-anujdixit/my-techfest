@@ -3,8 +3,11 @@ import '../Custom.css'
 
 
 const EventRules = ({event})=>{
+  
   const [showRules, setShowRules] = useState(true);
+  
   const [rules, setRules] = useState([]);
+  
   const hackathonRules = [
   "Any violation of rules will result in immediate disqualification.",
   "Latecomers will be disqualified.",
@@ -36,6 +39,7 @@ const EventRules = ({event})=>{
   "Teams must submit the project abstract, source code or snapshots, final GitHub push screenshot, presentation file, GitHub repository link, and a working deployment URL.",
   "Project submissions must be made via email, Google Forms, or any other platform specified by the organizers. Late submissions will not be accepted."
   ];
+  
   const expoRenaissanceRules = [
   "The event showcases advancements in robotics, software, artificial intelligence, and machine learning models.",
   "Project dimensions (if it is a physical model) and a brief description (within 20 words) must be provided.",
@@ -56,8 +60,22 @@ const EventRules = ({event})=>{
   "Any form of disrespectful behavior will result in immediate disqualification.",
   "Participants must strictly adhere to the presentation timings scheduled by the organizers.",
   "Participants are responsible for the safety of their personal belongings.",
-  "Evaluation criteria include innovation, presentation, technical complexity, and relevance."
+  "Evaluation criteria include innovation, presentation, technical complexity, and relevance.",
 ];
+
+  const peoplesChoiceVotingRules = [
+  "Each project booth will display a unique QR code provided by the organizers for voting.",
+  "Only visitors (students, faculty, or guests) are allowed to vote.",
+  "Each visitor may vote only once per project; multiple votes from the same person will not be counted.",
+  "Votes must be cast only during the official voting period announced by the organizers.",
+  "Any attempt to influence or manipulate votes (such as fake scans, mass voting, or offering incentives) will result in immediate disqualification of the project.",
+  "Visitors are expected to view the project demo or explanation before casting their vote.",
+  "All votes will be counted digitally by the organizers, and the results will be final and cannot be challenged.",
+  "The project receiving the highest number of verified votes at the end of voting will be awarded the People’s Choice Award, in addition to other applicable awards.",
+  "All participants and visitors must behave respectfully and professionally during the voting process.",
+  "The organizers reserve the right to cancel or modify the voting or award process in case of any technical issues or ethical concerns."
+];
+  
   const raftDebateRules = [
   "Participants are placed in a critical tech-apocalypse scenario where limited resources allow only one individual to survive.",
   "Each participant must select a tech professional role during online registration.",
@@ -93,6 +111,7 @@ const EventRules = ({event})=>{
   "Effectiveness of rebuttals will contribute to scoring.",
   "Overall impression will play a key role in final judgment."
 ];
+  
   const itQuizRules = [
   // Team Rules
   "Each team must consist of exactly 2 members.",
@@ -130,6 +149,7 @@ const EventRules = ({event})=>{
   // Event Cancellation
   "In case of low participation, the organizers reserve the right to cancel the event, and all registration fees will be fully refunded."
 ];
+  
   const logoDesigningRules = [
   "Solo participation is allowed for this event.",
   "Latecomers shall be disqualified.",
@@ -146,6 +166,7 @@ const EventRules = ({event})=>{
   "The decision of the judges will be final and binding on all participants.",
   "Evaluation criteria include creativity, originality, relevance, simplicity, aesthetics, and overall impact."
 ];
+  
   const characterDesigningRules = [
   "Only traditional hand-drawn artwork is allowed.",
   "Digital art, AI-generated designs, or pre-made assets are strictly prohibited.",
@@ -162,6 +183,7 @@ const EventRules = ({event})=>{
   "Evaluation criteria include creativity, relevance, character personality and storytelling, visual appeal and detailing, and presentation.",
   "Judges’ decisions will be final and binding."
 ];
+  
   const thumbnailMakingRules = [
   "Solo participation is allowed.",
   "Use of AI-generated images is strictly prohibited; participants may use images sourced from Google.",
@@ -178,6 +200,7 @@ const EventRules = ({event})=>{
   "All participants must bring valid identity proof (Aadhaar Card and College ID Card) for verification.",
   "Evaluation criteria include creativity, originality, humor, innovation, and overall presentation."
 ];
+  
   const events=[
     {name:'Expo Renaissance', r: expoRenaissanceRules },
     {name:'CODE-A-THON', r: hackathonRules },
@@ -188,7 +211,6 @@ const EventRules = ({event})=>{
     {name:'Brand Blitz', r: logoDesigningRules },
   ];
   
-  
   useEffect(()=>{
     for(let i=0; i<events.length; i++){
     if(event===events[i].name){
@@ -198,20 +220,22 @@ const EventRules = ({event})=>{
   }
   },)
   
-  
   return(
     <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[100%] text-center
       '>
       <button
-        className="text-xl text-gray-200 font-bold  p-2 mb-2 bg-transparent-blur w-full"
+        className="text-xl text-gray-200 font-bold  p-2 mb-0 bg-transparent-blur w-full"
         onClick={(e)=>{
         e.preventDefault();
         setShowRules((prev)=>!prev);
         }}
         >Rules and Regulations » </button>
-      <div className="flex justify-between items-center mt-2">
+      <div className="flex justify-between items-center">
+        <div>
+        
+          {/*EVENT RULES */}
           { showRules?
-            <ul className="list-disc text-gray-300">
+            <ul className="mt-4 list-disc text-gray-300">
               { showRules && event ?
                 (rules).map((rule, i) =>
                   <li
@@ -222,6 +246,25 @@ const EventRules = ({event})=>{
               }
             </ul> : null
           }
+          
+          {/*PEOPLE'S CHOICE AWARD RULES*/}
+          { showRules && event==='Expo Renaissance' ?
+          <>
+            <h2 className="text-xl mt-4 mb-2 font-bold text-white">People’s Choice Award</h2>
+            <ul className="list-disc text-gray-300">
+              {
+                (peoplesChoiceVotingRules).map((pcvr, indx) =>
+                  <li
+                    className='ml-6 text-left'
+                    key={indx}
+                    >{pcvr}</li>
+                )
+              }
+            </ul>
+          </>: null
+          }
+          
+        </div>
       </div>
     </div>
   );

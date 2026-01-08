@@ -2,7 +2,9 @@ import React,{useState} from 'react';
 import '../Custom.css';
 
 const AboutPage = () => {
+  
   const [showQuery,setShowQuery] = useState(null)
+  
   const terms_and_conditions =[
     {
       k: 1,
@@ -45,6 +47,7 @@ const AboutPage = () => {
       disc: "For any questions regarding these Terms and Conditions, please refer to the Contact Us Section on our website's About Us page.",
     },
   ]
+  
   const privacy_policy =[
     {
       k: 1,
@@ -92,6 +95,7 @@ const AboutPage = () => {
       disc: "If you have any questions about this Privacy Policy, please contact us via email or phone. Contact details are provided on the Contact Us page.",
     },
   ]
+  
   const refund_policy =[
     {
       k: 1,
@@ -157,10 +161,11 @@ const AboutPage = () => {
       ],
     },
   ]
+  
   const queries=[
     {
       query:'Who can participate?',
-      ans:'Anyone with a passion for tech can participate — students from any college, developers, and designers are all welcome.'
+      ans:'The event is open to students from any recognized college or university who have a passion for technology, including developers and designers.'
     },
     {
       query:'Who do I contact for more queries?',
@@ -186,163 +191,173 @@ const AboutPage = () => {
         </div>
       </section>
     
-    {/* SECTION FOR CODE OF CUNDUCT */
-    <section id="coc" className="aboutpage">
-        <h2 className="mb-2 font-bold">
-          Code of Conduct
-        </h2>
+    {/* SECTION FOR CODE OF CUNDUCT */}
+    {
+      <section id="coc" className="aboutpage">
+          <h2 className="mb-2 font-bold">
+            Code of Conduct
+          </h2>
+          <div className="overflow-auto">
+          <ul>
+            {
+              terms_and_conditions.map((tnC) =>(
+                <>
+                  <li
+                  key={tnC.k}
+                  className="text-xl my-4 text-grad">
+                   {tnC.k}. {tnC.heading}
+                  </li>
+                  <li className="text-sm pl-6 text-justify">
+                    {tnC.disc}
+                  </li>
+               </>
+              ))
+            }
+             </ul>
+          </div>
+      </section>
+    }
+    
+    {/* SECTION FOR PRIVACY AND POLICY */}
+    {
+      <section id="privacy-policy" className="aboutpage">
+        <h2 className="mb-2 font-bold">Privacy Policy</h2>
+        <p className="text-gray-300 w-auto text-justify text-sm">
+        This Privacy Policy explains how <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>, organized by National Post Graduate College, Lucknow, collects, uses, and protects your information.
+        </p>
         <div className="overflow-auto">
-        <ul>
-          {
-            terms_and_conditions.map((tnC) =>(
-              <>
-                <li
-                key={tnC.k}
-                className="text-xl my-4 text-grad">
-                 {tnC.k}. {tnC.heading}
-                </li>
-                <li className="text-sm pl-6 text-justify">
-                  {tnC.disc}
-                </li>
-             </>
-            ))
-          }
-           </ul>
+          <ul>
+            {
+              privacy_policy.map((pnp) =>(
+                <>
+                  <li
+                  key={pnp.k}
+                  className="text-xl my-4 text-grad">
+                   {pnp.k}. {pnp.heading}
+                  </li>
+                  <li className="text-sm pl-6 text-justify">
+                    {pnp.disc}
+                  </li>
+               </>
+              ))
+            }
+          </ul>
         </div>
-    </section>
+      </section>
     }
     
-    {/* SECTION FOR PRIVACY AND POLICY */
-    <section id="privacy-policy" className="aboutpage">
-      <h2 className="mb-2 font-bold">Privacy Policy</h2>
-      <p className="text-gray-300 w-auto text-justify text-sm">
-      This Privacy Policy explains how <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>, organized by National Post Graduate College, Lucknow, collects, uses, and protects your information.
-      </p>
-      <div className="overflow-auto">
-        <ul>
-          {
-            privacy_policy.map((pnp) =>(
-              <>
-                <li
-                key={pnp.k}
-                className="text-xl my-4 text-grad">
-                 {pnp.k}. {pnp.heading}
-                </li>
-                <li className="text-sm pl-6 text-justify">
-                  {pnp.disc}
-                </li>
-             </>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-    }
-    
-    {/* SECTION FOR REFUND POLICY */
-    <section id="refund-policy" className="aboutpage">
-      <h2 className="mb-2 font-bold">Refund and Cancellation Policy</h2>
-      <p className="text-gray-300 w-auto text-justify text-sm">
-      We want to ensure a smooth and transparent process for all participants of <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>. Below is our Refund and Cancellation Policy:
-      </p>
-      <div className="overflow-auto">
-        <ul>
-          {
-            refund_policy.map((rp) =>(
-              <>
-                <li
-                key={rp.k}
-                className="text-xl my-4 text-grad">
-                 {rp.k}. {rp.heading}
-                </li>
-                <li className="text-sm pl-6 text-justify">
-                  {rp.disc}
-                  <ul>
-                    {
-                     (rp.conditions)?.map((co,index) =>(
-                        <>
-                          <li
-                          key={index}
-                          className="text-xl my-4 text-grad">
-                          {String.fromCharCode(index+97)}) {co.heading}
-                          </li>
-                          <li className="text-sm pl-6 text-justify">
-                            {co.disc}
-                          </li>
-                       </>
-                      ))
-                    }
-                  </ul>
-                </li>
-             </>
-            ))
-          }
-        </ul>
-      </div>
-      <p className="text-gray-300 w-auto text-justify text-sm my-10">
-      We hope this policy helps clarify any questions you may have. Thank you for participating in <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a> !
-      </p>
-    </section>
+    {/* SECTION FOR REFUND POLICY */}
+    {
+      <section id="refund-policy" className="aboutpage">
+        <h2 className="mb-2 font-bold">Refund and Cancellation Policy</h2>
+        <p className="text-gray-300 w-auto text-justify text-sm">
+        We want to ensure a smooth and transparent process for all participants of <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a>. Below is our Refund and Cancellation Policy:
+        </p>
+        <div className="overflow-auto">
+          <ul>
+            {
+              refund_policy.map((rp) =>(
+                <>
+                  <li
+                  key={rp.k}
+                  className="text-xl my-4 text-grad">
+                   {rp.k}. {rp.heading}
+                  </li>
+                  <li className="text-sm pl-6 text-justify">
+                    {rp.disc}
+                    <ul>
+                      {
+                       (rp.conditions)?.map((co,index) =>(
+                          <>
+                            <li
+                            key={index}
+                            className="text-xl my-4 text-grad">
+                            {String.fromCharCode(index+97)}) {co.heading}
+                            </li>
+                            <li className="text-sm pl-6 text-justify">
+                              {co.disc}
+                            </li>
+                         </>
+                        ))
+                      }
+                    </ul>
+                  </li>
+               </>
+              ))
+            }
+          </ul>
+        </div>
+        <p className="text-gray-300 w-auto text-justify text-sm my-10">
+        We hope this policy helps clarify any questions you may have. Thank you for participating in <a href="/"><span className="text-grad font-extrabold  font-mono">Techfest 5.0</span></a> !
+        </p>
+      </section>
     }
     
     {/* SECTION FOR SPONSORS */}
-    <section id="sponsors" className="aboutpage">
-      <h2 className="mb-0 font-bold">Sponsors Coming Soon</h2>
-    </section>
+    {
+      <section id="sponsors" className="aboutpage">
+        <h2 className="mb-0 font-bold">Sponsors Coming Soon</h2>
+      </section>
+    }
     
     {/* SECTION FOR QUERIES */}
     {
-    <section id="query" className="aboutpage">
-      <h2 className="mb-2 font-bold">
-        Queries
-      </h2>
-      {
-      queries.map((q, index) => (
-        <div className="border-[1px] border-[#aaa] bg-transparent-blur p-2 my-4">
-          <button
-          id={index}
-          className="text-start text-lg text-grad w-[90%]"
-          onClick={()=>{
-            setShowQuery((prev)=> showQuery===index?null:index);
-          }}
-          >
-            {q.query}
-          </button>
-          {showQuery===index &&
-            (<div 
-          id={`query-about-${index}`}
-          className="bg-transparent-blur m-2">
-            <p className={`text-sm text-justify p-4`}>
-            {q.ans}
-            </p>
-          </div>)
-          }
-      </div>))
-      }
-    </section>
+      <section id="query" className="aboutpage">
+        <h2 className="mb-2 font-bold">
+          Queries
+        </h2>
+        {
+          queries.map((q, index) => (
+          <div className="border-[1px] border-[#aaa] bg-transparent-blur p-2 my-4">
+            <button
+              id={index}
+              className="text-start text-lg text-grad w-[90%]"
+              onClick={()=>{
+                setShowQuery((prev)=> showQuery===index?null:index);
+              }}
+            >
+              {q.query}
+            </button>
+            {
+              showQuery===index &&
+              (
+                <div 
+                  id={`query-about-${index}`}
+                  className="bg-transparent-blur m-2">
+                    <p className={`text-sm text-justify p-4`}>
+                      {q.ans}
+                    </p>
+                </div>
+              )
+            }
+          </div>))
+        }
+      </section>
     }
     
     {/* SECTION FOR CONTACTING */}
-    <section id="contactus" className="aboutpage">
-      <h2 class="mb-2 font-bold">
-        Contact Us
-      </h2>
-      <p className="text-lg my-3">
-        <strong className='text-grad'>Email Address: </strong>
-        <p>techfest5.0@gmail.com</p>
-      </p>
-      <p className="text-lg my-3">
-        <strong className='text-grad'>Operational Address: </strong>
-        <p>National Post Graduate College, 2 Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh, India</p>
-      </p>
-      <p className="text-lg my-3">
-        <strong className='text-grad'>Sutdent Coordinators: </strong>
-        <p>+91 9140184684</p>
-      </p>
-    </section>
+    {
+      <section id="contactus" className="aboutpage">
+        <h2 class="mb-2 font-bold">
+          Contact Us
+        </h2>
+        <p className="text-lg my-3">
+          <strong className='text-grad'>Email Address: </strong>
+          <p>techfest5.0@gmail.com</p>
+        </p>
+        <p className="text-lg my-3">
+          <strong className='text-grad'>Operational Address: </strong>
+          <p>National Post Graduate College, 2 Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh, India</p>
+        </p>
+        <p className="text-lg my-3">
+          <strong className='text-grad'>Sutdent Coordinators: </strong>
+          <p>+91 9140184684</p>
+        </p>
+      </section>
+    }
+    
   </container>
   );
 };
-
 
 export default AboutPage;

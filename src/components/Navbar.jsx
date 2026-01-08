@@ -151,7 +151,7 @@ export default function Navbar(){
       <div className={`w-full h-[4rem] fixed top-[6rem] flex justify-center items-center transition-all ${download.status?download.fade:"hidden"}`}>
         <div className="p-2 inline bg-gray-200 rounded-3xl">
           <span className="text-grad font-extrabold text-sm">
-            Brochure will be available soon!
+            Download started!
           </span>
         </div>
       </div>

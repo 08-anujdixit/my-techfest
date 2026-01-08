@@ -5,7 +5,9 @@ import CodeAthon from '../../assets/logo/codeAthon.png'
 import Button from '../../components/Button'
 
 const CodeAThon = () => {
+  
   const navigate = useNavigate();
+  
   const schedule = [
   {
     time: "8:00 – 9:00 AM",
@@ -36,6 +38,7 @@ const CodeAThon = () => {
     details: "Presentation, Judging & Certificate Distribution",
   },
 ]
+  
   const hackathonRules = [
   "Any violation of rules will result in immediate disqualification.",
 
@@ -95,6 +98,7 @@ const CodeAThon = () => {
 
   "Project submissions must be made via email, Google Forms, or any other platform specified by the organizers. Late submissions will not be accepted."
 ];
+  
   const rules_judging=[
     {
       heading:'Competition Rules',
@@ -107,91 +111,93 @@ const CodeAThon = () => {
   ]
 
   return (
-  <div className="h-auto w-full">
-    {/* LOGO PNG*/}
-    <div className='pt-0 mt-0 h-[20rem] flex justify-center '>
-      <img src={CodeAthon} />
-    </div>
-    
-    <div className=' flex justify-center'>
-      <Button
-      onClick={()=>{
-        navigate('/register');
-      }}
-      >Register Now »</Button>
-    </div>
-    
-    <section className="p-6 space-y-8 text-gray-300">
-      {/* Event Overview */}
-      <div>
-        <h2 className="text-2xl font-bold mb-2 text-grad">1. Event Overview</h2>
-        <p
-        className='text-justify'
-        >
-          The Hackathon is designed to challenge participants and test
-          their technical skills, communication ability, and logical thinking.
-          In this hackathon a central problem statement will be provided to all
-          teams, and participants must identify sub-problems within it to build
-          practical, innovative solutions. Each team will develop a working
-          project, focusing on both frontend design and backend functionality,
-          ensuring a complete and impactful prototype. The criteria on which the
-          projects will be evaluated are given below under the Rules and Judging
-          Criteria section.
-        </p>
-        <ul className="list-disc mt-3 ml-3 space-y-2">
-          <li>
-            <strong>Objective:</strong> To challenge participants to design and
-            build a functional web site within a set time frame, while fostering
-            teamwork, creativity, and technical skills.
-          </li>
-          
-          <li>
-            <strong>Team Size:</strong> 2–4 members per team.
-          </li>
-        </ul>
+    <div className="h-auto w-full">
+      {/* LOGO PNG*/}
+      <div className='pt-0 mt-0 h-[20rem] flex justify-center '>
+        <img src={CodeAthon} />
       </div>
-
-      {/* Rules & Judging Criteria */}
-      <div>
-        <h2 className="text-2xl font-bold mb-2 text-grad">2. Rules &amp; Judging Criteria</h2>
-       { rules_judging.map((rj, index) =>(
-         <>
-          <h3 className="text-xl mt-4 ml-2 font-semibold">{rj.heading}</h3>
-          <ul className="list-disc ml-6 space-y-2">
-            { (rj.rules).map((rule, i) => 
-            <li
-            className='my-3 text-justify'
-            key={i}
-            >{rule}</li>
-            )
-            }
+      
+      <div className=' flex justify-center'>
+        <Button
+        onClick={()=>{
+          navigate('/register');
+        }}
+        >Register Now »</Button>
+      </div>
+      
+      <section className="p-6 space-y-8 text-gray-300">
+        {/* Event Overview */}
+        <div>
+          <h2 className="text-2xl font-bold mb-2 text-grad">1. Event Overview</h2>
+          <p
+          className='text-justify'
+          >
+            The Hackathon is designed to challenge participants and test
+            their technical skills, communication ability, and logical thinking.
+            In this hackathon a central problem statement will be provided to all
+            teams, and participants must identify sub-problems within it to build
+            practical, innovative solutions. Each team will develop a working
+            project, focusing on both frontend design and backend functionality,
+            ensuring a complete and impactful prototype. The criteria on which the
+            projects will be evaluated are given below under the Rules and Judging
+            Criteria section.
+          </p>
+          <ul className="list-disc mt-3 ml-3 space-y-2">
+            <li>
+              <strong>Objective:</strong> To challenge participants to design and
+              build a functional web site within a set time frame, while fostering
+              teamwork, creativity, and technical skills.
+            </li>
+            
+            <li>
+              <strong>Team Size:</strong> 2–4 members per team.
+            </li>
           </ul>
-        </>
-        ))
-       }
-      </div>
-
-      {/* Schedule */}
-      <div>
-        <h2 className="text-2xl font-bold mb-4 text-grad">3. Day-of-Event Schedule</h2>
-        <table className="table-auto border-collapse border border-gray-400 w-full text-left">
-          <tbody>
-          { schedule.map((element, index) =>(
-            <tr
-            key={index}
-            >
-              <td className="border border-gray-400 p-2 w-[40%] md:w-auto">{element.time}</td>
-              <td className="border border-gray-400 p-2 w-auto">
-                {element.details}
-              </td>
-            </tr>
+        </div>
+  
+        {/* Rules & Judging Criteria */}
+        <div>
+          <h2 className="text-2xl font-bold mb-2 text-grad">2. Rules &amp; Judging Criteria</h2>
+         { 
+           rules_judging.map((rj, index) =>(
+             <>
+                <h3 className="text-xl mt-4 ml-2 font-semibold">{rj.heading}</h3>
+                <ul className="list-disc ml-6 space-y-2">
+                  { 
+                    (rj.rules).map((rule, i) => 
+                      <li
+                      className='my-3 text-justify'
+                      key={i}
+                      >{rule}</li>)
+                  }
+                </ul>
+              </>
             ))
           }
-          </tbody>
-        </table>
-      </div>
-    </section>
-
+        </div>
+  
+        {/* Schedule */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4 text-grad">3. Day-of-Event Schedule</h2>
+          <table className="table-auto border-collapse border border-gray-400 w-full text-left">
+            <tbody>
+            { 
+              schedule.map((element, index) =>(
+                <tr
+                key={index}
+                >
+                  <td className="border border-gray-400 p-2 w-[40%] md:w-auto">{element.time}</td>
+                  <td className="border border-gray-400 p-2 w-auto">
+                    {element.details}
+                  </td>
+                </tr>
+              ))
+            }
+            </tbody>
+          </table>
+        </div>
+      </section>
+  
     </div>
   )
 }

@@ -16,9 +16,13 @@ import quize from '../assets/images/it-quize.jpg'
 
 
 const EventsPage = () => {
+  
   const navigate=useNavigate()
+  
   const [detail,setDetail] = useState({});
+  
   const [show,setShow] = useState(false);
+  
   const events=[
     { name:'Expo Renaissance',
       description:'Expo Renaissance is a technology exhibition that showcases innovative projects in robotics, software development, artificial intelligence, and machine learning. Participants present original projects through working models or digital demonstrations, focusing on innovation, technical depth, and real-world relevance. Visitors can explore ideas, interact with creators, and vote for their favorite project in the People’s Choice Award.',
@@ -52,16 +56,16 @@ const EventsPage = () => {
   ]
   
   useEffect(()=>{
+    
     if(show){
-      /* window.scrollTo({
-        top: 1000,
-        behavior: "smooth"
-      }); */
       document.body.style.overflow='hidden';
+      
     }
     else{
       document.body.style.overflow='';
+      
     }
+    
   },[show]);
   
   return (
@@ -76,18 +80,18 @@ const EventsPage = () => {
     <div className={`p-8 flex flex-wrap grid md:grid-cols-2 gap-[2rem] md:gap-8 justify-center items-center `}>
           {
             events.map((event,index) =>
-            <EventCard
-            key={index}
-            event={event}
-            onClick={(e)=>{
-              setDetail(event);
-              !show?setShow((prev)=>!prev):null;
-            }}
-            ><img 
-              src={event.image?event.image:tflogo}
-              alt={event.name}
-              className="h-auto w-auto md:w-[15rem] m-8 object-contain border-[1px] border-gray-400"/>
-              </EventCard>
+              <EventCard
+              key={index}
+              event={event}
+              onClick={(e)=>{
+                setDetail(event);
+                !show?setShow((prev)=>!prev):null;
+              }}
+              ><img 
+                src={event.image?event.image:tflogo}
+                alt={event.name}
+                className="h-auto w-auto md:w-[15rem] m-8 object-contain border-[1px] border-gray-400"/>
+                </EventCard>
             )
           }
     </div>
