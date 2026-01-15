@@ -61,7 +61,7 @@ const RegistrationPage = () => {
           {notices.map((n, i) =>(
             <p
             key={i}
-            className="text-gray-300 pt-2 text-sm text-justify font-bold">✧ {n}</p>
+            className="text-gray-300 pt-2 text-sm font-bold">✧ {n}</p>
           ))}
           </div>:null
       }
