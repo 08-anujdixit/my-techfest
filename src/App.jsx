@@ -7,7 +7,6 @@ import Footer from './components/Footer'
 function App() {
   const location = useLocation();
   
-
   useEffect(() => {
     if (location.hash) {
       const element = document.getElementById(location.hash.substring(1));

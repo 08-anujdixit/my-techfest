@@ -177,7 +177,7 @@ const RegistrationForm = () => {
     else if ((!formData.raftDebateRole || formData.raftDebateRole === "Select Role") && formData.event==='Last Protocol'){
       setLoader(false);
       setResponse({
-        message:`Please select a role for the Raft Debate event to proceed.`,
+        message:`Please select a role for the Last Protocol event to proceed.`,
         success:false,
       });
     }
@@ -185,7 +185,7 @@ const RegistrationForm = () => {
     else if(formData.event!=='Last Protocol' && formData.raftDebateRole){
       setLoader(false);
       setResponse({
-        message:`Raft Debate role selection is applicable only for the Raft Debate event. Please remove the role information or reselect the appropriate event to continue.`,
+        message:`Role selection is applicable only for the Last Protocol event. Please remove the role information or reselect the appropriate event to continue.`,
         success:false,
       });
       setFormData((prev)=>({
@@ -197,9 +197,7 @@ const RegistrationForm = () => {
     else if (formData.membercount > 1 && member.length < formData.membercount - 1 ) {
       setLoader(false);
       setResponse({
-        message: `You selected a team size of ${formData.membercount}, but have added only ${
-          member.length + 1
-        } member(s). Please add the remaining team members using the "Add Members" button.`,
+        message: `You selected a team size of ${formData.membercount}, but have added only ${member.length + 1} member(s). Please add the remaining team members using the "Add Members" button.`,
         success: false,
       });
     }
@@ -207,9 +205,7 @@ const RegistrationForm = () => {
     else if((formData.membercount!=null) && (formData.membercount) != member.length+1){
       setLoader(false);
       setResponse({
-        message: `Team size mismatch detected. Selected team size is ${formData.membercount}, but ${
-          member.length + 1
-        } member(s) were provided. Please update the team details to proceed.`,
+        message: `Team size mismatch detected. Selected team size is ${formData.membercount}, but ${member.length + 1} member(s) were provided. Please update the team details to proceed.`,
         success: false,
       });
     }
@@ -236,28 +232,36 @@ const RegistrationForm = () => {
         setLoader((p)=>!p);
         setResponse(res);
         
+         if(res.success){
+        
+          setFormData({
+            name:"",
+            phone:"",
+            studentID:"",
+            college:"",
+            email:"",
+            transactionId:"",
+            event:"",
+            raftDebateRole:"",
+            membercount:null,
+            terms_and_conditions:null,
+          });
+          
+          setTeamName(null);
+          
+          setMember([]);
+          
+          e.target.reset();
+          
+          setTimeout(()=>{
+            window.location.reload();
+          }, 500);
+       }
+        
       } catch (error) {
         console.log(error);
         
       }finally{
-        setFormData({
-          name:"",
-          phone:"",
-          studentID:"",
-          college:"",
-          email:"",
-          transactionId:"",
-          event:"",
-          raftDebateRole:"",
-          membercount:null,
-          terms_and_conditions:null,
-        });
-        
-        setTeamName(null);
-        
-        setMember([]);
-        
-        e.target.reset();
         
         setTimeout(()=>{
           setRegBtn((p)=>!p);
@@ -267,11 +271,10 @@ const RegistrationForm = () => {
             message:'Please Wait for a moment!',
           }));
           
-          setTimeout(()=>{
-            window.location.reload();
-          }, 500);
         }, 5000);
         
+       
+       
       }
     }
     setTimeout(()=>{
@@ -508,7 +511,9 @@ const RegistrationForm = () => {
                   }}
                   name='membercount'
                   type='number'
-                  placeholder="Number of Members (1-4)"
+                  placeholder={
+                    `Number of Members (${formData.event!='IT Quiz'?((formData.event=="CODE-A-THON")?"2-4":"1-4"):'only 2'})`
+                  }
                   className="w-full bg-transparent-blur text-gray-50 p-2"
                   />
                 </div>

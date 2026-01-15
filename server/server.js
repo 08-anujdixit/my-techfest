@@ -20,6 +20,7 @@ import registrationRoutes from './routes/registrationRoutes.js';
 import dataRoutes from './routes/dataRoutes.js';
 
 app.use('/api/registration', registrationRoutes);
+
 app.use('/api/fetchdata', dataRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {

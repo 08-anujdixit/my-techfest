@@ -9,7 +9,7 @@ export const register = async (registrationData) => {
   } catch (error){
     console.log(error);
     const res ={
-      message:'Some error has been occured please try again after some time.',
+      message: "The server is currently busy due to high traffic. Please try again in a few moments.",
       success:false,
     }
     return res;
