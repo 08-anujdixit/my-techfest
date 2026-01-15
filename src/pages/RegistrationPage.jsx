@@ -54,15 +54,15 @@ const RegistrationPage = () => {
         
       { /* NOTICES*/ }
       {
-            notices.length && true?
-            <div className='my-6 mx-auto p-5 bg-transparent-blur border-[1px] border-gray-900 w-[90%]
+        notices.length && true?
+          <div className='my-6 mx-auto p-5 bg-transparent-blur border-[1px] border-gray-900 w-[90%]
           '>
-          <h3 className="text-xl text-gray-200 font-bold underline p-2 mb-2 bg-transparent-blur">Notices</h3>
-          {notices.map((n, i) =>(
-            <p
-            key={i}
-            className="text-gray-300 pt-2 text-sm font-bold">✧ {n}</p>
-          ))}
+            <h3 className="text-xl text-gray-200 font-bold underline p-2 mb-2 bg-transparent-blur">Notices</h3>
+            {notices.map((n, i) =>(
+              <p
+              key={i}
+              className="text-gray-300 pt-2 text-sm text-left font-bold">✧ {n}</p>
+            ))}
           </div>:null
       }
       
