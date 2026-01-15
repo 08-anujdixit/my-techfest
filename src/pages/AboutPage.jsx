@@ -343,7 +343,9 @@ const AboutPage = () => {
         </h2>
         <p className="text-lg my-3">
           <strong className='text-grad'>Email Address: </strong>
-          <p>techfest5.0@gmail.com</p>
+          <a
+          className='block'
+          href="mailto:techfest5.0@gmail.com">techfest5.0@gmail.com</a>
         </p>
         <p className="text-lg my-3">
           <strong className='text-grad'>Operational Address: </strong>
@@ -351,7 +353,9 @@ const AboutPage = () => {
         </p>
         <p className="text-lg my-3">
           <strong className='text-grad'>Sutdent Coordinators: </strong>
-          <p>+91 9140184684</p>
+          <a
+          className='block'
+          href="tel:+919140184684">+91 9140184684</a>
         </p>
       </section>
     }
