@@ -160,6 +160,7 @@ const Footer = () => {
                 <Link 
                 className={`text-gray-200 rounded-[50%] bg-grad p-[0.9px]`}
                 to={sma.slug}
+                target="_blank"
                 >
                   <div className="bg-[#000011] rounded-[50%] p-3">
                     {sma.icon}

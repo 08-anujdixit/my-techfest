@@ -17,7 +17,7 @@ export const register = async (req, res) => {
           });
         }
       
-      // Find user by email, and event
+      // Find user by email, and event to check if they are not registering twice in same event
       const registration = await Registration.findOne({email, enrolledEvent: formData.event});
       if (registration) {
          return res.status(200).json({
@@ -36,7 +36,8 @@ export const register = async (req, res) => {
            });
          }
        }
-       
+      
+      //REGISTRATION ID GENERATION
       var regID = `TF5-${Date.now()}-${Math.floor(Math.random()*1000)}`;
       
       const eventsFee=[
@@ -79,7 +80,7 @@ export const register = async (req, res) => {
       await newRegistration.save();
       
       res.status(201).json({
-        message:'Participant Registered successfully.',
+        message:'Registration submitted successfully. Your details are under verification. You will be contacted via email within 1–2 business days.',
         registration: {
           name: newRegistration.name,
           email: newRegistration.email,

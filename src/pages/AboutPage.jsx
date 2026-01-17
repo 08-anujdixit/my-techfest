@@ -349,7 +349,10 @@ const AboutPage = () => {
         </p>
         <p className="text-lg my-3">
           <strong className='text-grad'>Operational Address: </strong>
-          <p>National Post Graduate College, 2 Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh, India</p>
+          <a
+          className='block'
+          href="geo:26.8500,80.9490?q=National+PG+College"
+          >National Post Graduate College, 2 Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh, India</a>
         </p>
         <p className="text-lg my-3">
           <strong className='text-grad'>Sutdent Coordinators: </strong>

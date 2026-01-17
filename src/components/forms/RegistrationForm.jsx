@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import {useNavigate} from 'react-router-dom'
 import '../../Custom.css';
 import Button from '../../components/Button';
 import Loader from '../../components/Loader';
@@ -9,7 +8,7 @@ import { MdOutlineDoneOutline } from "react-icons/md";
 import { register } from "../../services/registrationService.js";
 import { fetchRoles } from "../../services/fetchData.js";
 
-//QR CODES FOR TRANSACTIONS
+//QR CODES FOR TRANSACTION
 import rs50 from '../../assets/qrImages/Rs50qr.jpg'
 import rs100 from '../../assets/qrImages/Rs100qr.jpg'
 import rs200 from '../../assets/qrImages/Rs200qr.jpg'
@@ -26,7 +25,6 @@ const returnQR=(eName, events)=>{
 }
 
 const RegistrationForm = () => {
-  const navigate = useNavigate();
   
   const events=[
     {name:'Choose Event to Enroll', status:false, fee: 0.0, qr: null },
@@ -150,6 +148,7 @@ const RegistrationForm = () => {
     return (!validEmail);
   }
  
+  //FORM SUBMISSION & FORM VALIDATION FUNCTION
   const handleSubmit = async (data,e)=>{
     
     if((formData.event !== 'CODE-A-THON' && formData.event !== 'Expo Renaissance' && formData.event !== 'IT Quiz') && (member.length || formData.membercount || teamName)){
@@ -255,7 +254,7 @@ const RegistrationForm = () => {
           
           setTimeout(()=>{
             window.location.reload();
-          }, 500);
+          }, 5000);
        }
         
       } catch (error) {
@@ -320,6 +319,7 @@ const RegistrationForm = () => {
     }
   },[regBtn, show]);
   
+  //FUNCTION TO FETCH ACTIVE ROLES OF RAFT DEBATE
   const fetchDebateRoles= async ()=>{
     
     try {
@@ -343,7 +343,6 @@ const RegistrationForm = () => {
       
     } catch (error) {
       console.error(error);
-      
     }
   }
   
