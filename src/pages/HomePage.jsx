@@ -27,7 +27,7 @@ function Timeline() {
         },
         {
           title: "Expo Renaissance",
-          location: "Auditorium 1",
+          location: "Science Block",
           time: "11:00 a.m. - 3:00 p.m.",
         },
         {
