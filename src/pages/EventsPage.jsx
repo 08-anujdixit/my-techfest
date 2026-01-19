@@ -12,7 +12,7 @@ import hackathon from '../assets/images/hackathon.jpg'
 import logodesign from '../assets/images/logo-designing.jpg'
 import debate from '../assets/images/raft-debate.jpg'
 
-import quize from '../assets/images/it-quize.jpg'
+import quize from '../assets/images/it-quiz.jpg'
 
 
 const EventsPage = () => {
