@@ -100,7 +100,7 @@ const EventsPage = () => {
     `}
     >
       <div
-      className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem] reverseFade"
+      className="bg-transparent-blur border-[1px] border-gray-400 p-[1rem] reverseFade font-bold"
       >
         <button
         className='w-[95%] text-end text-2xl text-white mb-4'

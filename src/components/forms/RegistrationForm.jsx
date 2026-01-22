@@ -356,7 +356,7 @@ const RegistrationForm = () => {
         regBtn && (response?.success || response?.success==false) ?
           <div
           id='response-message'
-          className="fixed h-full w-full z-[1500] top-0 flex justify-center items-center bg-transparent-blur">
+          className="fixed h-full w-full z-[1500] top-0 flex justify-center items-center bg-transparent-blur font-bold">
             <div className="bg-grad h-[50%] w-80 md:w-[60%] p-[1px] rounded-lg text-center">
               <div className="bg-[#001] h-full w-full rounded-lg">
                 <div className="h-full flex justify-center items-center">
@@ -426,7 +426,7 @@ const RegistrationForm = () => {
           setLoader((p)=>!p);
           handleSubmit({formData, teamName, member,},e);
         }}
-        className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md:justify-around md:items-start'>
+        className='bg-[#000011] w-full h-full rounded-lg p-5 md:flex md:flex-wrap md:justify-around md:items-start font-bold'>
 
           <div className='my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[30%]
           '>

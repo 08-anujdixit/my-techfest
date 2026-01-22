@@ -359,6 +359,9 @@ const AboutPage = () => {
           <a
           className='block'
           href="tel:+919140184684">+91 9140184684</a>
+          <a
+          className='block'
+          href="tel:+919695130642">+91 9695130642</a>
         </p>
       </section>
     }

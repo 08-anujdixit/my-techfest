@@ -173,6 +173,7 @@
   background: linear-gradient(100deg,#FF2D55, #FF1F6A, #6D00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 600;
 }
 
 
