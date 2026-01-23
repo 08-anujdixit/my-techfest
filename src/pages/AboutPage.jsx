@@ -1,10 +1,14 @@
 import React,{useState} from 'react';
 import '../Custom.css';
 
+//SPONSORS
+import idp from "../assets/sponsors/idp.png";
+
 const AboutPage = () => {
   
   const [showQuery,setShowQuery] = useState(null)
   
+  const sponsors =[idp]
   const terms_and_conditions =[
     {
       k: 1,
@@ -297,6 +301,8 @@ const AboutPage = () => {
     {
       <section id="sponsors" className="aboutpage">
         <h2 className="mb-0 font-bold">Sponsors Coming Soon</h2>
+        <p 
+        className="bg-transparent-blur text-[16px] text-justify p-4 my-4 font-bold border-[1px] border-[#aaa]">Sponsorship opportunities are open. Interested organizations may contact us to collaborate with TechFest 5.0. </p>
       </section>
     }
     
@@ -308,7 +314,7 @@ const AboutPage = () => {
         </h2>
         {
           queries.map((q, index) => (
-          <div className="border-[1px] border-[#aaa] bg-transparent-blur p-2 my-4">
+          <div className="border-[1px] border-[#aaa] bg-transparent-blur p-2 my-4 font-bold">
             <button
               id={index}
               className="text-start text-lg text-grad w-[90%]"

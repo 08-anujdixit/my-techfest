@@ -112,7 +112,10 @@ const RegistrationForm = () => {
     
     setResponse(prev => ({
       ...prev,
-      message: (memberarray.length == 0 && formData.membercount > 1)? "Please add all team member names before proceeding." : "Members added successfully!",
+      message:
+        memberarray.length < formData.membercount - 1
+          ? `You selected a team size of ${formData.membercount}. Please Enter remaining ${formData.membercount - 1} member name(s) before proceeding.`
+          : "Team members added successfully!",
     }));
     
     setRegBtn((p)=>!p)
@@ -123,7 +126,7 @@ const RegistrationForm = () => {
         ...prev,
         message:'Please Wait for a moment!',
       }))
-    }, 2000);
+    }, 3000);
   }
 
   //EMAIL VALIDATION FUNCTION
@@ -255,6 +258,7 @@ const RegistrationForm = () => {
           setTimeout(()=>{
             window.location.reload();
           }, 5000);
+          
        }
         
       } catch (error) {
@@ -271,8 +275,6 @@ const RegistrationForm = () => {
           }));
           
         }, 5000);
-        
-       
        
       }
     }
@@ -396,21 +398,21 @@ const RegistrationForm = () => {
             >X</button>
             {formData.event?
               (<>
-            <div className="text-white font-bold flex justify-between w-auto">
-              <p>
-                Registration fee
-              </p>
-              <p>
-               INR {fee}
-              </p>
-            </div>
-            <hr className='w-auto'/>
-            <div className="text-white rounded-xl w-full h-auto md:flex md:justify-center">
-              <img src={returnQR(formData.event, events)} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%] ">
-              </img>
-            </div>
+                <div className="text-white font-bold flex justify-between w-auto">
+                  <p>
+                    Registration fee
+                  </p>
+                  <p>
+                   INR {fee}
+                  </p>
+                </div>
+                <hr className='w-auto'/>
+                <div className="text-white rounded-xl w-full h-auto md:flex md:justify-center">
+                  <img src={returnQR(formData.event, events)} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%] ">
+                  </img>
+                </div>
               </>
-              ):(<p className='p-2'>Please select an event to view the QR and the registration fee.</p>)
+              ):(<p className='p-2 font-bold'>Please select an event to view the QR and the registration fee.</p>)
             }
           </div>
         </div>
@@ -500,10 +502,12 @@ const RegistrationForm = () => {
                   disabled={regBtn}
                   required
                   onChange={(e)=>{
-                    if(e.target.value>4 || (e.target.value<2 && formData.event==="CODE-A-THON")){
+                    
+                    if( (e.target.value>4 || e.target.value<1) || (e.target.value<2 && formData.event==="CODE-A-THON")){
                       e.target.value=null;
                     }
-                    else if(formData.event==='IT Quiz'){
+                    
+                    if(formData.event==='IT Quiz'){
                       e.target.value=2;
                     }
                     handleChange(e);
@@ -563,10 +567,10 @@ const RegistrationForm = () => {
           </div>
           
           {
-            ((formData.event === 'CODE-A-THON' || formData.event === 'Expo Renaissance' || formData.event ==='IT Quiz' ) && formData.membercount > 0 && formData.membercount < 5 && formData.membercount != 1 && formData.membercount != null )?(<div
+            ((formData.event === 'CODE-A-THON' || formData.event === 'Expo Renaissance' || formData.event ==='IT Quiz' ) && formData.membercount > 1 )?(<div
             className="my-5 px-3 py-4 bg-transparent-blur border-[1px] border-gray-400 md:w-[100%] md:mx-6"
             >
-              <label className='text-grad'>
+              <label className='text-grad text-xl md:text-2xl block'>
                 Enter other member's details
               </label>
               { /*———— TEAM MEMBERS ————*/
@@ -579,7 +583,7 @@ const RegistrationForm = () => {
                       id={`member${i}`}
                       name={`member${i}`}
                       type="text"
-                      placeholder={`Member ${i + 1} Name`}
+                      placeholder={`Member ${i + 2} Name`}
                       className="w-full bg-transparent-blur text-gray-50 p-2 my-2"
                     />
                     ))
@@ -602,7 +606,7 @@ const RegistrationForm = () => {
             onChange={handleChange}
             name='studentID'
             type='text'
-            placeholder='Student ID'
+            placeholder='Student ID/Roll No.'
             value={formData.studentID}
             className="w-full bg-transparent-blur text-gray-50 p-2"/>
           </div>

@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import '../index.css'
 import '../Custom.css'
 import {Link} from 'react-router-dom'
-import { FaInstagram, FaFacebook, FaLinkedin, FaYoutube} from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaFacebook, FaLinkedin, FaYoutube} from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import Logo from "./Logo";
 
@@ -69,6 +69,12 @@ const Footer = () => {
     active:true,
     icon: <FaFacebook />,
     slug:"https://www.facebook.com/share/1Av6JwqyF3/",
+  },
+  {
+    title: 'WhatsApp',
+    active:true,
+    icon: <FaWhatsapp />,
+    slug:"https://chat.whatsapp.com/EbkmDTXP84ZKZ6DJyvdyc0",
   },
   {
     title: 'Instagram',
