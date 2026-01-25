@@ -12,13 +12,30 @@ import { fetchRoles } from "../../services/fetchData.js";
 import rs50 from '../../assets/qrImages/Rs50qr.jpg'
 import rs100 from '../../assets/qrImages/Rs100qr.jpg'
 import rs200 from '../../assets/qrImages/Rs200qr.jpg'
+import rs300 from '../../assets/qrImages/Rs300qr.jpg'
+import rs450 from '../../assets/qrImages/Rs450qr.jpg'
 import rs600 from '../../assets/qrImages/Rs600qr.jpg'
 
 //FUNCTION TO RETURM QR ACCORDING TO THE SELECTED EVENT
-const returnQR=(eName, events)=>{
+const returnQR=(formData, events)=>{
   for (let i=0; i<events.length; i++){
-    if(eName === (events[i]).name){
-      return ((events[i]).qr);
+    if(formData.event === (events[i]).name){
+      if(formData.event==='CODE-A-THON')
+      {
+        switch (Number(formData.membercount)) {
+          case 2:
+            return rs300;
+          case 3:
+            return rs450;
+          case 4:
+            return rs600;
+          default:
+            return;
+        }
+      }
+      else{
+        return ((events[i]).qr);
+      }
     }
   }
   return tflogo;
@@ -29,7 +46,7 @@ const RegistrationForm = () => {
   const events=[
     {name:'Choose Event to Enroll', status:false, fee: 0.0, qr: null },
     {name:'Expo Renaissance', status:true, fee: 200.00, qr: rs200 },
-    {name:'CODE-A-THON', status:true, fee: 600.00, qr: rs600 },
+    {name:'CODE-A-THON', status:true },
     {name:'Last Protocol', status:true, fee: 100, qr: rs100 },
     {name:'Pixel Perfect', status:true, fee: 50.00, qr: rs50},
     {name:'Future Forge', status:true, fee: 50.00, qr: rs50},
@@ -296,7 +313,7 @@ const RegistrationForm = () => {
     
     if (regBtn || show) {
       
-      if(show && !formData.event){
+      if((formData.event==='CODE-A-THON' && !(formData.membercount>1)) || show && !formData.event){
         window.scrollTo({
           top: 0,
           behavior: "smooth"
@@ -313,7 +330,18 @@ const RegistrationForm = () => {
     for (let i = 0; i < events.length; i++){
       
       if (events[i].name === formData.event){
-         setFee(events[i].fee);
+        
+        if(formData.event === 'CODE-A-THON'){
+          
+          setFee(150*Number(formData.membercount));
+          
+        }
+        else{
+          
+          setFee(events[i].fee);
+          
+        }
+        
         break;
         
       }
@@ -397,7 +425,7 @@ const RegistrationForm = () => {
               }}
             >X</button>
             {formData.event?
-              (<>
+              ((formData.event === 'CODE-A-THON' && ! formData.membercount)?(<p className='p-2 fon t-bold'>Please enter number of members in the team to view the QR and the registration fee.</p>):(<>
                 <div className="text-white font-bold flex justify-between w-auto">
                   <p>
                     Registration fee
@@ -408,11 +436,11 @@ const RegistrationForm = () => {
                 </div>
                 <hr className='w-auto'/>
                 <div className="text-white rounded-xl w-full h-auto md:flex md:justify-center">
-                  <img src={returnQR(formData.event, events)} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%] ">
+                  <img src={returnQR(formData, events)} className="my-4 w-[100%] h-[100%] md:h-[50%] md:w-[50%] ">
                   </img>
                 </div>
               </>
-              ):(<p className='p-2 font-bold'>Please select an event to view the QR and the registration fee.</p>)
+              )):(<p className='p-2 font-bold'>Please select an event to view the QR and the registration fee.</p>)
             }
           </div>
         </div>

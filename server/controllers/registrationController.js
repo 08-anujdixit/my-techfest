@@ -42,7 +42,7 @@ export const register = async (req, res) => {
       
       const eventsFee=[
         {name:'Expo Renaissance', feeAmount:200},
-        {name:'CODE-A-THON', feeAmount:600},
+        {name:'CODE-A-THON'},
         {name:'Last Protocol', feeAmount:100},
         {name:'Pixel Perfect', feeAmount:50},
         {name:'Future Forge', feeAmount:50},
@@ -53,10 +53,16 @@ export const register = async (req, res) => {
       let amount=0;
       for (let i of eventsFee) {
         if(i.name === formData.event){
+          if(formData.event==='CODE-A-THON'){
+            amount = Number(formData.membercount) * 150;
+          }
+          else{
           amount=i.feeAmount;
+          }
           break;
         }
       }
+      
       
       const newRegistration = new Registration({
         regID: regID,
