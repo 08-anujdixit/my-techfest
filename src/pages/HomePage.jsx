@@ -33,27 +33,27 @@ function Timeline() {
         {
           title: "Last Protocol",
           location: "Auditorium 1",
-          time: "11:00 p.m. - 1:00 p.m.",
-        },
-        {
-          title: "Brand Blitz",
-          location: "Lab 3",
-          time: "11:00 a.m. - 12:00 p.m.",
+          time: "11:00 a.m. - 1:00 p.m.",
         },
         {
           title: "IT Quiz",
           location: "Lab 1",
-          time: "11:00 a.m. - 12:00 p.m.",
+          time: "1:00 p.m. - 2:00 p.m.",
+        },
+        {
+          title: "Brand Blitz",
+          location: "Lab 3",
+          time: "2:00 p.m. - 3:00 p.m.",
         },
         {
           title: "IT Quiz (Final Round)",
           location: "Auditorium 1",
-          time: "1:00 p.m. - 2:00 p.m.",
+          time: "3:00 p.m. - 4:00 p.m.",
         },
         {
           title: "Awards & Closing",
           location: "Auditorium 1",
-          time: "2:00 p.m. - 3:00 p.m.",
+          time: "",
         },
       ],
     },
