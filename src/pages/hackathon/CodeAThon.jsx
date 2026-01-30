@@ -26,7 +26,7 @@ const CodeAThon = () => {
     details: "Afternoon Refreshment",
   },
   {
-    time: "2:30 – 4:00 PM",
+    time: "2:30 – 4:30 PM",
     details: "Coding Phase 2",
   },
   {
@@ -48,7 +48,7 @@ const CodeAThon = () => {
 
   "The organizing team reserves the right to modify event dates, schedules, rules, or other details as required. In case of event cancellation, a full refund of the registration fee will be provided.",
 
-  "The hackathon is open to students from any college or university.",
+  "The Code-a-thon is open to students from any college or university.",
 
   "Teams must consist of a minimum of 2 and a maximum of 4 members.",
 
@@ -60,7 +60,7 @@ const CodeAThon = () => {
 
   "Teams will be given a total of 8 hours to build, deploy, and submit their project. The first 30 minutes will be reserved for the welcome session, rules explanation, judging criteria, submission process, and announcement of the problem statement.",
 
-  "All development must start from scratch at the beginning of the event.",
+  "Teams must start all development from scratch at the beginning of the event.",
 
   "Teams are required to work on only one problem statement.",
 
@@ -68,13 +68,13 @@ const CodeAThon = () => {
 
   "Teams may use any preferred technology stack such as MERN, MEAN, MEVN, Django, etc.",
 
-  "Teams are encouraged to implement 2 to 4 backend functionalities.",
+  "Teams are required to implement minimum 4 backend functionalities.",
 
-  "Mentorship will be provided during the event to guide teams when required.",
+  "Mentorship will be provided to teams during the event to guide teams as needed.",
 
   "Projects without backend functionality will be accepted; however, no marks will be awarded for backend implementation.",
 
-  "Use of pre-written code and AI-based code generation tools is strictly prohibited. Only approved open-source libraries may be used.",
+  "Use of pre-written code is strictly prohibited. Only approved open-source libraries may be used.",
 
   "Teams retain full ownership of their projects. Organizers may showcase the projects for promotional purposes with proper credit.",
 
@@ -106,7 +106,7 @@ const CodeAThon = () => {
     },
     {
       heading:'Judging Criteria',
-      rules:["UI/UX (50%)","Functionality and Technical Complexity (30%)","Innovation (10%)","Presentation Skills (10%)"],
+      rules:["UI/UX (30%)","Functionality and Technical Complexity (40%)","Innovation (20%)","Presentation Skills (10%)"],
     }
   ]
 
@@ -132,13 +132,13 @@ const CodeAThon = () => {
           <p
           className='text-justify'
           >
-            The Hackathon is designed to challenge participants and test
+            The Code-a-thon is designed to challenge participants and test
             their technical skills, communication ability, and logical thinking.
             In this hackathon a central problem statement will be provided to all
             teams, and participants must identify sub-problems within it to build
             practical, innovative solutions. Each team will develop a working
             project, focusing on both frontend design and backend functionality,
-            ensuring a complete and impactful prototype. The criteria on which the
+            ensuring a complete and impactful solution. The criteria on which the
             projects will be evaluated are given below under the Rules and Judging
             Criteria section.
           </p>

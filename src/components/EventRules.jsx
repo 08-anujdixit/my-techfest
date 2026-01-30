@@ -10,36 +10,66 @@ const EventRules = ({event})=>{
   
   const hackathonRules = [
   "Any violation of rules will result in immediate disqualification.",
+
   "Latecomers will be disqualified.",
+
   "All participants must maintain a respectful and collaborative environment. Harassment, discrimination, or any form of misconduct will lead to immediate disqualification.",
+
   "The organizing team reserves the right to modify event dates, schedules, rules, or other details as required. In case of event cancellation, a full refund of the registration fee will be provided.",
-  "The hackathon is open to students from any college or university.",
+
+  "The Code-a-thon is open to students from any college or university.",
+
   "Teams must consist of a minimum of 2 and a maximum of 4 members.",
+
   "All team members must be officially registered before the hackathon begins.",
+
   "No changes to team members are allowed after the hackathon has officially started.",
+
   "Participants cannot cancel their registration once submitted, except in the case of event cancellation by the organizers.",
+
   "Teams will be given a total of 8 hours to build, deploy, and submit their project. The first 30 minutes will be reserved for the welcome session, rules explanation, judging criteria, submission process, and announcement of the problem statement.",
-  "All development must start from scratch at the beginning of the event.",
+
+  "Teams must start all development from scratch at the beginning of the event.",
+
   "Teams are required to work on only one problem statement.",
+
   "All team members must be present for the entire duration of the event.",
+
   "Teams may use any preferred technology stack such as MERN, MEAN, MEVN, Django, etc.",
-  "Teams are encouraged to implement 2 to 4 backend functionalities.",
-  "Mentorship will be provided during the event to guide teams when required.",
+
+  "Teams are required to implement minimum 4 backend functionalities.",
+
+  "Mentorship will be provided to teams during the event to guide teams as needed.",
+
   "Projects without backend functionality will be accepted; however, no marks will be awarded for backend implementation.",
-  "Use of pre-written code and AI-based code generation tools is strictly prohibited. Only approved open-source libraries may be used.",
+
+  "Use of pre-written code is strictly prohibited. Only approved open-source libraries may be used.",
+
   "Teams retain full ownership of their projects. Organizers may showcase the projects for promotional purposes with proper credit.",
+
   "Participants must bring their own technical equipment such as laptops, chargers, and required accessories.",
+
   "Internet access is allowed throughout the event for documentation, package installation, debugging, and deployment.",
+
   "Internet will be provided only if participants do not have their own; otherwise, they must arrange it themselves.",
+
   "Teams must push their complete project to GitHub and deploy the project.",
+
   "Final evaluation will be based on the GitHub repository state at the submission deadline.",
+
   "The submission timestamp will be considered as the GitHub push time, not the local commit time.",
+
   "Any changes made to the project after submission will result in disqualification.",
+
   "Teams must present their projects to the judges either on the same day after coding or on the following day, depending on the event schedule.",
+
   "Teams must submit the project abstract, source code or snapshots, final GitHub push screenshot, presentation file, GitHub repository link, and a working deployment URL.",
-  "Project submissions must be made via email, Google Forms, or any other platform specified by the organizers. Late submissions will not be accepted."
-  ];
+
+  "Project submissions must be made via email, Google Forms, or any other platform specified by the organizers. Late submissions will not be accepted.",
   
+  "Evaluation Criteria: UI/UX (30%), Functionality and Technical Complexity (40%), Innovation (20%), and Presentation Skills (10%)."
+];
+
   const expoRenaissanceRules = [
   "The event showcases advancements in robotics, software, artificial intelligence, and machine learning models.",
   "Project dimensions (if it is a physical model) and a brief description (within 20 words) must be provided.",

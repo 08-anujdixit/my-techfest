@@ -16,7 +16,7 @@ function Timeline() {
           time: "8:00 a.m. - 9:00 a.m.",
         },
         {
-          title: "Inaugration Ceremony",
+          title: "Inauguration Ceremony",
           location: "Auditorium 1",
           time: "9:00 a.m. - 10:00 a.m.",
         },
