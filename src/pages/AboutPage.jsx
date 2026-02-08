@@ -302,7 +302,7 @@ const AboutPage = () => {
     {/* SECTION FOR SPONSORS */}
     {
       <section id="sponsors" className="aboutpage">
-        <h2 className="mb-0 font-bold">Sponsors Coming Soon</h2>
+        <h2 className="mb-0 font-bold">Our Esteemed Sponsors</h2>
         <div 
         className="bg-transparent-blur text-[16px] text-justify p-4 my-4 font-bold border-[1px] border-[#aaa] md:flex justify-around">
         {
