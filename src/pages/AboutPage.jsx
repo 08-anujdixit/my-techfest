@@ -3,12 +3,14 @@ import '../Custom.css';
 
 //SPONSORS
 import idp from "../assets/sponsors/idp.png";
+import imps from "../assets/sponsors/imps.png";
+import itv from "../assets/sponsors/it-vedant.png";
 
 const AboutPage = () => {
   
   const [showQuery,setShowQuery] = useState(null)
   
-  const sponsors =[idp]
+  const sponsors =[imps,idp,itv]
   const terms_and_conditions =[
     {
       k: 1,
@@ -301,8 +303,15 @@ const AboutPage = () => {
     {
       <section id="sponsors" className="aboutpage">
         <h2 className="mb-0 font-bold">Sponsors Coming Soon</h2>
-        <p 
-        className="bg-transparent-blur text-[16px] text-justify p-4 my-4 font-bold border-[1px] border-[#aaa]">Sponsorship opportunities are open. Interested organizations may contact us to collaborate with TechFest 5.0. </p>
+        <div 
+        className="bg-transparent-blur text-[16px] text-justify p-4 my-4 font-bold border-[1px] border-[#aaa] md:flex justify-around">
+        {
+          sponsors.map((sp, i) => (
+            <img className="my-2 w-[100%] md:w-[15%] rounded border-[1px] border-black-700" src={sp} id={i}>
+            </img>
+          ))
+        }
+        </div>
       </section>
     }
     
