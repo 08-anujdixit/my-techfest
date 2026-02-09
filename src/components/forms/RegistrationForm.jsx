@@ -49,7 +49,7 @@ const RegistrationForm = () => {
     {name:'CODE-A-THON', status:true },
     {name:'Last Protocol', status:false, fee: 100, qr: rs100 },
     {name:'Pixel Perfect', status:false, fee: 50.00, qr: rs50},
-    {name:'Future Forge', status:true, fee: 50.00, qr: rs50},
+    {name:'Future Forge', status:false, fee: 50.00, qr: rs50},
     {name:'IT Quiz', status:false, fee: 100.00, qr: rs100},
     {name:'Brand Blitz', status:false, fee: 50.00, qr: rs50},
   ];
