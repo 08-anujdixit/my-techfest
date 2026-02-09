@@ -9,6 +9,7 @@ const RegistrationPage = () => {
   const notices=[
     'Registration verification may take 1–2 business days.',
     'Ensure valid email and phone details for communication.',
+    'Registrations for some events have been closed.'
     ]
   
   /* return (
