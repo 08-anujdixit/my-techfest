@@ -19,6 +19,7 @@ import rs600 from '../../assets/qrImages/Rs600qr.jpg'
 //FUNCTION TO RETURM QR ACCORDING TO THE SELECTED EVENT
 const returnQR=(formData, events)=>{
   for (let i=0; i<events.length; i++){
+    return tflogo;
     if(formData.event === (events[i]).name){
       if(formData.event==='CODE-A-THON')
       {
@@ -38,7 +39,6 @@ const returnQR=(formData, events)=>{
       }
     }
   }
-  return tflogo;
 }
 
 const RegistrationForm = () => {
