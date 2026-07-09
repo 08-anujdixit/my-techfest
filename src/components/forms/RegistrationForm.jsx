@@ -18,8 +18,8 @@ import rs600 from '../../assets/qrImages/Rs600qr.jpg'
 
 //FUNCTION TO RETURM QR ACCORDING TO THE SELECTED EVENT
 const returnQR=(formData, events)=>{
+  return tflogo;
   for (let i=0; i<events.length; i++){
-    return tflogo;
     if(formData.event === (events[i]).name){
       if(formData.event==='CODE-A-THON')
       {
@@ -44,14 +44,14 @@ const returnQR=(formData, events)=>{
 const RegistrationForm = () => {
   
   const events=[
-    {name:'Choose Event to Enroll', status:false, fee: 0.0, qr: null },
-    {name:'Expo Renaissance', status:false, fee: 200.00, qr: rs200 },
+    {name:'Choose Event to Enroll', status:true, fee: 0.0, qr: null },
+    {name:'Expo Renaissance', status:true, fee: 200.00, qr: rs200 },
     {name:'CODE-A-THON', status:true },
-    {name:'Last Protocol', status:false, fee: 100, qr: rs100 },
-    {name:'Pixel Perfect', status:false, fee: 50.00, qr: rs50},
-    {name:'Future Forge', status:false, fee: 50.00, qr: rs50},
-    {name:'IT Quiz', status:false, fee: 100.00, qr: rs100},
-    {name:'Brand Blitz', status:false, fee: 50.00, qr: rs50},
+    {name:'Last Protocol', status:true, fee: 100, qr: rs100 },
+    {name:'Pixel Perfect', status:true, fee: 50.00, qr: rs50},
+    {name:'Future Forge', status:true, fee: 50.00, qr: rs50},
+    {name:'IT Quiz', status:true, fee: 100.00, qr: rs100},
+    {name:'Brand Blitz', status:true, fee: 50.00, qr: rs50},
   ];
   
   const [techRoles, setTechRoles] = useState([
