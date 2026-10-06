@@ -8,6 +8,65 @@
   width:100%;
 }
 
+/* ===================================================
+   Faint Grid Background Effect
+   =================================================== */
+
+/* Keep the decorative background behind content within a full-height stacking context. */
+body {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+/* Fade the viewport grid from the upper center without intercepting input. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(1000px 600px at 50% 24%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(1000px 600px at 50% 24%, #000 0%, transparent 78%);
+  transition: none;
+}
+
+/* Mobile responsive optimization */
+@media (max-width: 768px) {
+  body::before {
+    background-size: 48px 48px;
+    mask-image: radial-gradient(90% 520px at 50% 20%, #000 0%, transparent 78%);
+    -webkit-mask-image: radial-gradient(90% 520px at 50% 20%, #000 0%, transparent 78%);
+  }
+}
+
+/* Reusable section overlay for local hero / container contexts */
+.bg-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(1000px 600px at 50% 24%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(1000px 600px at 50% 24%, #000 0%, transparent 78%);
+  transition: none;
+}
+
+@media (max-width: 768px) {
+  .bg-grid-overlay {
+    background-size: 48px 48px;
+    mask-image: radial-gradient(90% 520px at 50% 20%, #000 0%, transparent 78%);
+    -webkit-mask-image: radial-gradient(90% 520px at 50% 20%, #000 0%, transparent 78%);
+  }
+}
+
 .bg-grad{
   background: linear-gradient(130deg,#eceef3, #e4ecf7, #f0eff0);
 }  
