@@ -18,13 +18,13 @@ const UnderDevelopment = () => {
 
       {/* Message */}
       <p className="text-gray-400 max-w-md mb-6">
-        The TechFest 5.0 website is currently under development.
+        The TechFest 6.0 website is currently under development.
         We’re working hard to bring you something exciting. Please check back soon!
       </p>
 
       {/* Footer Note */}
       <p className="text-xs text-gray-500 mt-8">
-        © TechFest 5.0 — All rights reserved
+        © TechFest 6.0 — All rights reserved
       </p>
     </div>
   );

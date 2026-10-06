@@ -155,10 +155,11 @@ const HomePage = () => {
         </h1>
         <div className=" my-2 w-[100%] flex-wrap">
             <p className="text-gray-300 w-auto px-5 text-justify">
-                   At <a href='/'><span className="text-grad font-extrabold font-mono">TechFest 5.0</span></a>, we raise the bar even higher, uniting brilliant innovators, creative thinkers, and passionate tech enthusiasts under one banner for an extraordinary celebration of technology, innovation, and imagination. This year’s fest is bigger, bolder, and more immersive — blending cutting-edge technology with creativity, talent, and fun. With a wide spectrum of events crafted to spark curiosity and showcase talent, from AI-driven projects to digital artistry, every participant will discover a stage to shine and inspire.
+                  At <a href='/'><span className="text-grad font-extrabold font-mono">TechFest 6.0</span></a>, we bring together curious minds, passionate innovators, creative thinkers, and technology enthusiasts for an exciting celebration of technology, innovation, and creativity. This year, we’re taking things further with a dynamic lineup of events designed to challenge skills, spark ideas, and turn imagination into action. From coding and technology challenges to creative and innovative competitions, TechFest 6.0 offers a platform for students from schools, colleges, and universities to showcase their talent, learn something new, compete, and inspire.
+
             </p>
             <p className="text-gray-300 w-auto px-5 text-justify mt-3 ">
-              The mission of <a href='/'><span className="text-grad font-extrabold font-mono">TechFest 5.0</span></a> is to drive forward innovation and foster a culture of collaboration, learning, and exploration among students and young professionals. By offering a platform where technology meets creativity, we empower the next generation of problem-solvers, entrepreneurs, and coders. This fest is a movement that highlights the ever-expanding role of technology in shaping our future.
+              The mission of <a href='/'><span className="text-grad font-extrabold font-mono">TechFest 6.0</span></a> is to drive forward innovation and foster a culture of collaboration, learning, and exploration among students and young professionals. By offering a platform where technology meets creativity, we empower the next generation of problem-solvers, entrepreneurs, and coders. This fest is a movement that highlights the ever-expanding role of technology in shaping our future.
             </p>
         </div>
       </section>

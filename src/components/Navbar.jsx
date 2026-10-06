@@ -116,31 +116,32 @@ export default function Navbar(){
                   navigate(item.slug);
                 }}
                 >
-                  <a
-                  href={
-                    item.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':item.slug}
-                  download={
-                    item.name=='Brochure'?true:false}
-                  onClick={item.name=='Brochure'?
-                  (e)=>{
-                    setTimeout(()=>{
-                      setDownload((p)=>({
+                    <a
+                    href={
+                      item.name=='Brochure'?'/brochure/Techfest 5.0 Brochure.pdf':item.slug}
+                    download={
+                      item.name=='Brochure'?true:false}
+                    onClick={item.name=='Brochure'?
+                    (e)=>{
+                         e.preventDefault(); /*this line written to stop downloading of brochure*/
+                      setTimeout(()=>{
+                        setDownload((p)=>({
+                          ...p,
+                          status:!status,
+                        }));
+                      }, 500);
+                      setTimeout(()=>{
+                        setDownload((p)=>({
                         ...p,
-                        status:!status,
+                        fade: 'customFade',
                       }));
-                    }, 500);
-                    setTimeout(()=>{
+                      },1000);
                       setDownload((p)=>({
-                      ...p,
-                      fade: 'customFade',
-                    }));
-                    },1000);
-                    setDownload((p)=>({
-                      status:!status,
-                      fade: 'reverseFade'
-                    }));
-                  }:null}
-                  >{item.name}</a>
+                        status:!status,
+                        fade: 'reverseFade'
+                      }));
+                    }:null}
+                    >{item.name}</a>
                 </button>
               ):null
             )
@@ -149,7 +150,7 @@ export default function Navbar(){
         }
         
       <div className={`w-full h-[4rem] fixed top-[6rem] flex justify-center items-center transition-all ${download.status?download.fade:"hidden"}`}>
-        <div className="p-2 inline bg-gray-200 rounded-3xl">
+        <div className="p-2 inline bg-black rounded-3xl">
           <span className="text-grad font-extrabold text-sm">
             Download started!
           </span>

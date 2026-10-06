@@ -9,11 +9,11 @@
 }
 
 .bg-grad{
-  background: linear-gradient(130deg,#FF2D55, #FF1F6A, #6A00ff);
+  background: linear-gradient(130deg,#eceef3, #e4ecf7, #f0eff0);
 }  
 
 .text-grad{
-  background: linear-gradient(100deg,#FF2D55, #FF1F6A, #6A00ff);
+  background: linear-gradient(100deg,#d6d9e1, #f0eaec, #dfdae7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -30,7 +30,7 @@
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
-  background: rgba(100, 100, 100, 0.4);
+  background: rgba(100, 100, 100, 0.183);
   backdrop-filter: blur(9rem);
 }
 
@@ -152,16 +152,54 @@
   }
 }
 /* ABOUT PAGE */
-.aboutpage{
+/* .aboutpage{
   height: auto;
   width: 90%;
   padding: 2rem;
   border-radius: 5px;
-  border: 0.8px solid #999;
+  border: 0.8px solid #3871ff;
+  
   margin: 2rem auto 2rem auto;
   font-size: 1.5rem;
   color: whitesmoke;
   
+} */
+ .aboutpage {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 2rem 2.2rem;
+
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  line-height: 1.8;
+
+  background: linear-gradient(
+    145deg,
+    rgba(10, 18, 40, 0.95),
+    rgba(5, 12, 28, 0.9)
+  );
+
+  border: 1px solid rgba(56, 113, 255, 0.45);
+  border-radius: 16px;
+
+  box-shadow:
+    0 0 20px rgba(56, 113, 255, 0.08),
+    inset 0 0 25px rgba(56, 113, 255, 0.03);
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+.aboutpage:hover {
+  border-color: rgba(56, 113, 255, 0.8);
+
+  box-shadow:
+    0 0 25px rgba(56, 113, 255, 0.18),
+    inset 0 0 30px rgba(56, 113, 255, 0.05);
+
+  transform: translateY(-2px);
 }
 /* ALL HOVER CLASSES AND EFFECTS */
 .hover-grad{

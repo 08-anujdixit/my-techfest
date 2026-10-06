@@ -1,0 +1,345 @@
+import React, { useEffect, useState } from "react";
+import "../index.css";
+import "../Custom.css";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import Logo from "./Logo";
+import { HiOutlineMenu } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
+
+export default function Navbar_new() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  const navBar = [
+    {
+      name: "Home",
+      slug: "/home",
+      active: true,
+    },
+    {
+      name: "Brochure",
+      slug: "/brochure/Techfest 5.0 Brochure.pdf",
+      active: true,
+    },
+    {
+      name: "Registration",
+      slug: "/register",
+      active: true,
+    },
+    {
+      name: "Events",
+      slug: "/events",
+      active: true,
+    },
+    {
+      name: "Hackathon",
+      slug: "/codeathon",
+      active: true,
+    },
+    {
+      name: "About Us",
+      slug: "/about",
+      active: true,
+    },
+    {
+      name: "Contact Us",
+      slug: "/about/#contactus",
+      active: true,
+    },
+    {
+      name: "FAQ",
+      slug: "/about/#query",
+      active: true,
+    },
+  ];
+
+  // Close menu whenever route changes
+  useEffect(() => {
+    setToggleMenu(false);
+  }, [location]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!event.target.closest("#navbar-container")) {
+        setToggleMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  const handleNavigation = (item) => {
+    setToggleMenu(false);
+
+    if (item.name === "Brochure") {
+      // BROCHURE DOWNLOAD CURRENTLY DISABLED
+      //
+      // To reactivate it, replace the "return" with:
+      // window.open('/brochure/Techfest 5.0 Brochure.pdf', '_blank');
+
+      return;
+    }
+
+    navigate(item.slug);
+  };
+
+  return (
+    <header
+      id="navbar-container"
+      className="
+        sticky top-0 z-[1100]
+        w-full
+        px-2 sm:px-3 md:px-4
+        pt-2
+      "
+    >
+      {/* NAVBAR */}
+      <div
+        className="
+          relative
+          flex items-center justify-between
+          w-full
+          min-h-[3.5rem] md:min-h-[4.5rem]
+          px-3 sm:px-4 md:px-5
+          bg-transparent-blur
+          border-[0.8px] border-gray-500
+          hover:border-white
+          transition-all duration-300
+        "
+      >
+        {/* LOGO */}
+        <Link
+          to="/"
+          onClick={() => setToggleMenu(false)}
+          className="flex items-center"
+        >
+          <Logo
+            h="
+              h-[2.3rem]
+              sm:h-[2.7rem]
+              md:h-[3.5rem]
+            "
+          />
+        </Link>
+
+        {/* HAMBURGER */}
+        <button
+          type="button"
+          aria-label={
+            toggleMenu ? "Close navigation menu" : "Open navigation menu"
+          }
+          aria-expanded={toggleMenu}
+          onClick={() => setToggleMenu((prev) => !prev)}
+          className="
+            flex items-center justify-center
+            shrink-0
+            w-10 h-10
+            sm:w-11 sm:h-11
+            md:w-12 md:h-12
+            text-white
+            text-2xl
+            sm:text-3xl
+            md:text-4xl
+            rounded-lg
+            hover:bg-white/10
+            active:scale-95
+            transition-all duration-200
+          "
+        >
+          {toggleMenu ? <RxCross2 /> : <HiOutlineMenu />}
+        </button>
+
+        {/* MENU */}
+        <div
+          //   className={`
+          //     absolute
+          //     right-2 sm:right-3 md:right-4
+          //     top-[calc(100%+0.5rem)]
+
+          //     w-[calc(100vw-1rem)]
+          //     sm:w-[18rem]
+          //     md:w-[21rem]
+
+          //     max-h-[calc(100vh-6rem)]
+          //     overflow-y-auto
+
+          //     p-2 sm:p-3
+
+          //     bg-transparent-blur
+          //     border border-gray-500
+          //     rounded-lg
+
+          //     shadow-2xl
+
+          //     transition-all duration-300 ease-out
+          //     origin-top-right
+
+          //     ${
+          //       toggleMenu
+          //         ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+          //         : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
+          //     }
+          //   `}
+          //       className={`
+          // absolute
+          // right-2 sm:right-3 md:right-4
+          // top-[calc(100%+0.5rem)]
+
+          // w-[calc(100vw-1rem)]
+          // sm:w-[18rem]
+          // md:w-[21rem]
+
+          // max-h-[calc(100vh-6rem)]
+          // overflow-y-auto
+
+          // p-2 sm:p-3
+
+          // bg-black/95
+          // backdrop-blur-md
+          // md:bg-transparent-blur
+
+          // border border-gray-500
+          // rounded-lg
+          // shadow-2xl
+
+          // transition-all duration-300 ease-out
+          // origin-top-right
+
+          // ${
+          //   toggleMenu
+          //     ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+          //     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+          // }
+          //          `}
+
+          className={`
+    absolute
+    top-[calc(100%+0.75rem)]
+    
+    /* Mobile */
+    left-1/2
+    -translate-x-1/2
+    w-[92vw]
+    
+    /* Tablet/Desktop */
+    sm:left-auto
+    sm:right-3
+    sm:translate-x-0
+    sm:w-[18rem]
+    md:right-4
+    md:w-[21rem]
+
+    p-4 sm:p-3
+
+    bg-black/95
+    backdrop-blur-md
+    md:bg-transparent-blur
+
+    border border-gray-500
+    rounded-xl
+    shadow-2xl
+
+    transition-all duration-300 ease-out
+    origin-top
+
+    ${
+      toggleMenu
+        ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+        : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+    }
+  `}
+        >
+          <nav className="flex flex-col items-center gap-1">
+            {navBar.map((item) =>
+              item.active ? (
+                // <button
+                //   key={item.name}
+                //   type="button"
+                //   onClick={() => handleNavigation(item)}
+                //   className="
+                //     group
+                //     w-full
+                //     flex items-center
+
+                //     px-4 py-3
+                //     sm:px-4 sm:py-3.5
+
+                //     text-center
+                //     text-white
+
+                //     text-sm
+                //     sm:text-base
+                //     md:text-lg
+
+                //     font-semibold
+
+                //     rounded-md
+                //     border border-transparent
+
+                //     hover:border-white/60
+                //     hover:bg-white/5
+
+                //     active:scale-[0.98]
+                    
+                //     transition-all duration-200
+                //   "
+                // >
+                //   <span
+                //     className="
+                //       transition-transform duration-200
+                //       group-hover:translate-x-1
+                //     "
+                //   >
+                //     {item.name}
+                //   </span>
+                // </button>
+                <button
+  key={item.name}
+  type="button"
+  onClick={() => handleNavigation(item)}
+  className="
+    group
+    w-full
+    flex items-center justify-center
+
+    px-4 py-3
+    sm:px-4 sm:py-3.5
+
+    text-center
+    text-white
+
+    text-sm
+    sm:text-base
+    md:text-lg
+
+    font-semibold
+
+    rounded-md
+    border border-transparent
+
+    hover:border-white/60
+    hover:bg-white/5
+
+    active:scale-[0.98]
+
+    transition-all duration-200
+  "
+>
+  {item.name}
+</button>
+              ) : null,
+            )}
+          </nav>
+        </div>
+      </div>
+    </header>
+  );
+}
+

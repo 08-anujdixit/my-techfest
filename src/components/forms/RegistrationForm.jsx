@@ -350,33 +350,33 @@ const RegistrationForm = () => {
   },[regBtn, show]);
   
   //FUNCTION TO FETCH ACTIVE ROLES OF RAFT DEBATE
-  const fetchDebateRoles= async ()=>{
+  // const fetchDebateRoles= async ()=>{
     
-    try {
-      const res = await fetchRoles();
+  //   try {
+  //     const res = await fetchRoles();
       
-      if(res){
-        const registeredRoles = res.rolesData;
+  //     if(res){
+  //       const registeredRoles = res.rolesData;
         
-        setTechRoles(prevRoles =>(
-          prevRoles.map(roleObj => ({
-            ...roleObj,
+  //       setTechRoles(prevRoles =>(
+  //         prevRoles.map(roleObj => ({
+  //           ...roleObj,
             
-            status: roleObj.role === "Choose a role"
-            ? false
-            : !registeredRoles.includes(roleObj.role)
+  //           status: roleObj.role === "Choose a role"
+  //           ? false
+  //           : !registeredRoles.includes(roleObj.role)
             
-          }))
-        ));
+  //         }))
+  //       ));
         
-      }
+  //     }
       
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
   
-  fetchDebateRoles();
+  // fetchDebateRoles();
   
   return (
     <container className='w-auto h-auto flex justify-center my-10'>

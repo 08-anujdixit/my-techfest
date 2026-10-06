@@ -18,7 +18,7 @@ const Logo = React.forwardRef(function Logo ({
       className={`object-container
       ${h}
       ${w}
-      ${animate}
+      // ${animate}
       ${custom_style}
       `}
       ref={ref}

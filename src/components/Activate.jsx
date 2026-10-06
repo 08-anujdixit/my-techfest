@@ -30,12 +30,12 @@ const Activate = () => {
         ">
           <h1
           className='text-[62px] text-grad text-center font-serif md:text-[6rem] reverseFade w-full
-          '>TechFest 5.0</h1>
+          '>TechFest 6.0</h1>
           <p className='text-xl md:text-3xl text-grad text-center font-serif reverseFade mb-[18px]' >Innovation | Inspiration | Impact</p>
           <p className='text-lg md:text-2xl text-grad text-center font-serif reverseFade my-2' >
-           ( 12<sup className="text-grad">th</sup>,
-            13<sup className="text-grad">th</sup> &amp;
-            14<sup className="text-grad">th</sup> February 2026 )
+           ( 21<sup className="text-grad">st</sup>,
+            22<sup className="text-grad">nd</sup> &amp;
+            23<sup className="text-grad">rd</sup> January 2026 )
           </p>
           <div 
           className='mt-5 w-[100%] flex justify-center'>

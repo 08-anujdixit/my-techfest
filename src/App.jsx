@@ -3,6 +3,7 @@ import {useLocation} from 'react-router-dom'
 import {Outlet} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Navbar_new from './components/Navbar_New'
 
 function App() {
   const location = useLocation();
@@ -18,7 +19,7 @@ function App() {
   
   return (
   <>
-    <Navbar />
+    <Navbar_new />
     <Outlet />
     <Footer />
   </>
