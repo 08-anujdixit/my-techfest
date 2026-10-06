@@ -12,12 +12,14 @@
    Faint Grid Background Effect
    =================================================== */
 
+/* Keep the decorative background behind content within a full-height stacking context. */
 body {
   position: relative;
   min-height: 100vh;
   isolation: isolate;
 }
 
+/* Fade the viewport grid from the upper center without intercepting input. */
 body::before {
   content: "";
   position: fixed;
