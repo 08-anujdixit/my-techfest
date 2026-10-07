@@ -1,5 +1,5 @@
 import React,{useId} from 'react';
-import logo from '../assets/logo/TechFest5.0.png'
+import logo from '../assets/logo/TechFest6.0.png'
 import '../Custom.css'
 
 const Logo = React.forwardRef(function Logo ({
@@ -18,7 +18,7 @@ const Logo = React.forwardRef(function Logo ({
       className={`object-container
       ${h}
       ${w}
-      // ${animate}
+      ${animate}
       ${custom_style}
       `}
       ref={ref}

@@ -211,14 +211,14 @@ const AboutPage = () => {
         <div className=" my-2 w-[100%] flex-wrap">
           {/* <p className="text-gray-300 w-auto px-5 text-justify "><a href="https://www.npgc.in/" target="_blank"><span className="text-grad font-extrabold font-mono">National Post Graduate College</span></a>, established in 2005, stands as a beacon of academic excellence and innovation. With a serene and inclusive campus, the college is dedicated to nurturing talent and fostering growth in every student. The Computer Science department, a cornerstone of the institution, embraces the latest technological advancements to deliver a robust, industry-oriented education. The college equips students with the skills and confidence to excel in their chosen fields by emphasizing research, internships, and hands-on learning. Complemented by a vibrant array of cultural, sports, and extracurricular opportunities, the college shapes well-rounded individuals prepared to make meaningful contributions to society.
             </p> */}
-          <p className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-center sm:text-justify text-sm sm:text-base lg:text-lg leading-7 sm:leading-8 text-gray-300 font-bold">
+          <p className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-center sm:text-justify text-sm sm:text-base lg:text-lg leading-7 sm:leading-8 text-gray-300 font-medium text-justify">
             <a
               href="https://www.npgc.in/"
               target="_blank"
               rel="noopener noreferrer"
               
             >
-              <span className="text-blue-500 font-extrabold font-mono">
+              <span className="text-blue-500 font-bold ">
                 National Post Graduate College
               </span>
             </a>
